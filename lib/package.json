@@ -1,0 +1,35 @@
+{
+  "name": "luma-priority",
+  "version": "0.1.0",
+  "description": "A small library providing utility methods to escape and unescape HTML entities",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rwibawa/luma-priority.git"
+  },
+  "keywords": [
+    "escape",
+    "unescape",
+    "html"
+  ],
+  "author": "Ryan Wibawa <ryan.wibawa@gmail.com> (https://rwibawa.github.io/)",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/rwibawa/scapegoat/blob/master/LICENSE-MIT"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/rwibawa/scapegoat/issues"
+  },
+  "devDependencies": {
+    "chai": "^1.8.1",
+    "mocha": "^1.16.2"
+  },
+  "dependencies": {
+    "geolib": "^2.0.24"
+  }
+}
