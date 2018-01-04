@@ -152,9 +152,11 @@ Run the unit tests:
   23 passing (24ms)
 ```
 
-### API
+### API (folder `server/`)
 Get the collection of API calls from
 [postman collection](https://www.getpostman.com/collections/940e12a2ffa1d16882a9).
+
+The API is also available at [https://luma-priority.herokuapp.com/api/v1](https://luma-priority.herokuapp.com/api/v1)
 
 #### 1. Populate the patients data
 Upload the `lib/test/patients.json` file:
@@ -165,7 +167,7 @@ $ curl -X POST \
   -F patients=@$HOME/workspaces/full-stack-interview/lib/test/patients.json
 ```
 
-### 2. Get the top 10 scored patients
+#### 2. Get the top 10 scored patients
 ```bash
 $ curl -X POST \
   http://localhost:3000/api/v1/patients/scored \
@@ -175,7 +177,7 @@ $ curl -X POST \
     "longitude": "-63.1150"}'
 ```
 
-### 3. Check the patient scores
+#### 3. Check the patient scores
 Paste the list of patients to the "patients" array:
 ```bash
 curl -X POST \
@@ -191,3 +193,5 @@ curl -X POST \
 	"patients": [...]
 }'
 ```
+
+### UI (folder `src/`)
