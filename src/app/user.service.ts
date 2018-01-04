@@ -10,7 +10,7 @@ import { USERS } from './mock-users';
 @Injectable()
 export class UserService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private usersUrl = environment.apiUrl + 'users'; // url to web api
+  private usersUrl = environment.apiUrl + 'patients'; // url to web api
 
   constructor(private http: Http) { }
 

@@ -8,8 +8,8 @@ import { DOCUMENT } from '@angular/platform-browser';
 })
 
 export class AppComponent {
-  title = 'PLAYlive Nation';
-  headerTitle = this.title + '- Solano';
+  title = 'Luma Health';
+  headerTitle = this.title + '- San Francisco';
   colorOnScroll = 500;
 
   public transparent = true;

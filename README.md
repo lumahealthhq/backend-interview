@@ -195,3 +195,14 @@ curl -X POST \
 ```
 
 ### UI (folder `src/`)
+  UI is not developed yet.
+
+## Enhancement Recommendations
+### 1. Setting configuration.
+The luma-priority library needs configuration file in order to optimize the settings.
+
+### 2. CI/CD pipeline.
+To make it production ready, it requires Continuous Integration/Continuous Development pipeline.
+
+### 3. Persistence layer.
+This is only a prototype. The production data should be managed in database.
