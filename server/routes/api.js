@@ -6,7 +6,6 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
-router.use('/users', require('./user.route'));
-router.use('/patients', require('../controllers/patients'));
+router.use('/patients', require('./patient.route'));
 
 module.exports = router;
