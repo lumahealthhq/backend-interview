@@ -57,10 +57,6 @@
             "type": "string"
         },
         "default": {},
-        "examples": {
-            "type": "array",
-            "items": {}
-        },
         "multipleOf": {
             "type": "number",
             "exclusiveMinimum": 0

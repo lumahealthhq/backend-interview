@@ -8,20 +8,24 @@ samp {
 
 // Inline code
 code {
+  padding: $code-padding-y $code-padding-x;
   font-size: $code-font-size;
   color: $code-color;
-  word-break: break-word;
+  background-color: $code-bg;
+  @include border-radius($border-radius);
 
   // Streamline the style when inside anchors to avoid broken underline and more
   a > & {
+    padding: 0;
     color: inherit;
+    background-color: inherit;
   }
 }
 
 // User input typically entered via keyboard
 kbd {
-  padding: $kbd-padding-y $kbd-padding-x;
-  font-size: $kbd-font-size;
+  padding: $code-padding-y $code-padding-x;
+  font-size: $code-font-size;
   color: $kbd-color;
   background-color: $kbd-bg;
   @include border-radius($border-radius-sm);
@@ -38,14 +42,18 @@ kbd {
 // Blocks of code
 pre {
   display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
   font-size: $code-font-size;
   color: $pre-color;
 
   // Account for some code outputs that place code tags in pre tags
   code {
+    padding: 0;
     font-size: inherit;
     color: inherit;
-    word-break: normal;
+    background-color: transparent;
+    border-radius: 0;
   }
 }
 

@@ -58,16 +58,10 @@ for (const key of Object.keys(ansiStyles)) {
 	styles[key] = {
 		get() {
 			const codes = ansiStyles[key];
-			return build.call(this, this._styles ? this._styles.concat(codes) : [codes], this._empty, key);
+			return build.call(this, this._styles ? this._styles.concat(codes) : [codes], key);
 		}
 	};
 }
-
-styles.visible = {
-	get() {
-		return build.call(this, this._styles || [], true, 'visible');
-	}
-};
 
 ansiStyles.color.closeRe = new RegExp(escapeStringRegexp(ansiStyles.color.close), 'g');
 for (const model of Object.keys(ansiStyles.color.ansi)) {
@@ -85,7 +79,7 @@ for (const model of Object.keys(ansiStyles.color.ansi)) {
 					close: ansiStyles.color.close,
 					closeRe: ansiStyles.color.closeRe
 				};
-				return build.call(this, this._styles ? this._styles.concat(codes) : [codes], this._empty, model);
+				return build.call(this, this._styles ? this._styles.concat(codes) : [codes], model);
 			};
 		}
 	};
@@ -108,7 +102,7 @@ for (const model of Object.keys(ansiStyles.bgColor.ansi)) {
 					close: ansiStyles.bgColor.close,
 					closeRe: ansiStyles.bgColor.closeRe
 				};
-				return build.call(this, this._styles ? this._styles.concat(codes) : [codes], this._empty, model);
+				return build.call(this, this._styles ? this._styles.concat(codes) : [codes], model);
 			};
 		}
 	};
@@ -116,13 +110,12 @@ for (const model of Object.keys(ansiStyles.bgColor.ansi)) {
 
 const proto = Object.defineProperties(() => {}, styles);
 
-function build(_styles, _empty, key) {
+function build(_styles, key) {
 	const builder = function () {
 		return applyStyle.apply(builder, arguments);
 	};
 
 	builder._styles = _styles;
-	builder._empty = _empty;
 
 	const self = this;
 
@@ -174,7 +167,7 @@ function applyStyle() {
 	}
 
 	if (!this.enabled || this.level <= 0 || !str) {
-		return this._empty ? '' : str;
+		return str;
 	}
 
 	// Turns out that on Windows dimmed gray text becomes invisible in cmd.exe,
@@ -225,4 +218,3 @@ Object.defineProperties(Chalk.prototype, styles);
 
 module.exports = Chalk(); // eslint-disable-line new-cap
 module.exports.supportsColor = supportsColor;
-module.exports.default = module.exports; // For TypeScript
