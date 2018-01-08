@@ -1,0 +1,36 @@
+{
+  "name": "luma-priority",
+  "version": "0.1.0",
+  "description": "A library to filter a set of patients based on their demographic and historical data",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lumahealthhq/luma-priority.git"
+  },
+  "keywords": [
+    "escape",
+    "unescape",
+    "html"
+  ],
+  "author": "Ryan Wibawa <ryan.wibawa@gmail.com> (https://rwibawa.github.io/)",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/lumahealthhq/luma-priority/blob/master/LICENSE-MIT"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/lumahealthhq/luma-priority/issues"
+  },
+  "devDependencies": {
+    "chai": "^1.8.1",
+    "mocha": "^1.16.2"
+  },
+  "dependencies": {
+    "binary-search-insert": "^1.0.3",
+    "geolib": "^2.0.24"
+  }
+}

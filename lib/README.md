@@ -1,0 +1,223 @@
+luma-priority
+=========
+
+A library to filter a set of patients based on their demographic and historical data.
+
+## Installation
+
+```shell
+  npm install luma-priority --save
+```
+
+## Usage
+
+```js
+  var lumaPriority = require('luma-priority');
+
+  const facilityLocation = {
+    "latitude": "46.7110",
+    "longitude": "-63.1150"
+  };
+
+  const patients = [
+    {
+      "id": "182b8737-9bdd-4d9f-9c45-20c0ad9fc53e",
+      "name": "Justina Kirlin II",
+      "location": {
+        "latitude": "88.4664",
+        "longitude": "-126.7506"
+      },
+      "age": 36,
+      "acceptedOffers": 1,
+      "canceledOffers": 0,
+      "averageReplyTime": 200
+    },
+    {
+      "id": "1db3e82f-9a2f-4c58-8c29-a152e7d312a6",
+      "name": "Tyrell Herzog",
+      "location": {
+        "latitude": "-78.1067",
+        "longitude": "-54.6225"
+      },
+      "age": 47,
+      "acceptedOffers": 95,
+      "canceledOffers": 5,
+      "averageReplyTime": 3513
+    },
+    {
+      "id": "36064735-9a7e-47da-a27f-859d5fca1f6d",
+      "name": "Henri Larkin",
+      "location": {
+        "latitude": "-58.2444",
+        "longitude": "74.2909"
+      },
+      "age": 57,
+      "acceptedOffers": 3,
+      "canceledOffers": 1,
+      "averageReplyTime": 150
+    },
+    {
+      "id": "9e9f877a-bee3-47ed-a62e-597bf09ff44c",
+      "name": "Yolanda Hansen",
+      "location": {
+        "latitude": "72.3571",
+        "longitude": "31.4328"
+      },
+      "age": 56,
+      "acceptedOffers": 84,
+      "canceledOffers": 92,
+      "averageReplyTime": 1420
+    },
+    {
+      "id": "541748d9-0854-4243-b929-eadbfaf4ef67",
+      "name": "Clarissa Kessler DDS",
+      "location": {
+        "latitude": "-30.0530",
+        "longitude": "-14.3924"
+      },
+      "age": 82,
+      "acceptedOffers": 32,
+      "canceledOffers": 9,
+      "averageReplyTime": 1609
+    },
+    {
+      "id": "6f78459a-178e-4ee7-a555-179dafdc5523",
+      "name": "Arlene Tremblay",
+      "location": {
+        "latitude": "38.3036",
+        "longitude": "150.0220"
+      },
+      "age": 33,
+      "acceptedOffers": 78,
+      "canceledOffers": 67,
+      "averageReplyTime": 219
+    },
+    {
+      "id": "a6dd54ac-fcc6-4205-a5c7-34cf32d2c2bf",
+      "name": "Boyd Schmidt",
+      "location": {
+        "latitude": "87.4712",
+        "longitude": "-109.1781"
+      },
+      "age": 58,
+      "acceptedOffers": 1,
+      "canceledOffers": 2,
+      "averageReplyTime": 120
+    },
+    {
+      "id": "972d6d27-3e20-4a54-b9d2-a49a7c1d887b",
+      "name": "Mr. Ed Von",
+      "location": {
+        "latitude": "30.9553",
+        "longitude": "163.9389"
+      },
+      "age": 54,
+      "acceptedOffers": 48,
+      "canceledOffers": 77,
+      "averageReplyTime": 960
+    },
+    {
+      "id": "784e9fb0-2c31-416f-b7fc-d29fbf0cf657",
+      "name": "Adolphus Hettinger",
+      "location": {
+        "latitude": "-87.1572",
+        "longitude": "-60.8946"
+      },
+      "age": 48,
+      "acceptedOffers": 44,
+      "canceledOffers": 53,
+      "averageReplyTime": 560
+    },
+    {
+      "id": "7cfb0353-b5ec-4909-b1dd-de149d73bfab",
+      "name": "Ebony Walker",
+      "location": {
+        "latitude": "-0.9472",
+        "longitude": "64.8244"
+      },
+      "age": 22,
+      "acceptedOffers": 5,
+      "canceledOffers": 5,
+      "averageReplyTime": 300
+    },
+    {
+      "id": "642f567d-b0af-40bc-934d-ee8255bba151",
+      "name": "Alize Rosenbaum",
+      "location": {
+        "latitude": "76.9682",
+        "longitude": "-122.3513"
+      },
+      "age": 30,
+      "acceptedOffers": 58,
+      "canceledOffers": 6,
+      "averageReplyTime": 436
+    },
+    {
+      "id": "7dbb03d0-5eb1-45ff-a558-d69ba1b88eb6",
+      "name": "Morris Schroeder",
+      "location": {
+        "latitude": "0.9119",
+        "longitude": "49.0769"
+      },
+      "age": 27,
+      "acceptedOffers": 20,
+      "canceledOffers": 3,
+      "averageReplyTime": 534
+    },
+    {
+      "id": "d392c4e7-cf26-4d22-8f18-8e195e90d7ca",
+      "name": "Josh Hahn",
+      "location": {
+        "latitude": "82.5889",
+        "longitude": "104.3417"
+      },
+      "age": 76,
+      "acceptedOffers": 99,
+      "canceledOffers": 59,
+      "averageReplyTime": 1418
+    },
+    {
+      "id": "da7def1a-02de-475c-9f01-902c909f5cb6",
+      "name": "Roslyn Nolan",
+      "location": {
+        "latitude": "72.5603",
+        "longitude": "-87.3813"
+      },
+      "age": 43,
+      "acceptedOffers": 76,
+      "canceledOffers": 62,
+      "averageReplyTime": 3139
+    },
+    {
+      "id": "e406e23a-fa98-46df-8bc5-b1bd6554a35a",
+      "name": "Aimee Lubowitz",
+      "location": {
+        "latitude": "-21.8085",
+        "longitude": "-70.7819"
+      },
+      "age": 34,
+      "acceptedOffers": 57,
+      "canceledOffers": 67,
+      "averageReplyTime": 498
+    }
+  ];
+
+  var patientCategories = lumaPriority.filterPatients(patients, facilityLocation);
+  console.log(patientCategories.sortedPatients);
+  console.log(patientCategories.lowDataPatients);
+```
+
+## Tests
+
+```shell
+   npm test
+```
+
+## Contributing
+
+In lieu of a formal styleguide, take care to maintain the existing coding style.
+Add unit tests for any new or changed functionality. Lint and test your code.
+
+## Release History
+
+* 0.1.0 Initial release
