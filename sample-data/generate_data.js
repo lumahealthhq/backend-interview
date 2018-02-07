@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 let faker = null;
 
 try {
