@@ -5,7 +5,7 @@ A busy clinic can have empty slots incase of cancelled appointment by patients. 
 <H4>Prerequisites </H4>
 Node v8.9.0
   <H4> Implementation Overview</H4>
-The application has two parts. One is a REST API which will handle the request for the list and a library which will be finding the list of patients from the historical data. The REST API will take clinic address as input using POST method. The library will take the file name (historical data) and clinic address (latitude and longitude). The library will be reusable, so will be published on npm.
+The application has two parts. One is a REST API which will handle the request for the clinic and a library which will be finding the list of patients from the historical data. The REST API will take clinic address as input using POST method. The library will take the file name (historical data) and clinic address (latitude and longitude). The library will be reusable, so will be published on npm.
 <H4> Implementation Detail of REST API</H4>
 <p> The REST API is built on Express framework. It uses app/routes module to handle its request. /p>
 <p>
