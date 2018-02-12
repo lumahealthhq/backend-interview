@@ -58,6 +58,7 @@ function numberSort() {comparator to sort the data} </p>
 <H4> Test Case </H4>
 Test cases are present in both Rest API and Library. They can be found in their respective directory in Test folder. They have been developed using Mocha and Chai framework.
 Below are the steps to test.
+<p>
 1.	Get inside rest or library directory
 </p>
 2.	npm install to install all the dependencies  
