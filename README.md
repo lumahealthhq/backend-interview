@@ -19,7 +19,7 @@ The application has two parts. One is a REST API which will handle the request f
 <p>
 3.	It then calls the library toptenpatients to get the patient list</p>
 
-<H4> Implementation Detail of ‘toptenpatients’ Library</H4>
+<H4> Implementation Detail of ‘toptenpatients’ Library, Available @ https://www.npmjs.com/~bsharma</H4>
 <H2> ‘toptenpatients’ Library Algorithm</H2>
 <p> The library returns a Promise Object. This promise object uses other functions. Their functionality has been explained in below statements.
 </p>
