@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/geocoder/smartystreetsgeocoder.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">lib/geocoder</a> smartystreetsgeocoder.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.52% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.52% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/29</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var util             = require('util'),
+    AbstractGeocoder = require('./abstractgeocoder');
+&nbsp;
+/**
+ * SmartyStreets Constructor
+ * @param &lt;object&gt; httpAdapter Http Adapter
+ * @param &lt;object&gt; options     Options
+ */
+var SmartyStreets = function SmartyStreets(httpAdapter, auth_id, auth_token) {
+    SmartyStreets.super_.call(this, httpAdapter);
+&nbsp;
+    if(!auth_id &amp;&amp; !auth_token){
+      throw new Error('You must specify an auth-id and auth-token!');
+    }
+&nbsp;
+    this.auth_id = auth_id;
+    this.auth_token = auth_token;
+};
+&nbsp;
+util.inherits(SmartyStreets, AbstractGeocoder);
+&nbsp;
+SmartyStreets.prototype._endpoint = 'https://api.smartystreets.com/street-address';
+&nbsp;
+/**
+* Reverse geocoding
+* @param &lt;integer&gt;  lat      Latittude
+* @param &lt;integer&gt;  lng      Longitude
+* @param &lt;function&gt; callback Callback method
+*/
+SmartyStreets.prototype.reverse = function(lat, lng, callback) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof this._reverse != 'function') {
+        throw new Error(this.constructor.name + ' doesnt support reverse geocoding!');
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return this._reverse(lat, lng, callback);</span>
+};
+&nbsp;
+/**
+ * Format Result
+ **/
+SmartyStreets.prototype._formatResult = <span class="fstat-no" title="function not covered" >fu</span>nction(result) {
+<span class="cstat-no" title="statement not covered" >  if(result){</span>
+<span class="cstat-no" title="statement not covered" >      return [{</span>
+        'latitude' : result.metadata.latitude,
+        'longitude' : result.metadata.longitude,
+        'country' : null,
+        'city' : result.components.city_name,
+        'zipcode' : result.components.zipcode,
+        'streetName' : result.components.street_name + ' ' + result.components.street_suffix,
+        'streetNumber' : result.components.primary_number,
+        'countryCode' : null,
+        'type' : result.metadata.record_type,
+        'dpv_match' : result.analysis.dpv_match_code,
+        'dpv_footnotes' : result.analysis.dpv_footnotes
+      }];
+  }
+};
+&nbsp;
+/**
+* Geocode
+* @param &lt;string&gt;   value    Value to geocode
+* @param &lt;function&gt; callback Callback method
+*/
+SmartyStreets.prototype.geocode = function(value, callback) {
+    var _this = this;
+&nbsp;
+    var params = {
+      'street': value,
+      'auth-id': this.auth_id,
+      'auth-token': this.auth_token,
+      'format': 'json'
+    };
+&nbsp;
+    this.httpAdapter.get(this._endpoint,params,<span class="fstat-no" title="function not covered" >fu</span>nction(err, result){
+<span class="cstat-no" title="statement not covered" >      if(err) {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(err);</span>
+      } else {
+        var results = <span class="cstat-no" title="statement not covered" >[];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        result.forEach(<span class="fstat-no" title="function not covered" >fu</span>nction(result) {</span>
+<span class="cstat-no" title="statement not covered" >          results.push(_this._formatResult(result));</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        results.raw = result;</span>
+<span class="cstat-no" title="statement not covered" >        callback(false, results);</span>
+      }
+    });
+};
+&nbsp;
+module.exports = SmartyStreets;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 06 2017 10:41:39 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

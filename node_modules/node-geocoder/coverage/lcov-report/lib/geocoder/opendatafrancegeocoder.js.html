@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/geocoder/opendatafrancegeocoder.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">lib/geocoder</a> opendatafrancegeocoder.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.89% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>80/89</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.64% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>28/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.89% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>80/89</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var util             = require('util'),
+    AbstractGeocoder = require('./abstractgeocoder');
+&nbsp;
+/**
+ * Constructor
+ */
+var OpendataFranceGeocoder = function OpendataFranceGeocoder(httpAdapter, options) {
+    this.options = ['language','email','apiKey'];
+&nbsp;
+    OpendataFranceGeocoder.super_.call(this, httpAdapter, options);
+};
+&nbsp;
+util.inherits(OpendataFranceGeocoder, AbstractGeocoder);
+&nbsp;
+OpendataFranceGeocoder.prototype._endpoint = 'http://api-adresse.data.gouv.fr/search';
+&nbsp;
+OpendataFranceGeocoder.prototype._endpoint_reverse = 'http://api-adresse.data.gouv.fr/reverse';
+&nbsp;
+/**
+* Geocode
+* @param &lt;string|object&gt;   value    Value to geocode (Address or parameters, as specified at https://opendatafrance/api/)
+* @param &lt;function&gt; callback Callback method
+*/
+OpendataFranceGeocoder.prototype._geocode = function(value, callback) {
+    var _this = this;
+&nbsp;
+    var params = this._getCommonParams();
+&nbsp;
+    if (typeof value == 'string') {
+      params.q = value;
+    } else {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (value.address) {
+        params.q = value.address;
+      }
+      if (value.lat &amp;&amp; value.lon) {
+        params.lat = value.lat;
+        params.lon = value.lon;
+      }
+      if (value.zipcode) {
+        params.postcode = value.zipcode;
+      }
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (value.type) {
+        params.type = value.type;
+      }
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (value.citycode) {
+<span class="cstat-no" title="statement not covered" >        params.citycode = value.citycode;</span>
+      }
+    }
+    this._forceParams(params);
+&nbsp;
+    this.httpAdapter.get(this._endpoint, params, function(err, result) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >            return callback(err);</span>
+        } else {
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (result.error) {
+<span class="cstat-no" title="statement not covered" >              return callback(new Error(result.error));</span>
+            }
+&nbsp;
+            var results = [];
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (result.features) {
+              for (var i = 0; i &lt; result.features.length; i++) {
+                results.push(_this._formatResult(result.features[i]));
+              }
+            }
+&nbsp;
+            results.raw = result;
+            callback(false, results);
+        }
+&nbsp;
+    });
+&nbsp;
+};
+&nbsp;
+OpendataFranceGeocoder.prototype._formatResult = function(result) {
+&nbsp;
+    var latitude = result.geometry.coordinates[1];
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (latitude) {
+      latitude = parseFloat(latitude);
+    }
+&nbsp;
+    var longitude = result.geometry.coordinates[0];
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (longitude) {
+      longitude = parseFloat(longitude);
+    }
+&nbsp;
+    var properties = result.properties;
+&nbsp;
+    var formatedResult = {
+        latitude : latitude,
+        longitude : longitude,
+        state : properties.context,
+        city : properties.city,
+        zipcode : properties.postcode,
+        citycode : properties.citycode,
+        countryCode : 'FR',
+        country : 'France',
+        type: properties.type,
+        id: properties.id
+    };
+&nbsp;
+    if (properties.type === 'housenumber') {
+      formatedResult.streetName = properties.street;
+      formatedResult.streetNumber = properties.housenumber;
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (properties.type === 'street') {
+<span class="cstat-no" title="statement not covered" >      formatedResult.streetName = properties.name;</span>
+    } else if (properties.type === 'city') {
+      formatedResult.population = properties.population;
+      formatedResult.adm_weight = properties.adm_weight;
+    } else if (properties.type === 'village') {
+      formatedResult.population = properties.population;
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (properties.type === 'locality') {
+      formatedResult.streetName = properties.name;
+    }
+&nbsp;
+    return formatedResult;
+};
+&nbsp;
+/**
+* Reverse geocoding
+* @param {lat:&lt;number&gt;,lon:&lt;number&gt;, ...}  lat: Latitude, lon: Longitude, ... see https://wiki.openstreetmap.org/wiki/Nominatim#Parameters_2
+* @param &lt;function&gt; callback Callback method
+*/
+OpendataFranceGeocoder.prototype._reverse = function(query, callback) {
+&nbsp;
+    var _this = this;
+&nbsp;
+    var params = this._getCommonParams();
+    for (var k in query) {
+      var v = query[k];
+      params[k] = v;
+    }
+    this._forceParams(params);
+&nbsp;
+    this.httpAdapter.get(this._endpoint_reverse , params, function(err, result) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >            return callback(err);</span>
+        } else {
+&nbsp;
+          <span class="missing-if-branch" title="if path not taken" >I</span>if(result.error) {
+<span class="cstat-no" title="statement not covered" >            return callback(new Error(result.error));</span>
+          }
+&nbsp;
+          var results = [];
+&nbsp;
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (result.features) {
+            for (var i = 0; i &lt; result.features.length; i++) {
+              results.push(_this._formatResult(result.features[i]));
+            }
+          }
+&nbsp;
+          results.raw = result;
+          callback(false, results);
+        }
+    });
+};
+&nbsp;
+/**
+* Prepare common params
+*
+* @return &lt;Object&gt; common params
+*/
+OpendataFranceGeocoder.prototype._getCommonParams = function(){
+    var params = {};
+&nbsp;
+    for (var k in this.options) {
+      var v = this.options[k];
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!v) {
+        continue;
+      }
+<span class="cstat-no" title="statement not covered" >      if (k === 'language') {</span>
+<span class="cstat-no" title="statement not covered" >        k = 'accept-language';</span>
+      }
+<span class="cstat-no" title="statement not covered" >      params[k] = v;</span>
+    }
+&nbsp;
+    return params;
+};
+&nbsp;
+OpendataFranceGeocoder.prototype._forceParams = function(params){
+  params.limit = 20;
+};
+&nbsp;
+module.exports = OpendataFranceGeocoder;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 06 2017 10:41:39 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

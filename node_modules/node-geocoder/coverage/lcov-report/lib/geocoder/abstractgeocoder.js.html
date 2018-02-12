@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/geocoder/abstractgeocoder.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">lib/geocoder</a> abstractgeocoder.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.75% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>30/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.43% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>32/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>30/32</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">182x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">182x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">182x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">182x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">165x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">165x</span>
+<span class="cline-any cline-yes">105x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">165x</span>
+<span class="cline-any cline-yes">112x</span>
+<span class="cline-any cline-yes">488x</span>
+<span class="cline-any cline-yes">388x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">165x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">69x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var net = require('net');
+var ValueError = require('../error/valueerror.js');
+&nbsp;
+function formatGeocoderName(name) {
+  return name.toLowerCase().replace(/geocoder$/, '');
+}
+&nbsp;
+/**
+ * AbstractGeocoder Constructor
+ * @param &lt;object&gt; httpAdapter Http Adapter
+ * @param &lt;object&gt; options     Options
+ */
+var AbstractGeocoder = function(httpAdapter, options) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.constructor.name) {
+<span class="cstat-no" title="statement not covered" >    throw new Error('The Constructor must be named');</span>
+  }
+&nbsp;
+  this.name = formatGeocoderName(this.constructor.name);
+&nbsp;
+  if (!httpAdapter || httpAdapter == 'undefined') {
+    throw new Error(this.constructor.name + ' need an httpAdapter');
+  }
+  this.httpAdapter = httpAdapter;
+&nbsp;
+  if (!options || options == 'undefined') {
+    options = {};
+  }
+&nbsp;
+  if (this.options) {
+    this.options.forEach(function(option) {
+      if (!options[option] || options[option] == 'undefined') {
+        options[option] = null;
+      }
+    });
+  }
+&nbsp;
+  this.options = options;
+};
+&nbsp;
+/**
+* Reverse geocoding
+* @param {lat:&lt;number&gt;,lon:&lt;number&gt;}  lat: Latitude, lon: Longitude
+* @param &lt;function&gt; callback Callback method
+*/
+AbstractGeocoder.prototype.reverse = function(query, callback) {
+  if (typeof this._reverse != 'function') {
+    throw new Error(this.constructor.name + ' no support reverse geocoding');
+  }
+&nbsp;
+  return this._reverse(query, callback);
+};
+&nbsp;
+/**
+* Geocode
+* @param &lt;string&gt;   value    Value to geocode
+* @param &lt;function&gt; callback Callback method
+*/
+AbstractGeocoder.prototype.geocode = function(value, callback) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof this._geocode != 'function') {
+<span class="cstat-no" title="statement not covered" >    throw new ValueError(this.constructor.name + ' does not support geocoding');</span>
+  }
+  if (net.isIPv4(value) &amp;&amp; (!this.supportIPv4 || this.supportIPv4 == 'undefined')) {
+    throw new ValueError(this.constructor.name + ' does not support geocoding IPv4');
+  }
+&nbsp;
+  if (net.isIPv6(value) &amp;&amp; (!this.supportIPv6 || <span class="branch-2 cbranch-no" title="branch not covered" >this.supportIPv6 == 'undefined')</span>) {
+    throw new ValueError(this.constructor.name + ' does not support geocoding IPv6');
+  }
+&nbsp;
+  if (this.supportAddress === false &amp;&amp; (!net.isIPv4(value) &amp;&amp; !net.isIPv6(value))) {
+    throw new ValueError(this.constructor.name + ' does not support geocoding address');
+  }
+&nbsp;
+  return this._geocode(value, callback);
+};
+&nbsp;
+module.exports = AbstractGeocoder;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 06 2017 10:41:39 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

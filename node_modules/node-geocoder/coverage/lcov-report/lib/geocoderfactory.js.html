@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/geocoderfactory.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">lib</a> geocoderfactory.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>85/102</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">69.12% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>47/68</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>85/102</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var Helper = require('./helper.js');
+var Geocoder = require('./geocoder.js');
+&nbsp;
+var HttpAdapter = require('./httpadapter/httpadapter.js');
+var HttpsAdapter = require('./httpadapter/httpsadapter.js');
+var RequestAdapter = require('./httpadapter/requestadapter.js');
+&nbsp;
+var GoogleGeocoder = require('./geocoder/googlegeocoder.js');
+var HereGeocoder = require('./geocoder/heregeocoder.js');
+var AGOLGeocoder = require('./geocoder/agolgeocoder.js');
+var FreegeoipGeocoder = require('./geocoder/freegeoipgeocoder.js');
+var DataScienceToolkitGeocoder = require('./geocoder/datasciencetoolkitgeocoder.js');
+var OpenStreetMapGeocoder = require('./geocoder/openstreetmapgeocoder.js');
+var PickPointGeocoder = require('./geocoder/pickpointgeocoder.js');
+var LocationIQGeocoder = require('./geocoder/locationiqgeocoder.js');
+var MapQuestGeocoder = require('./geocoder/mapquestgeocoder.js');
+var MapzenGeocoder = require('./geocoder/mapzengeocoder.js');
+var OpenMapQuestGeocoder = require('./geocoder/openmapquestgeocoder.js');
+var YandexGeocoder = require('./geocoder/yandexgeocoder.js');
+var GeocodioGeocoder = require('./geocoder/geocodiogeocoder.js');
+var OpenCageGeocoder = require('./geocoder/opencagegeocoder.js');
+var NominatimMapquestGeocoder = require('./geocoder/nominatimmapquestgeocoder.js');
+var TomTomGeocoder = require('./geocoder/tomtomgeocoder.js');
+var VirtualEarthGeocoder = require('./geocoder/virtualearth.js');
+var SmartyStreets = require('./geocoder/smartystreetsgeocoder.js');
+var TeleportGeocoder = require('./geocoder/teleportgeocoder.js');
+var OpendataFranceGeocoder = require('./geocoder/opendatafrancegeocoder.js');
+&nbsp;
+/**
+* Geocoder Facotry
+*/
+var GeocoderFactory = {
+&nbsp;
+  /**
+  * Return an http adapter by name
+  * @param  &lt;string&gt; adapterName adapter name
+  * @return &lt;object&gt;
+  */
+  _getHttpAdapter: function(adapterName, options) {
+    if (adapterName === 'http') {
+      return new HttpAdapter(null, options);
+    }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (adapterName === 'https') {
+      return new HttpsAdapter(null, options);
+    }
+<span class="cstat-no" title="statement not covered" >    if (adapterName === 'request') {</span>
+<span class="cstat-no" title="statement not covered" >      return new RequestAdapter(null, options);</span>
+    }
+  },
+  /**
+  * Return a geocoder adapter by name
+  * @param  &lt;string&gt; adapterName adapter name
+  * @return &lt;object&gt;
+  */
+  _getGeocoder: function(geocoderName, adapter, extra) {
+    if (geocoderName === 'google') {
+      return new GoogleGeocoder(adapter, {clientId: extra.clientId, apiKey: extra.apiKey, language: extra.language, region: extra.region, excludePartialMatches: extra.excludePartialMatches, channel: extra.channel});
+    }
+    if (geocoderName === 'here') {
+      return new HereGeocoder(adapter, {appId: extra.appId, appCode: extra.appCode, language: extra.language, politicalView: extra.politicalView, country: extra.country, state: extra.state});
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'agol') {
+<span class="cstat-no" title="statement not covered" >      return new AGOLGeocoder(adapter, {client_id: extra.client_id, client_secret: extra.client_secret});</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'freegeoip') {
+<span class="cstat-no" title="statement not covered" >      return new FreegeoipGeocoder(adapter);</span>
+    }
+    if (geocoderName === 'datasciencetoolkit') {
+      return new DataScienceToolkitGeocoder(adapter, {host: extra.host});
+    }
+    if (geocoderName === 'openstreetmap') {
+      return new OpenStreetMapGeocoder(adapter, {language: extra.language});
+    }
+    if (geocoderName === 'pickpoint') {
+      return new PickPointGeocoder(adapter, {language: extra.language, apiKey: extra.apiKey});
+    }
+    if (geocoderName === 'locationiq') {
+      return new LocationIQGeocoder(adapter, extra.apiKey);
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'mapquest') {
+<span class="cstat-no" title="statement not covered" >      return new MapQuestGeocoder(adapter, extra.apiKey);</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'mapzen') {
+<span class="cstat-no" title="statement not covered" >      return new MapzenGeocoder(adapter, extra.apiKey);</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'openmapquest') {
+<span class="cstat-no" title="statement not covered" >      return new OpenMapQuestGeocoder(adapter, extra.apiKey);</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'yandex') {
+<span class="cstat-no" title="statement not covered" >      return new YandexGeocoder(adapter, {</span>
+        language: extra.language,
+        results: extra.results,
+        skip:  extra.skip,
+        kind:  extra.kind,
+        bbox:  extra.bbox,
+        rspn:  extra.rspn
+      });
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'geocodio') {
+<span class="cstat-no" title="statement not covered" >      return new GeocodioGeocoder(adapter, extra.apiKey);</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'opencage') {
+<span class="cstat-no" title="statement not covered" >      return new OpenCageGeocoder(adapter, extra.apiKey, extra);</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'nominatimmapquest') {
+<span class="cstat-no" title="statement not covered" >      return new NominatimMapquestGeocoder(adapter, {language: extra.language, apiKey: extra.apiKey});</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'tomtom') {
+<span class="cstat-no" title="statement not covered" >      return new TomTomGeocoder(adapter, {apiKey: extra.apiKey});</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'virtualearth') {
+<span class="cstat-no" title="statement not covered" >      return new VirtualEarthGeocoder(adapter, {apiKey: extra.apiKey});</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'smartystreets') {
+<span class="cstat-no" title="statement not covered" >      return new SmartyStreets(adapter, extra.auth_id, extra.auth_token);</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'teleport') {
+<span class="cstat-no" title="statement not covered" >      return new TeleportGeocoder(adapter, extra.apiKey, extra);</span>
+    }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (geocoderName === 'opendatafrance') {
+<span class="cstat-no" title="statement not covered" >      return new OpendataFranceGeocoder(adapter);</span>
+    }
+&nbsp;
+    throw new Error('No geocoder provider find for : ' + geocoderName);
+  },
+  /**
+  * Return an formatter adapter by name
+  * @param  &lt;string&gt; adapterName adapter name
+  * @return &lt;object&gt;
+  */
+  _getFormatter: function(formatterName, extra) {
+    if (formatterName === 'gpx') {
+      var GpxFormatter = require('./formatter/gpxformatter.js');
+&nbsp;
+      return new GpxFormatter();
+    }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (formatterName === 'string') {
+      var StringFormatter = require('./formatter/stringformatter.js');
+&nbsp;
+      return new StringFormatter(extra.formatterPattern);
+    }
+  },
+  /**
+  * Return a geocoder
+  * @param  &lt;string|object&gt; geocoderAdapter Geocoder adapter name or adapter object
+  * @param  &lt;string|object&gt; httpAdapter     Http adapter name or adapter object
+  * @param  &lt;array&gt;         extra           Extra parameters array
+  * @return &lt;object&gt;
+  */
+  getGeocoder: function(geocoderAdapter, httpAdapter, extra) {
+    if (typeof geocoderAdapter === 'object') {
+      extra = geocoderAdapter;
+      geocoderAdapter = null;
+      httpAdapter = null;
+    }
+&nbsp;
+    if (!extra) {
+      extra = {};
+    }
+&nbsp;
+    if (extra.httpAdapter) {
+      httpAdapter = extra.httpAdapter;
+    }
+&nbsp;
+    if (extra.provider) {
+      geocoderAdapter = extra.provider;
+    }
+&nbsp;
+    if (!httpAdapter) {
+      httpAdapter = 'https';
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!geocoderAdapter) {
+<span class="cstat-no" title="statement not covered" >      geocoderAdapter = 'google';</span>
+    }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (Helper.isString(httpAdapter)) {
+      httpAdapter = this._getHttpAdapter(httpAdapter, extra);
+    }
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (Helper.isString(geocoderAdapter)) {
+      geocoderAdapter = this._getGeocoder(geocoderAdapter, httpAdapter, extra);
+    }
+&nbsp;
+    var formatter = extra.formatter;
+&nbsp;
+    if (Helper.isString(formatter)) {
+      formatter = this._getFormatter(formatter, extra);
+    }
+&nbsp;
+    return new Geocoder(geocoderAdapter, formatter);
+  }
+};
+&nbsp;
+module.exports = GeocoderFactory;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 06 2017 10:41:39 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

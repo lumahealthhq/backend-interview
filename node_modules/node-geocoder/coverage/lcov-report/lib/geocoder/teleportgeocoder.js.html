@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lib/geocoder/teleportgeocoder.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">lib/geocoder</a> teleportgeocoder.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.03% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>63/67</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">56.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>17/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.03% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>63/67</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var util = require('util');
+var AbstractGeocoder = require('./abstractgeocoder');
+&nbsp;
+/**
+ * Constructor
+ */
+var TeleportGeocoder = function TeleportGeocoder(httpAdapter, options) {
+  TeleportGeocoder.super_.call(this, httpAdapter, options);
+&nbsp;
+  var base = 'https://api.teleport.org/api';
+  this._cities_endpoint = base + '/cities/';
+  this._locations_endpoint = base + '/locations/';
+};
+&nbsp;
+util.inherits(TeleportGeocoder, AbstractGeocoder);
+&nbsp;
+function getEmbeddedPath(parent, path) {
+  var elements = path.split('/');
+  for ( var i in elements) {
+    var element = elements[i];
+    var embedded = parent._embedded;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!embedded) {
+<span class="cstat-no" title="statement not covered" >      return undefined;</span>
+    }
+    var child = embedded[element];
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!child) {
+<span class="cstat-no" title="statement not covered" >      return undefined;</span>
+    }
+    parent = child;
+  }
+  return parent;
+}
+&nbsp;
+/**
+ * Geocode
+ *
+ * @param &lt;string&gt;    value     Value to geocode (Address)
+ * @param &lt;function&gt;  callback  Callback method
+ */
+TeleportGeocoder.prototype._geocode = function(value, callback) {
+  var _this = this;
+&nbsp;
+  var params = {};
+  params.search = value;
+  params.embed = 'city:search-results/city:item/{city:country,city:admin1_division,city:urban_area}';
+&nbsp;
+  this.httpAdapter.get(this._cities_endpoint, params, function(err, result) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >      return callback(err);</span>
+    } else {
+      var results = [];
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (result) {
+        var searchResults = getEmbeddedPath(result, 'city:search-results') || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+        for (var i in searchResults) {
+          var confidence = (25 - i) / 25.0 * 10;
+          results.push(_this._formatResult(searchResults[i], 'city:item', confidence));
+        }
+      }
+&nbsp;
+      results.raw = result;
+      callback(false, results);
+    }
+  });
+};
+&nbsp;
+TeleportGeocoder.prototype._formatResult = function(result, cityRelationName, confidence) {
+  var city = getEmbeddedPath(result, cityRelationName);
+  var admin1 = getEmbeddedPath(city, 'city:admin1_division') || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+  var country = getEmbeddedPath(city, 'city:country') || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+  var urban_area = getEmbeddedPath(city, 'city:urban_area') || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+  var urban_area_links = urban_area._links || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+  var extra = {
+    confidence: confidence,
+    urban_area: urban_area.name,
+    urban_area_api_url: (urban_area_links.self || <span class="branch-1 cbranch-no" title="branch not covered" >{})</span>.href,
+    urban_area_web_url: urban_area.teleport_city_url
+  };
+  if (result.distance_km) {
+    extra.distance_km = result.distance_km;
+  }
+  if (result.matching_full_name) {
+    extra.matching_full_name = result.matching_full_name;
+  }
+&nbsp;
+  return {
+    'latitude': city.location.latlon.latitude,
+    'longitude': city.location.latlon.longitude,
+    'city': city.name,
+    'country': country.name,
+    'countryCode': country.iso_alpha2,
+    'state': admin1.name,
+    'stateCode': admin1.geonames_admin1_code,
+    'extra': extra
+  };
+};
+&nbsp;
+/**
+ * Reverse geocoding
+ *
+ * @param {lat:&lt;number&gt;,lon:&lt;number&gt;}  lat: Latitude, lon: Longitude
+ * @param &lt;function&gt; callback          Callback method
+ */
+TeleportGeocoder.prototype._reverse = function(query, callback) {
+  var lat = query.lat;
+  var lng = query.lon;
+  var suffix = lat + ',' + lng;
+&nbsp;
+  var _this = this;
+&nbsp;
+  var params = {};
+  params.embed = 'location:nearest-cities/location:nearest-city/{city:country,city:admin1_division,city:urban_area}';
+&nbsp;
+  this.httpAdapter.get(this._locations_endpoint + suffix, params, function(err, result) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="cstat-no" title="statement not covered" >      throw err;</span>
+    } else {
+      var results = [];
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (result) {
+        var searchResults = getEmbeddedPath(result, 'location:nearest-cities') || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+        for ( var i in searchResults) {
+          var searchResult = searchResults[i];
+          var confidence = Math.max(0, 25 - searchResult.distance_km) / 25 * 10;
+          results.push(_this._formatResult(searchResult, 'location:nearest-city', confidence));
+        }
+      }
+&nbsp;
+      results.raw = result;
+      callback(false, results);
+    }
+  });
+};
+&nbsp;
+module.exports = TeleportGeocoder;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 06 2017 10:41:39 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
