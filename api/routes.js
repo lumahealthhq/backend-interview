@@ -26,12 +26,12 @@ module.exports = function(app){
       formatter: null
     };
     var geocoder = NodeGeocoder(options);
-    geocoder.geocode(street+" "+city, function(err, result) {
+    geocoder.geocode(street+" "+city, function(err, result) {// get the geo location of the clinic
           if(err){
             console.log('Invalid address');
             res.status(204).send('Invalid address!')
           }
-          toptenpatients.getPatientList('patients.json',result[0].latitude,result[0].longitude).then(function(data){
+          toptenpatients.getPatientList('patients.json',result[0].latitude,result[0].longitude).then(function(data){ //get the pateints list from library
            res.send(data);
          }).catch(function(error){
            console.log(error);
