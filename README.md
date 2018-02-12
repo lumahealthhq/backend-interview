@@ -9,7 +9,7 @@ The application has two parts. One is a REST API which will handle the request f
 <H4> Implementation Detail of REST API</H4>
 <p> The REST API is built on Express framework. It uses app/routes module to handle its request. /p>
 <p>
-           Request   REST API   api/routes
+           Request ------- > REST API ---- >  api/routes
 </p>
 <p> 
 1.	The api/routes.js takes the POST request with address of the clinic. </p>
@@ -46,8 +46,8 @@ function getNormalizedScore()
 function getRandomUser()
 </p>
 <p>
-7.	Sort data of scored patients in increasing order of score. In the code it has been done using Quick sort. So, its O(nlog(n)). But, it can be improved to O(nlog(k)) where k is the no of patients and if k is 10 then it will be O(cn) where c = log10</p>.
-function numberSort() {comparator to sort the data}
+7.	Sort data of scored patients in increasing order of score. In the code it has been done using Quick sort. So, its O(nlog(n)). But, it can be improved to O(nlog(k)) where k is the no of patients and if k is 10 then it will be O(cn) where c = log10. 
+function numberSort() {comparator to sort the data} </p>
 <p>
 8.	Fill the result with scored patients</p>
 <p>
@@ -58,6 +58,11 @@ function numberSort() {comparator to sort the data}
 <H4> Test Case </H4>
 Test cases are present in both Rest API and Library. It has been developed using Mocha and Chai framework.
 Test Cases for Library: Below are the steps
-1.	npm install will install all the dependent packages.
-2.	npm test run
+1.	Get inside rest or library directory
+</p>
+2.	npm install to install all the dependencies  
+</p>
+<p>
+3.	npm run test (to execute test cases)
+</p>
 
