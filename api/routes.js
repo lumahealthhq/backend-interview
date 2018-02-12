@@ -8,7 +8,7 @@ var _ = require('underscore');
 
 module.exports = function(app){
   /**
- * @api {get} /user Request User information
+ * @api {post} /user Request User information
  * @apiParam {address} address of the clinic
  * @apiSuccess {List} List of the pateints.
  */
