@@ -14,7 +14,7 @@ The application has two parts. One is a REST API which will handle the request f
 <p> 
 1.	The api/routes.js takes the POST request with address of the clinic. </p>
 <p>
-2.	It geocoder library to convert that address to its geo location (latitude and longitude)
+2.	It then uses geocoder library to convert that address to its geo location (latitude and longitude)
 </p>
 <p>
 3.	It then calls the library toptenpatients to get the patient list</p>
@@ -46,7 +46,7 @@ function getNormalizedScore()
 function getRandomUser()
 </p>
 <p>
-7.	Sort data of scored patients in increasing order of score. In the code it has been done using Quick sort. So, its O(nlog(n)). But, it can be improved to O(nlog(k)) where k is the no of patients and if k is 10 then it will be O(cn) where c = log10. 
+7.	Sort data of scored patients in increasing order of score. In the code it has been done using Quick sort. So, it will take O(nlog(n)). But, it can be improved to O(nlog(k)) where k is the no of patients and if k is 10 then it will be O(cn) where c = log10. 
 function numberSort() {comparator to sort the data} </p>
 <p>
 8.	Fill the result with scored patients</p>
@@ -56,8 +56,8 @@ function numberSort() {comparator to sort the data} </p>
 <p>
 
 <H4> Test Case </H4>
-Test cases are present in both Rest API and Library. It has been developed using Mocha and Chai framework.
-Test Cases for Library: Below are the steps
+Test cases are present in both Rest API and Library. They can be found in their respective directory in Test folder. They have been developed using Mocha and Chai framework.
+Below are the steps to test.
 1.	Get inside rest or library directory
 </p>
 2.	npm install to install all the dependencies  
