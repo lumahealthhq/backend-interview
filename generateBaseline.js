@@ -21,6 +21,7 @@ const createBaseline = (filePath) => {
       .then((data) => {
         let patientsData = JSON.parse(data);
 
+
         //for each patient, push category value into baseline for that category
         const baseline = {
           numAcceptedOffers: [],
@@ -63,4 +64,8 @@ const createBaseline = (filePath) => {
     )
   });
   
+}
+
+module.export = {
+  createBaseline,
 }
