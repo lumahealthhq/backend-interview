@@ -23,7 +23,7 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreAge({age: 65})).to.equal(100);
   });
 
-  it.only('should score distance', function() {
+  it('should score distance', function() {
     var practice = {
       latitude: 37.788610,
       longitude: -122.404827,
