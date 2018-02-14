@@ -4,7 +4,7 @@ This file should be run as a scheduled job or whenever rebasing is needed
 input: filepath to patient info 
 output: baseline buckets in an object
 */
-var fs = Promise.promisifyAll(require('fs'));
+const readFile = Promise.promisify(require('fs').readFile);
 
 const createBaseline = (filePath) => {
   //calculate the baseline for each of the categories
@@ -17,10 +17,10 @@ const createBaseline = (filePath) => {
   };
   //read patient data from file
   return new Promise ((resolve) => {
-    resolve(fs.readFileAsync(filePath, 'utf8')
+    resolve(readFile(filePath, 'utf8')
       .then((data) => {
         let patientsData = JSON.parse(data);
-        // console.log(patientsData);
+
         //for each patient, push category value into baseline for that category
         const baseline = {
           numAcceptedOffers: [],
@@ -53,11 +53,6 @@ const createBaseline = (filePath) => {
           baselineBuckets.numCanceledOffers.push(baseline.numCanceledOffers[i]);
           baselineBuckets.avgReplyTime.push(baseline.avgReplyTime[i]);
         }
-
-        // console.log(`baseline buckets:`);
-        // console.log(baselineBuckets.numAcceptedOffers);
-        // console.log(baselineBuckets.numCanceledOffers);
-        // console.log(baselineBuckets.avgReplyTime)
 
         return baselineBuckets;
       })
