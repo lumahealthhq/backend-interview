@@ -7,7 +7,8 @@ var sampleData = require('../sample-data/patients.json');
 /* global describe, it */
 describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
   beforeEach(function () {
-    this.lumaWaitList = new LumaWaitlist(sampleData);
+    this.lumaWaitList = new LumaWaitlist();
+    this.lumaWaitList.init(sampleData);
   });
 
   it('should score age', function () {
@@ -15,10 +16,10 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
       this.lumaWaitList.scoreAge({age: 10})
     }).to.throw(Error, 'patient.is.a.minor');
 
-    expect(this.lumaWaitList.scoreAge({age: 24})).to.equal(28);
-    expect(this.lumaWaitList.scoreAge({age: 34})).to.equal(0);
-    expect(this.lumaWaitList.scoreAge({age: 44})).to.equal(28);
-    expect(this.lumaWaitList.scoreAge({age: 54})).to.equal(42);
+    expect(this.lumaWaitList.scoreAge({age: 24})).to.equal(100);
+    expect(this.lumaWaitList.scoreAge({age: 34})).to.equal(28);
+    expect(this.lumaWaitList.scoreAge({age: 44})).to.equal(0);
+    expect(this.lumaWaitList.scoreAge({age: 54})).to.equal(28);
     expect(this.lumaWaitList.scoreAge({age: 64})).to.equal(71);
     expect(this.lumaWaitList.scoreAge({age: 65})).to.equal(100);
   });
@@ -40,11 +41,12 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreDistance(patient2, practice)).to.equal(61);
     expect(this.lumaWaitList.scoreDistance(patient3, practice)).to.equal(50);
     expect(this.lumaWaitList.scoreDistance(patient4, practice)).to.equal(41);
-    expect(this.lumaWaitList.scoreDistance(patient5, practice)).to.equal(0);
-    expect(this.lumaWaitList.scoreDistance(patient6, practice)).to.equal(0);
+    expect(() => {this.lumaWaitList.scoreDistance(patient5, practice)}).to.throw(Error, 'patient.too.far');
+    expect(() => {this.lumaWaitList.scoreDistance(patient6, practice)}).to.throw(Error, 'patient.too.far');
   });
 
-  it.only('should score scoreAverageReplyTime', function() {
+  it('should score scoreAverageReplyTime', function() {
+
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 0})).to.equal(96);
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 100})).to.equal(95);
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 200})).to.equal(94);
@@ -90,5 +92,19 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 4100})).to.equal(1);
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 4200})).to.equal(1);
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 4300})).to.equal(1);
+  });
+
+  it('should score scoreCancellationRate', function() {
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 100, canceledOffers: 0})).to.equal(98);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 90, canceledOffers: 10})).to.equal(96);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 80, canceledOffers: 20})).to.equal(90);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 70, canceledOffers: 30})).to.equal(81);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 60, canceledOffers: 40})).to.equal(68);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 50, canceledOffers: 50})).to.equal(52);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 40, canceledOffers: 60})).to.equal(36);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 30, canceledOffers: 70})).to.equal(22);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 20, canceledOffers: 80})).to.equal(12);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 10, canceledOffers: 90})).to.equal(5);
+    expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 0, canceledOffers: 100})).to.equal(2);
   });
 })
