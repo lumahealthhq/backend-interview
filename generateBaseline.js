@@ -1,8 +1,7 @@
-/*
-This file should be run as a scheduled job or whenever rebasing is needed
-
-input: filepath to patient info 
-output: baseline buckets in an object
+/** 
+ * @param {string} filePath - .json file of all the patients at the facility
+ * @returns {Object} baseline buckets
+ * This file should be run as a scheduled job or whenever rebasing is needed
 */
 const readFile = Promise.promisify(require('fs').readFile);
 
@@ -20,7 +19,6 @@ const createBaseline = (filePath) => {
     resolve(readFile(filePath, 'utf8')
       .then((data) => {
         let patientsData = JSON.parse(data);
-
 
         //for each patient, push category value into baseline for that category
         const baseline = {
@@ -63,7 +61,6 @@ const createBaseline = (filePath) => {
       });
     )
   });
-  
 }
 
 module.export = {

@@ -1,8 +1,20 @@
-const expect = require('chai').expect;
-const calculatePatientScores = require('./calculateScore.js').calculatePatientScores;
-const calcDistBetweenGPSCoord = require('./calculateScore.js').calcDistBetweenGPSCoord;
+const { expect } = require('chai');
+const { calculatePatientScores } = require('./calculateScore.js');
+const { calcDistBetweenGPSCoord } = require('./calculateScore.js');
+const app = require('./routes.js');
+const request = require('supertest');
+require('dotenv').config();
+const port = process.env.PORT || 8080;
 
 describe('Test spec for generate call list', () => {
+  let server;
+  beforeEach((done) => {
+    server = app.listen(port, done);
+  });
+
+  afterEach(() => {
+    server.close();
+  });
   describe('Test for calculating distance between 2 GPS coordinates', () => {
     let location1Lat, location1Long, location2Lat, location2Long;
     it('Each degree variation in latitude is approx 111km apart.', () => {
@@ -29,11 +41,11 @@ describe('Test spec for generate call list', () => {
       expect(calcDistBetweenGPSCoord(location1Lat, location1Long, location2Lat, location2Long)).to.equal(20015517.194214113)
     });
   });
-  describe('Test for calculating patient score', () => {
-    it('', () => {
-      
-      expect(calculatePatientScores('46.7110', '-63.1150')).to.equal()
+  xdescribe('Test for api', () => {
+    it('should get a 200 response for GET callList request', (done) => {
+      request(app)
+        .get('/callList')
+        .expect(200, done);
     });
-
   });
 });

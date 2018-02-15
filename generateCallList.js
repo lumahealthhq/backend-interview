@@ -1,16 +1,18 @@
-/* 
-input: facility's location
-output: ordered list of 10 patients who will most likely accept the appointment offer. should be also based on their fifo order of when they called in (entered on to the waitlist)
+/** 
+ * @param {number} facilityLat
+ * @param {number} facilityLong
+ * @param {string} filePath - .json file of all the patients at the facility
+ * @returns {Promise} - array of 10 patient objects. An ordered list of 10 patients who will most likely accept the appointment offer. should be also based on their fifo order of when they called in (entered on to the waitlist). if a patient doesn't have much behavior data, should be randomly added to the top list to give them a chance to be selected
 */
 const Promise = require('bluebird');
 const calculatePatientScores = require('./calculateScore.js').calculatePatientScores;
 
-const generateCallList = (facilityLat, facilityLong) => {
+const generateCallList = (facilityLat, facilityLong, filePath) => {
   const results = []; //10 patients ordered in most likely to accept
   const resultSize = 10;
 
   return new Promise ((resolve) => {
-    calculatePatientScores(facilityLat, facilityLong)
+    calculatePatientScores(facilityLat, facilityLong, filePath)
     .then((patients) => {
       patients.sufficientData.sort((a, b) => {
         return b.score - a.score;
@@ -34,8 +36,3 @@ const generateCallList = (facilityLat, facilityLong) => {
 module.exports = {
   generateCallList,
 }
-
-generateCallList('46.7110', '-63.1150')
-.then((result) => {
-  console.log(result)
-})
