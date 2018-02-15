@@ -1,9 +1,11 @@
 var geolib = require('geolib');
+var stats = require('simple-statistics');
+var gaussian = require('gaussian');
 var METERS_TO_MILES = 0.000621371;
 
 class LumaWaitlist {
-  constructor(patientData) {
-    this.patientData = patientData;
+  constructor(patients) {
+    this.patients = patients;
     this.statWeight = {
       AGE: 10,
       DISTANCE: 10,
@@ -11,6 +13,13 @@ class LumaWaitlist {
       CANCELLED_OFFERS: 30,
       REPLY_TIME: 20
     };
+
+    // Create the distribution of reply times
+    var replyTimes = [];
+    for (var patient of patients) {
+      replyTimes.push(patient.averageReplyTime);
+    }
+    this.distributionOfAverageReplyTimes = gaussian(stats.mean(replyTimes), stats.variance(replyTimes));
   }
 
   getPatients({latitude, longitude}) {
@@ -23,7 +32,7 @@ class LumaWaitlist {
    *
    * @param patient
    */
-  score(patient) {
+  scorePatient(patient) {
     try {
       var ageScore = this.statWeight.AGE * this.scoreAge(patient);
       var distanceScore = this.statWeight.DISTANCE * this.scoreDistance(patient);
@@ -108,8 +117,20 @@ class LumaWaitlist {
   scoreDistance(patient, practice) {
     var meters = geolib.getDistanceSimple(patient, practice);
     var miles = meters * METERS_TO_MILES;
-    var score = 50 - Math.pow(((miles - 26) / 7),  3);
+    var score = 50 - Math.pow(((miles - 26) / 7), 3);
     return Math.trunc(Math.max(Math.min(100, score), 0));
+  }
+
+  /**
+   * We us a distributionOfAverageReplyTimes to score the reply time.
+   * cdf returns the probability of a random data point falling in the interval
+   * from -infinity to the given averageReplyTime. We give a big score for those
+   * that respond quickly.
+   *
+   * @param averageReplyTime
+   */
+  scoreAverageReplyTime({averageReplyTime}) {
+    return Math.round(100 - 100 * this.distributionOfAverageReplyTimes.cdf(averageReplyTime));
   }
 }
 

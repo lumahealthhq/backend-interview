@@ -42,5 +42,53 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreDistance(patient4, practice)).to.equal(41);
     expect(this.lumaWaitList.scoreDistance(patient5, practice)).to.equal(0);
     expect(this.lumaWaitList.scoreDistance(patient6, practice)).to.equal(0);
-  })
+  });
+
+  it.only('should score scoreAverageReplyTime', function() {
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 0})).to.equal(96);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 100})).to.equal(95);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 200})).to.equal(94);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 300})).to.equal(93);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 400})).to.equal(91);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 500})).to.equal(89);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 600})).to.equal(88);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 700})).to.equal(85);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 800})).to.equal(83);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 900})).to.equal(81);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1000})).to.equal(78);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1100})).to.equal(75);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1200})).to.equal(72);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1300})).to.equal(69);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1400})).to.equal(65);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1500})).to.equal(61);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1600})).to.equal(58);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1700})).to.equal(54);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1800})).to.equal(50);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 1900})).to.equal(46);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2000})).to.equal(43);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2000})).to.equal(43);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2100})).to.equal(39);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2200})).to.equal(35);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2300})).to.equal(32);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2400})).to.equal(28);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2500})).to.equal(25);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2600})).to.equal(22);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2700})).to.equal(20);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2800})).to.equal(17);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 2900})).to.equal(15);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3000})).to.equal(13);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3100})).to.equal(11);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3200})).to.equal(9);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3300})).to.equal(8);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3400})).to.equal(6);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3500})).to.equal(5);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3600})).to.equal(4);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3700})).to.equal(3);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3800})).to.equal(3);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 3900})).to.equal(2);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 4000})).to.equal(2);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 4100})).to.equal(1);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 4200})).to.equal(1);
+    expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 4300})).to.equal(1);
+  });
 })
