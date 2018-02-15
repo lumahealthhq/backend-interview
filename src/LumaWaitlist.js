@@ -49,10 +49,15 @@ class LumaWaitlist {
    * @param latitude
    * @param longitude
    */
-  getWaitlist({latitude, longitude}) {
-    scores.sort((a, b) => {
-    })
+  getTop10Patients(practice) {
+    for (var patient of this.patients)
+      patient.score = this.scorePatient(patient, practice);
 
+    this.patients = this.patients.sort((a, b) => {
+      return b.score - a.score;
+    });
+
+    return this.patients.slice(0, 10).filter((a) => { return a.score != 0 });
   }
 
   /**
@@ -65,7 +70,7 @@ class LumaWaitlist {
     try {
       var ageScore = this.statWeight.AGE * this.scoreAge(patient);
       var distanceScore = this.statWeight.DISTANCE * this.scoreDistance(patient, practice);
-      var replyTimeScore = this.statWeight.REPLY_TIME * this.scoreReplyTime(patient);
+      var replyTimeScore = this.statWeight.REPLY_TIME * this.scoreAverageReplyTime(patient);
       var cancellationRateScore =
         ((patient.acceptedOffers + patient.canceledOffers) < this.MULLIGANS) ? 100 :
           this.scoreCancellationRate(patient);
@@ -146,7 +151,7 @@ class LumaWaitlist {
    *    longitude <float>
    */
   scoreDistance(patient, practice) {
-    var meters = geolib.getDistanceSimple(patient, practice);
+    var meters = geolib.getDistanceSimple(patient.location, practice);
     var miles = meters * METERS_TO_MILES;
     var score = 50 - Math.pow(((miles - 26) / 7), 3);
     score = Math.trunc(Math.max(Math.min(100, score), 0));

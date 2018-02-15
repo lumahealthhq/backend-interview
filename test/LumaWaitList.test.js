@@ -40,15 +40,15 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     var patient5 = geolib.computeDestinationPoint(practice, 58 * MILES_TO_METERS, 180);
     var patient6 = geolib.computeDestinationPoint(practice, 100 * MILES_TO_METERS, 180);
 
-    expect(this.lumaWaitList.scoreDistance(patient1, practice)).to.equal(100);
-    expect(this.lumaWaitList.scoreDistance(patient2, practice)).to.equal(61);
-    expect(this.lumaWaitList.scoreDistance(patient3, practice)).to.equal(50);
-    expect(this.lumaWaitList.scoreDistance(patient4, practice)).to.equal(41);
+    expect(this.lumaWaitList.scoreDistance({location: patient1}, practice)).to.equal(100);
+    expect(this.lumaWaitList.scoreDistance({location: patient2}, practice)).to.equal(61);
+    expect(this.lumaWaitList.scoreDistance({location: patient3}, practice)).to.equal(50);
+    expect(this.lumaWaitList.scoreDistance({location: patient4}, practice)).to.equal(41);
     expect(() => {
-      this.lumaWaitList.scoreDistance(patient5, practice)
+      this.lumaWaitList.scoreDistance({location: patient5}, practice)
     }).to.throw(Error, 'patient.too.far');
     expect(() => {
-      this.lumaWaitList.scoreDistance(patient6, practice)
+      this.lumaWaitList.scoreDistance({location: patient6}, practice)
     }).to.throw(Error, 'patient.too.far');
   });
 
@@ -114,11 +114,11 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 0, canceledOffers: 100})).to.equal(2);
   });
 
-  describe.only('patient scoring', function () {
+  describe('patient scoring', function () {
     beforeEach(function () {
       simple.mock(this.lumaWaitList, 'scoreAge').returnWith(100);
       simple.mock(this.lumaWaitList, 'scoreDistance').returnWith(100);
-      simple.mock(this.lumaWaitList, 'scoreReplyTime').returnWith(100);
+      simple.mock(this.lumaWaitList, 'scoreAverageReplyTime').returnWith(100);
       simple.mock(this.lumaWaitList, 'scoreCancellationRate').returnWith(50);
 
       this.patient = {
@@ -133,7 +133,7 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
       this.practice = {
         latitude: 37.788610,
         longitude: -122.404827,
-      }
+      };
     });
 
     it('should score patient with mulligans', function () {
@@ -155,5 +155,17 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
       simple.mock(this.lumaWaitList, 'scoreDistance').throwWith(new Error('patient.too.far'));
       expect(this.lumaWaitList.scorePatient(this.patient, this.practice)).to.equal(0);
     })
-  })
+  });
+
+  it('should get wait list', function() {
+    var practice = {
+      "latitude": "63.1565",
+      "longitude": "-122.7370"
+    };
+
+    var waitlist = this.lumaWaitList.getTop10Patients(practice);
+    expect(waitlist.length).to.equal(1);
+    expect(waitlist[0].id).to.equal('9123da17-1184-4426-8b4b-52498b821566');
+
+  });
 })
