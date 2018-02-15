@@ -1,6 +1,9 @@
+var {assert, expect} = require('chai');
+var simple = require('simple-mock');
 var geolib = require('geolib');
 var MILES_TO_METERS = 1609.34;
-var {assert, expect} = require('chai');
+
+
 var LumaWaitlist = require('../src/LumaWaitlist.js');
 var sampleData = require('../sample-data/patients.json');
 
@@ -24,7 +27,7 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreAge({age: 65})).to.equal(100);
   });
 
-  it('should score distance', function() {
+  it('should score distance', function () {
     var practice = {
       latitude: 37.788610,
       longitude: -122.404827,
@@ -41,12 +44,15 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreDistance(patient2, practice)).to.equal(61);
     expect(this.lumaWaitList.scoreDistance(patient3, practice)).to.equal(50);
     expect(this.lumaWaitList.scoreDistance(patient4, practice)).to.equal(41);
-    expect(() => {this.lumaWaitList.scoreDistance(patient5, practice)}).to.throw(Error, 'patient.too.far');
-    expect(() => {this.lumaWaitList.scoreDistance(patient6, practice)}).to.throw(Error, 'patient.too.far');
+    expect(() => {
+      this.lumaWaitList.scoreDistance(patient5, practice)
+    }).to.throw(Error, 'patient.too.far');
+    expect(() => {
+      this.lumaWaitList.scoreDistance(patient6, practice)
+    }).to.throw(Error, 'patient.too.far');
   });
 
-  it('should score scoreAverageReplyTime', function() {
-
+  it('should score scoreAverageReplyTime', function () {
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 0})).to.equal(96);
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 100})).to.equal(95);
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 200})).to.equal(94);
@@ -94,7 +100,7 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreAverageReplyTime({averageReplyTime: 4300})).to.equal(1);
   });
 
-  it('should score scoreCancellationRate', function() {
+  it('should score scoreCancellationRate', function () {
     expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 100, canceledOffers: 0})).to.equal(98);
     expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 90, canceledOffers: 10})).to.equal(96);
     expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 80, canceledOffers: 20})).to.equal(90);
@@ -107,4 +113,47 @@ describe('Setup.test.js - Setup, Instantiation, & Invokation', function () {
     expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 10, canceledOffers: 90})).to.equal(5);
     expect(this.lumaWaitList.scoreCancellationRate({acceptedOffers: 0, canceledOffers: 100})).to.equal(2);
   });
+
+  describe.only('patient scoring', function () {
+    beforeEach(function () {
+      simple.mock(this.lumaWaitList, 'scoreAge').returnWith(100);
+      simple.mock(this.lumaWaitList, 'scoreDistance').returnWith(100);
+      simple.mock(this.lumaWaitList, 'scoreReplyTime').returnWith(100);
+      simple.mock(this.lumaWaitList, 'scoreCancellationRate').returnWith(50);
+
+      this.patient = {
+        age: 65,
+        latitude: 37.788610,
+        longitude: -122.404827,
+        averageReplyTime: 2000,
+        canceledOffers: 5,
+        acceptedOffers: 5
+      };
+
+      this.practice = {
+        latitude: 37.788610,
+        longitude: -122.404827,
+      }
+    });
+
+    it('should score patient with mulligans', function () {
+      expect(this.lumaWaitList.scorePatient(this.patient, this.practice)).to.equal(100);
+    })
+
+    it('should score patient without mulligans', function () {
+      this.patient.canceledOffers = 0;
+      this.patient.acceptedOffers = 100;
+      expect(this.lumaWaitList.scorePatient(this.patient, this.practice)).to.equal(70);
+    });
+
+    it('should not score minors', function() {
+      simple.mock(this.lumaWaitList, 'scoreAge').throwWith(new Error('patient.is.a.minor'));
+      expect(this.lumaWaitList.scorePatient(this.patient, this.practice)).to.equal(0);
+    })
+
+    it('should not score distant patients', function() {
+      simple.mock(this.lumaWaitList, 'scoreDistance').throwWith(new Error('patient.too.far'));
+      expect(this.lumaWaitList.scorePatient(this.patient, this.practice)).to.equal(0);
+    })
+  })
 })

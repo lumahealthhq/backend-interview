@@ -9,11 +9,10 @@ class LumaWaitlist {
    */
   constructor() {
     this.statWeight = {
-      AGE: 10,
-      DISTANCE: 10,
-      ACCEPTED_OFFERS: 30,
-      CANCELLED_OFFERS: 30,
-      REPLY_TIME: 20
+      AGE: .10,
+      DISTANCE: .10,
+      CANCELLATION_RATE: .60,
+      REPLY_TIME: .20
     };
     this.MULLIGANS = 20;
   }
@@ -51,6 +50,8 @@ class LumaWaitlist {
    * @param longitude
    */
   getWaitlist({latitude, longitude}) {
+    scores.sort((a, b) => {
+    })
 
   }
 
@@ -60,18 +61,17 @@ class LumaWaitlist {
    *
    * @param patient
    */
-  scorePatient(patient) {
+  scorePatient(patient, practice) {
     try {
       var ageScore = this.statWeight.AGE * this.scoreAge(patient);
-      var distanceScore = this.statWeight.DISTANCE * this.scoreDistance(patient);
+      var distanceScore = this.statWeight.DISTANCE * this.scoreDistance(patient, practice);
       var replyTimeScore = this.statWeight.REPLY_TIME * this.scoreReplyTime(patient);
+      var cancellationRateScore =
+        ((patient.acceptedOffers + patient.canceledOffers) < this.MULLIGANS) ? 100 :
+          this.scoreCancellationRate(patient);
+      cancellationRateScore *= this.statWeight.CANCELLATION_RATE;
 
-      var totalOffers = patient.acceptedOffers + patient.canceledOffers;
-      var cancellationRateScore = (totalOffers < this.MULLIGANS) ? 100 :
-        (this.statWeight.ACCEPTED_OFFERS + this.statWeight.CANCELLED_OFFERS) * this.scoreCancellationRate(patient);
-
-
-      return (ageScore + distanceScore + acceptedOffersScore + cancelledOffersScore + replyTimeScore) / 100;
+      return (ageScore + distanceScore + cancellationRateScore + replyTimeScore);
     } catch (err) {
       if (err.message == 'patient.is.a.minor')
         return 0;
@@ -83,8 +83,8 @@ class LumaWaitlist {
 
   /**
    * Age relates to overall responsibility and life circumstances that compete for attention.
-   * Likely related to other variables like distance and type of care.
    *
+   * Likely related to other variables like distance and type of care.
    * ie. Less likely that older people will travel longer distances for general practice care.
    *
    * @param patient

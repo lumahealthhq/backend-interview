@@ -21,6 +21,7 @@
     "gaussian": "^1.1.0",
     "geolib": "^2.0.24",
     "mocha": "^5.0.1",
+    "simple-mock": "^0.8.0",
     "simple-statistics": "^5.2.1"
   }
 }
