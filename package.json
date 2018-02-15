@@ -1,10 +1,11 @@
 {
-  "name": "LumaWaitlist",
+  "name": "LumaWaitList",
   "description": "Waitlist Optimizer",
   "scripts": {
     "test": "npm run mocha",
     "mocha": "./node_modules/.bin/mocha"
   },
+  "main" : "src/LumaWaitlist.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/lumahealthhq/full-stack-interview"
