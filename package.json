@@ -1,0 +1,25 @@
+{
+  "name": "full-stack-interview",
+  "version": "1.0.0",
+  "description": "## Problem Definition",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mustafabereket/full-stack-interview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mustafabereket/full-stack-interview/issues"
+  },
+  "homepage": "https://github.com/mustafabereket/full-stack-interview#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "faker": "^4.1.0"
+  }
+}

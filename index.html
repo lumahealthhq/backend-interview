@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+</head>
+<body ng-app="luma">
+
+<div ng-controller="mainCtrl">
+
+<h1 style="margin-left:30%;margin-right:30%">Welcome To Patients'list</h1>
+<br/>
+
+<h4>Please enter required information</h4>
+
+  <form>
+    <div class="col-md-4">
+      Location Latitude:     <input class="form-control" ng-model="lat" placeholder="ex: 35.234"/>
+      <br/>
+      Location Longitude:     <input class="form-control" ng-model="long" placeholder="ex: 55.234"/>
+      <br/>
+      Number of Patients:     <input class="form-control" ng-model="patNum" placeholder="Numbers only"/>
+      <br/>
+      <button class="form-submit" ng-click="sendNumber(patNum,lat,long)">Submit</button>
+    </div>
+  </form>
+<br/>
+
+<div class="row" ng-if="mainList">
+    <div  class="table-responsive col-md-6">
+      <h3 style="margin-left:30%;margin-right:30%">All Patients Generated</h3>
+      <br/>
+      <table class="table" ng-if="mainList.patients" >
+        <thead>
+          <tr style="background-color: #e9e2e4">
+                  <th>Index</th>
+                  <th >Name </th>
+                  <th >Age </th>
+                  <th >Cancelled Offers</th>
+                  <th >Accepted Offers</th>
+                  <th >Distance To Hsptl</th>
+                  <th >Lat,Long </th>
+                  <th >Score </th>
+
+
+          </tr>
+        </thead>
+
+       <tr ng-repeat="patient in mainList.patients">
+         <th>{{$index+1}}</th>
+         <th>{{patient.name}}</th>
+         <th>{{patient.age}}</th>
+         <th>{{patient.canceledOffers}}</th>
+         <th>{{patient.acceptedOffers}}</th>
+         <th>{{patient.distanceToHospital}} miles</th>
+         <th>{{patient.location.latitude}}, {{patient.location.longitude}}</th>
+         <th>{{patient.score}}</th>
+
+       </tr>
+
+      </table>
+    </div>
+
+    <div class="col-md-2">
+      <br/>
+      <h3 style="color:blue">
+        ..Stats..
+      </h3>
+      <br/>
+      <h3>Avg. Age</h3>
+      <h1  style="color:blue">{{mainList.avgAge}}</h1>
+      <br/>
+      <h3 >Avg. Accepted Offers</h3>
+      <h1 style="color:blue">{{mainList.avgAccepted}}</h1>
+      <br/>
+      <h3 >Avg. Cancelled Offers</h3>
+      <h1 style="color:blue">{{mainList.avgCancelled}}</h1>
+
+    </div>
+
+    <div  class="table-responsive col-md-4">
+      <h3 style="margin-left:30%;margin-right:30%">Top 10 Patients Most Likely To Respond</h3>
+      <br/>
+      <table class="table" ng-if="mainList.patients">
+        <thead>
+          <tr style="background-color: #e9e2e4">
+                  <th>Index</th>
+                  <th >Patient W/ </br>Little Data</th>
+                  <th >Name </th>
+                  <th >Score </th>
+          </tr>
+        </thead>
+
+       <tr ng-repeat="patient in mainList.mainList">
+         <th>{{$index+1}}</th>
+         <th><span ng-if="patient.fromRandom">{{patient.fromRandom}}</span><span ng-if="!patient.fromRandom">false</span></th>
+         <th>{{patient.name}}</th>
+         <th>{{patient.score}}</th>
+
+       </tr>
+
+      </table>
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
