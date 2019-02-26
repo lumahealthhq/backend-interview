@@ -1,3 +1,69 @@
+# Luma Technical Interview - Solution By David Warthen
+
+##Overview
+
+I considered a couple of approaches to solving this task.
+
+The first was to use the information provided in a simple ranking formula, such as:<br>
+score = sum-of-weighted-positive-parameters - sum-of-weighted-negative-parameters
+
+or<br>
+score = sum-of-weighted-positive-parameters / sum-of-weighted-negative-parameters
+
+(You would first want to normalize the parameters before plugging them into such a formula.)
+
+This would have been a common way to approach the problem ten or fifteen years ago, and can still be useful when you have little data, need a quick solution, etc .
+
+The second and more contemporary approach is to use simple machine learning to attack the problem.  This is 
+the approach I selected for my solution to this task.  There is enough data, and the solution will adjust 
+as additional data becomes available to keep it optimized.  There were no stringent performance requirements
+specified, so I did not consider performance in my implmenetation, other than it should not be unreasonably
+slow given the test data set.  I did use the weights as they were part of the problem definition, but you
+do not really need pre-determined weights for this solution.
+
+I implemented a linear regression.  I initially anticipated I would then want to convert it to a logistic 
+regression, but the coefficient of determination was strong enough that this did not in the end seem 
+necessary.
+
+##The Module
+
+Include the two files getMostLikelyPatients.js and linear-regression.js in your JavaScript directory.
+
+Add the following line of code where you want to access the module:
+
+const getMostLikelyPatients = require('./js/getMostLikelyPatients.js');
+
+You will need to install tensor-flowJS, as well as jasime to run the tests.  (See the package.json file.)
+
+getMostLikelyPatients(lat, lon, numberToGet)<br>
+lat - the latitude of the office<br>
+lon - the longitude of the office<br>
+numberToGet - the number of patients to return on the list. default=10, range 1..100
+
+returns - an array of the most likely patients to accept the new appontment offer.  If there are patients
+with insufficient data, one of these is selected at random and put at the top of the list.
+
+If there is any problem, an empty array is returned.  The id, name, and score (1 to 10) is returned for each
+patient.  (If the patient has insufficient data, then the score for that patient is -1.)
+
+##The project structure
+
+The work is performed in two files, getMostLikelyPatients.js and linear-regression.js (both in the js 
+subdirectory).  The patients.json file is in the data subdirectory, and the test files are in the test 
+subdirectory.
+
+getMostLikelyPatient.js - loads the data, structures the lists to be trained, and creates and uses the LinearRegression class instance.
+
+linear-regression-js - implements the LinearRegression class.  The constructor method, the train method, and the predict method
+are used for normal operation.  There is also a test method, which is used for evaluating the model.  This
+module uses tensorflow to do the matrix operations required for training and using the linear regression model.
+
+To avoid extra external dependencies, int this project I did not include other NPM modules I commonly use.  These might
+include winston for logging, the lodash utility module, for example.  I also did not use JSDoc, as I would
+for a larger project (especially to automatically generate HTML docuemntation).
+
+
+--
 # Luma Technical Interview
 
 ## Problem Definition
