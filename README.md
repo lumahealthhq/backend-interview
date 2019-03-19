@@ -1,37 +1,56 @@
-# Luma Technical Interview
+# Generate Call List
 
-## Problem Definition
+**Note:** It's unclear from the problem statement whether a patient's age should positively or negatively correlate with their score. I've assumed that a higher age results in a lower score, but that can easily be changed.
 
-A busy hospital has a list of patients waiting to see a doctor. The waitlist is created sequentially (e.g. patients are added in a fifo order) from the time the patient calls.  Once there is an availability, the front desk calls each patient to offer the appointment in the order they were added to the waitlist. The staff member from the front desk has noticed that she wastes a lot of time trying to find a patient from the waitlist since they&#39;re often not available, don&#39;t pick up the phone, etc.  She would like to generate a better list that will increase her chances of finding a patient in the first few calls.
+## Description
 
-## Interview Task
+Given a properly formatted medical practice location and an array of properly formatted patient data, returns an array of relevant patient data and scores sorted from highest to lowest score. A high score indicates a high potential for an appointment to be successfully scheduled if the patient is called.
 
-Given patient demographics and behavioral data (see sample-data/patients.json), create an algorithm that will process a set of historical patient data and compute a score for each patient that (1 as the lowest, 10 as the highest) that represents the chance of a patient accepting the offer off the waitlist. Take in consideration that patients who have little behavior data should be randomly added to the top list as to give them a chance to be selected. Expose an api that takes a facility's location as input and returns an ordered list of 10 patients who will most likely accept the appointment offer.
+To give patients with a smaller set of historical data a chance to be placed higher on the list—and thereby accumulate more data for future lists—the following method of randomized padding is used.
 
-## Weighting Categories
+The patient with the largest sample size of previous offers (`acceptedOffers + canceledOffers`) is used as the standard. For every other patient, the difference is calculated between their sample size and that standard. A random integer is generated up to that difference and added to their `acceptedOffers`, always leaving `canceledOffers` unmodified. This assures that patients' scores may be randomly raised, never randomly lowered, and the degree of randomness scales exactly with the relevant gap in data.
 
-Demographic
+## Usage
 
-- age  (weighted 10%)
-- distance to practice (weighted 10%)
+```javascript
+const generateCallList = require('generate-call-list');
+const rawPatientData = require('raw-patient-data.json');
 
-Behavior
+const practiceLocation = {
+  latitude: 37.790413,
+  longitude: -122.4046877,
+};
 
-- number of accepted offers (weighted 30%)
-- number of cancelled offers (weighted 30%)
-- reply time (how long it took for patients to reply) (weighted 20%)
+// The options parameter is optional, these are the defaults 
+const options = {
+  scoreMin: 1,
+  scoreMax: 10,
+  listSize: 10,
+  factorWeights: {
+    age: 0.1,
+    distance: 0.1,
+    acceptedOffers: 0.3,
+    canceledOffers: 0.3,
+    averageReplyTime: 0.2
+  },
+};
 
-## Patient Model
+const orderedCallList = generateCallList(practiceLocation, rawPatientData, options);
+```
 
-- ID
-- Age (in years)
-- location
-  - Lat
-  - long
-- acceptedOffers (integer)
-- canceledOffers (integer)
-- averageReplyTime (integer, in seconds)
+### Patient data format
 
-## Deliverables
-
-The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+```json
+[{
+  "id": "541d25c9-9500-4265-8967-240f44ecf723",
+  "name": "Samir Pacocha",
+  "location": {
+    "latitude": "46.7110",
+    "longitude": "-63.1150"},
+    "age": 46,
+    "acceptedOffers": 49,
+    "canceledOffers": 92,
+    "averageReplyTime": 2598
+  }
+}]
+```

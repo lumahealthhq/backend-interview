@@ -1,0 +1,33 @@
+{
+  "name": "generate-call-list",
+  "version": "1.0.0",
+  "description": "Given a properly formatted medical practice location and an array of properly formatted patient data, returns an array of relevant patient data and scores sorted from highest to lowest score.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumahealthhq/full-stack-interview.git"
+  },
+  "author": "Jascha Ephraim <jascha@jaschaephraim.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lumahealthhq/full-stack-interview/issues"
+  },
+  "homepage": "https://github.com/lumahealthhq/full-stack-interview#readme",
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "@turf/distance": "^6.0.1",
+    "@turf/helpers": "^6.1.4",
+    "deepmerge": "^3.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "^6.0.2"
+  }
+}

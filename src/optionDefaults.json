@@ -1,0 +1,12 @@
+{
+  "scoreMin": 1,
+  "scoreMax": 10,
+  "listSize": 10,
+  "factorWeights": {
+    "age": 0.1,
+    "distance": 0.1,
+    "acceptedOffers": 0.3,
+    "canceledOffers": 0.3,
+    "averageReplyTime": 0.2
+  }
+}
