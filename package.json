@@ -1,0 +1,31 @@
+{
+  "name": "@lumahealth/patient-ranker",
+  "description": "Implementation of Luma Health's interview problem",
+  "version": "0.1.0",
+  "license": "MIT",
+  "keywords": [
+    "luma",
+    "health",
+    "interview"
+  ],
+  "author": "Ricardo Fuzeto",
+  "main": "src/index.js",
+  "scripts": {
+    "test:start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">= 8.12.0"
+  },
+  "dependencies": {
+    "ztable": "^1.0.7"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fuzetaum/lumahealth-interview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fuzetaum/lumahealth-interview/issues"
+  },
+  "homepage": "https://github.com/Fuzetaum/lumahealth-interview#readme"
+}
