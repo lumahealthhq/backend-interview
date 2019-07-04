@@ -1,0 +1,27 @@
+{
+  "name": "full-stack-interview-reggie-brown",
+  "version": "1.0.0",
+  "description": "Submission for full stack interview challenge",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travelingdoodle/full-stack-interview.git"
+  },
+  "author": "Reggie Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/travelingdoodle/full-stack-interview/issues"
+  },
+  "homepage": "https://github.com/travelingdoodle/full-stack-interview#readme",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^1.2.3",
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1"
+  }
+}
