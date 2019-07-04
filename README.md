@@ -33,6 +33,7 @@ Next, I began to think about what tools could be used to assit in solving the pr
     - The patient list is also logged to the console
   - Patient Data Structure:
     - id, name, score (1-10). Patients with insufficient data are given a score of -1
+- Test App: `npm test`
 
 ## Planning for the future:
 
