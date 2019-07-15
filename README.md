@@ -35,3 +35,20 @@ Behavior
 ## Deliverables
 
 The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+
+## Solution Documentation
+
+To run the application execute the command - docker-compose up --build
+After that, to populate the Database, go to the folder sample-data and run - sh rebuild-database.sh
+
+The exposed endpoint address is /api/v1/patients/suggestion and it should be accessible on localhost:3000 as a POST request. Its body should contain an object
+informing a coordinate in the following format:
+
+{
+	"coordinates": {
+		"latitude": -28.1879,
+		"longitude":-67.7477
+	}
+}
+
+The endpoint will return a JSON with a list of 10 patients using its model format plus the calculated score. To achive this final score, the api calculates each patient score in every single category and apply the respective weights. For each category, the system finds the lowest and the highest value (among every patient) and calculates a normalized value between 1 and 10 depending on the category value and its relation to the previous found extremes. For the categories canceledOffers and averageReplyTime, the score is inverted (for example, an 8 means a 2) because a high score here means a behavior that makes the acceptance of the appointment offer less likely. The age category score favours older people since a greater age means a greater score. For the distance, the api calculates the distance in meters between the patient's location and the given facility location (in the body of the request) and apply the same normalization rule for the given value. In conclusion, patients that are older (and tends to have more health problems), living closer (easier to go to the facility) that cancel less offers ( more concerned with their health) and reply faster will be on the top of the list.

@@ -1,0 +1,1 @@
+mongoimport --db luma_health_test --collection patients --type json --file patients.json --jsonArray
