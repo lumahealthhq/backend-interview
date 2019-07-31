@@ -1,37 +1,37 @@
-# Luma Technical Interview
+### Bruno Cerqueira Solution for Luma Health Interview Test
 
-## Problem Definition
+I started studding ways to automatize the process of scoring, and how to make it effective. 
 
-A busy hospital has a list of patients waiting to see a doctor. The waitlist is created sequentially (e.g. patients are added in a fifo order) from the time the patient calls.  Once there is an availability, the front desk calls each patient to offer the appointment in the order they were added to the waitlist. The staff member from the front desk has noticed that she wastes a lot of time trying to find a patient from the waitlist since they&#39;re often not available, don&#39;t pick up the phone, etc.  She would like to generate a better list that will increase her chances of finding a patient in the first few calls.
+Started testing a simple scoring algorithm that have a initial score and each attribute and its weight
+decreases or increases this score, then transforming it to a scale from 1 to 10 and all good.
 
-## Interview Task
+But the problems started at performance and accuracy, for every call to get a list of patients, the algorithm would have
+to run all the calculations again.
 
-Given patient demographics and behavioral data (see sample-data/patients.json), create an algorithm that will process a set of historical patient data and compute a score for each patient that (1 as the lowest, 10 as the highest) that represents the chance of a patient accepting the offer off the waitlist. Take in consideration that patients who have little behavior data should be randomly added to the top list as to give them a chance to be selected. Expose an api that takes a facility's location as input and returns an ordered list of 10 patients who will most likely accept the appointment offer.
+I needed something more accurate and fast, i started looking into Machine Learning solutions, TensorFlow came up. I have
+never worked with TensorFlow on Nodejs, only on Python, so i looked on other pull requests to learn some Nodejs TensorFlow
+and i enjoyed a lot @dwarthen solution!
+## 
+### How it works
 
-## Weighting Categories
+During the API startup, the training using a dataset of 10.000 patients happens, when this training is ready, the /scoredPatients
+is exposed and can be used to return the 9 patients who will most likely accept the appointment offer and 1 patient randomly
+chosen between all patients with little behavior data if there are any.
 
-Demographic
+## 
+### Startup : 
+#### Install dependecies `npm install`
+#### Start API with `npm install` its listening on http://localhost:7000
 
-- age  (weighted 10%)
-- distance to practice (weighted 10%)
+##
+### Exemple of request :
+##### http://localhost:7000/scoredPatients?lat=10.312043&lon=-40.292301
 
-Behavior
-
-- number of accepted offers (weighted 30%)
-- number of cancelled offers (weighted 30%)
-- reply time (how long it took for patients to reply) (weighted 20%)
-
-## Patient Model
-
-- ID
-- Age (in years)
-- location
-  - Lat
-  - long
-- acceptedOffers (integer)
-- canceledOffers (integer)
-- averageReplyTime (integer, in seconds)
-
-## Deliverables
-
-The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+##
+### Known Issues
+I'm running on a Windows machine and had to follow this steps to properly install TensorFlow
+as it requires Python 2.7 and MS Tools 
+1. Open elevated cmd inside project directory
+2. `npm install --production windows-build-tools`
+3. `npm install @tensorflow/tfjs-node`
+4. `npm install @tensorflow/tfjs`
