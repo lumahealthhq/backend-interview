@@ -1,0 +1,30 @@
+{
+  "name": "waitlist",
+  "version": "1.0.0",
+  "description": "solution for busy hospitals manage effectively their waitlist, indicating a list of N patients who will most likely accept the appointment offer ",
+  "main": "index.js",
+  "scripts": {
+    "check": "eslint ./",
+    "test": "jest",
+    "start": "node index"
+  },
+  "keywords": [
+    "javascript",
+    "es6",
+    "nodejs",
+    "express",
+    "api",
+    "rest"
+  ],
+  "author": "rubendess",
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}

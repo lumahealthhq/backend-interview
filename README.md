@@ -35,3 +35,94 @@ Behavior
 ## Deliverables
 
 The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+
+
+## Solution
+
+#### Main technologies
+- JavaScript
+- ES6
+- Node.js (v10.15.2)
+- NPM (v6.4.1)
+- Express
+- Jest
+
+#### NPM Scripts
+- start app: `npm start`
+- start app in another PORT: `PORT=8000 npm start`
+- eslint: `npm run check`
+- run tests `npm test` (jest)
+
+#### Environment
+Application runs on port 3000 by default
+
+#### Testing the solution
+- execute `npm install` (to install the dependencies)
+- execute `npm test` (to execute the unit tests)
+- execute `npm start` (to start the application)
+
+After starting the app, you can open the following link on the web browser to check the 
+solution running for the sample data:
+
+http://localhost:3000/api/v1/waitlist/suggestion/from-sample
+
+\
+You can process a different dataset, doing a `POST` to the following endpoint:
+
+http://localhost:3000/api/v1/waitlist/suggestion
+
+JSON body:
+
+
+    {
+        "facilityLat": "68.8129",
+        "facilityLng": "71.3018",
+        "dataset": [
+              {
+                "id": "213097a3-cae1-48cf-b266-a361a972ff27",
+                "name": "Tamara Roberts",
+                "location": {
+                    "latitude": "68.8129",
+                    "longitude": "71.3018"
+                },
+                "age": 51,
+                "acceptedOffers": 100,
+                "canceledOffers": 2,
+                "averageReplyTime": 87
+            }
+        ]
+    }
+
+
+The API will return an ordered *waitlist*, as the following example:
+
+    [{
+        "id": "213097a3-cae1-48cf-b266-a361a972ff27",
+        "name": "Tamara Roberts",
+        "location": {
+        "latitude": "68.8129",
+        "longitude": "71.3018"
+        },
+        "age": 51,
+        "acceptedOffers": 100,
+        "canceledOffers": 2,
+        "averageReplyTime": 87,
+        "score": 4,
+        "hasEnoughBehaviorData": true
+    }]
+
+Example to call the API using `curl`:
+
+`curl` -X POST http://localhost:3000/api/v1/waitlist/suggestion -d '{"facilityLat": "68.8129", "facilityLng": "71.3018", "dataset": [{
+            "id": "213097a3-cae1-48cf-b266-a361a972ff27",
+            "name": "Tamara Roberts",
+            "location": {
+                "latitude": "68.8129",
+                "longitude": "71.3018"
+            },
+            "age": 51,
+            "acceptedOffers": 100,
+            "canceledOffers": 2,
+            "averageReplyTime": 87
+        } ]}' -H "Content-Type: application/json"
+
