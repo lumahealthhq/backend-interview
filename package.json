@@ -1,0 +1,25 @@
+{
+  "name": "patient-scheduler",
+  "version": "1.0.0",
+  "description": "Module that processes patient data and produces scheduling metrics for those patients",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "start": "node lib/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumahealthhq/full-stack-interview.git"
+  },
+  "author": "akash.gupta1@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lumahealthhq/full-stack-interview/issues"
+  },
+  "homepage": "https://github.com/lumahealthhq/full-stack-interview#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
