@@ -2,14 +2,14 @@ const fs = require('fs');
 
 import PatientScorer from "./patient-scorer";
 
+const NUM_TOP_TO_RETURN = 10;
+
 export default class AppointmentRanker {
   constructor() {
     this._patientData = {};
   }
 
   updateFromHistoricalData(historicalDataPath) {
-    // TODO: Validate file path and included data
-
     // TODO: Read historical data and calculate static scores
     const data = JSON.parse(fs.readFileSync(historicalDataPath));
     data.forEach(record => {
@@ -43,7 +43,7 @@ export default class AppointmentRanker {
     }
     sorted.sort((a, b) => b[0] - a[0]);
 
-    return sorted.slice(0, 9);
+    return sorted.slice(0, NUM_TOP_TO_RETURN - 1);
   }
 }
 

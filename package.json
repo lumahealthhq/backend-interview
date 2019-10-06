@@ -23,6 +23,7 @@
     "babel-preset-env": "^1.7.0"
   },
   "dependencies": {
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "geolib": "^3.0.4"
   }
 }

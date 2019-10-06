@@ -1,3 +1,5 @@
+import getDistance from 'geolib/es/getDistance';
+
 export default class PatientScorer {
 
   static getHistoricalScoreForPatient(patientRecord) {
@@ -11,7 +13,7 @@ export default class PatientScorer {
   static getDynamicScoreForPatient(patientRecord, historicalScore, data) {
     let score = 0;
     for (const [feature, featureInfo] of Object.entries(DYNAMIC_FEATURES)) {
-      score += featureInfo.evaluator(patientRecord, data[feature]) * featureInfo.weight;
+      score += featureInfo.evaluator(patientRecord[feature], data[feature]) * featureInfo.weight;
     }
     return historicalScore + score;
   }
@@ -34,7 +36,8 @@ export default class PatientScorer {
   }
 
   static getNormalizedScoreForDistance(patientLocation, clinicLocation) {
-    return 10;
+    const distance = getDistance(patientLocation, clinicLocation);
+    return distance < 10000 ? 10 : 5;
   }
 }
 
