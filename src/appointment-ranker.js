@@ -10,7 +10,6 @@ export default class AppointmentRanker {
   }
 
   updateFromHistoricalData(historicalDataPath) {
-    // TODO: Read historical data and calculate static scores
     const data = JSON.parse(fs.readFileSync(historicalDataPath));
     data.forEach(record => {
       if (!record.id) {
@@ -37,25 +36,22 @@ export default class AppointmentRanker {
       );
     }
 
+    return this._getSortedPatients('score').slice(0, NUM_TOP_TO_RETURN);
+  }
+
+  getTopPatients() {
+    return this._getSortedPatients('staticScore').slice(0, NUM_TOP_TO_RETURN);
+  }
+
+  _getSortedPatients(sortingScore) {
     const sorted = [];
     for (const patientId in this._patientData) {
-      sorted.push([this._patientData[patientId].score, patientId]);
+      sorted.push({
+        score: this._patientData[patientId][sortingScore],
+        patientId: patientId
+      });
     }
-    sorted.sort((a, b) => b[0] - a[0]);
-
-    return sorted.slice(0, NUM_TOP_TO_RETURN - 1);
+    sorted.sort((a, b) => b.score - a.score);
+    return sorted;
   }
 }
-
-/**
- Number of records: 1000
- {
-  id: 1000,
-  name: 1000,
-  location: { lat: 1000, long: 1000 },
-  age: 1000,
-  acceptedOffers: 983,
-  canceledOffers: 991,
-  averageReplyTime: 1000
-}
- **/
