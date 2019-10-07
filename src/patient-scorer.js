@@ -1,5 +1,7 @@
 import getDistance from 'geolib/es/getDistance';
 
+const MAX_NUM_OFFERS_FOR_NEW_PATIENT = 20;
+
 export default class PatientScorer {
 
   static getHistoricalScoreForPatient(patientRecord) {
@@ -23,10 +25,16 @@ export default class PatientScorer {
   }
 
   static getNormalizedScoreForAcceptedOffers(numAcceptedOffers) {
+    if (PatientScorer._getIsNewPatientByNumOffers(numAcceptedOffers)) {
+      return 10;
+    }
     return Math.min(10, Math.max(1, numAcceptedOffers / 10));
   }
 
   static getNormalizedScoreForCanceledOffers(numCanceledOffers) {
+    if (PatientScorer._getIsNewPatientByNumOffers(numCanceledOffers)) {
+      return 10;
+    }
     return Math.max(1, 10 - Math.min(10, numCanceledOffers / 10));
   }
 
@@ -38,6 +46,10 @@ export default class PatientScorer {
   static getNormalizedScoreForDistance(patientLocation, clinicLocation) {
     const distance = getDistance(patientLocation, clinicLocation);
     return distance < 10000 ? 10 : 5;
+  }
+
+  static _getIsNewPatientByNumOffers(numOffers) {
+    return numOffers < MAX_NUM_OFFERS_FOR_NEW_PATIENT;
   }
 }
 
