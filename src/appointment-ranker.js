@@ -21,7 +21,7 @@ export default class AppointmentRanker {
         staticScore: PatientScorer.getHistoricalScoreForPatient(record)
       };
     });
-    }
+  }
 
   getTopPatientsForLocation(location) {
     const dynamicData = {
@@ -29,11 +29,12 @@ export default class AppointmentRanker {
     };
 
     for (const patientId in this._patientData) {
-      this._patientData[patientId].score = PatientScorer.getDynamicScoreForPatient(
-          this._patientData[patientId].record,
-          this._patientData[patientId].staticScore,
-          dynamicData
+      const dynamicScore = PatientScorer.getDynamicScoreForPatient(
+        this._patientData[patientId].record,
+        dynamicData
       );
+
+      this._patientData[patientId].score = this._patientData[patientId].staticScore + dynamicScore;
     }
 
     return this._getSortedPatients('score').slice(0, NUM_TOP_TO_RETURN);

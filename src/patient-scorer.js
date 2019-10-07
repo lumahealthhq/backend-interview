@@ -12,12 +12,12 @@ export default class PatientScorer {
     return score;
   }
 
-  static getDynamicScoreForPatient(patientRecord, historicalScore, data) {
+  static getDynamicScoreForPatient(patientRecord, data) {
     let score = 0;
     for (const [feature, featureInfo] of Object.entries(DYNAMIC_FEATURES)) {
       score += featureInfo.evaluator(patientRecord[feature], data[feature]) * featureInfo.weight;
     }
-    return historicalScore + score;
+    return score;
   }
 
   static getNormalizedScoreForAge(age) {
