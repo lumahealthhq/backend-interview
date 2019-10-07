@@ -10,7 +10,7 @@ export default class AppointmentRanker {
   }
 
   updateFromHistoricalData(historicalDataPath) {
-    const data = JSON.parse(fs.readFileSync(historicalDataPath));
+    const data = JSON.parse(fs.readFileSync(historicalDataPath)); // TODO: Make this async
     data.forEach(record => {
       if (!record.id) {
         return;

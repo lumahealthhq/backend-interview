@@ -1,3 +1,24 @@
+# AppointmentRanker
+
+## Description
+
+AppointmentRanker provides a system to process historical data of a provider's patients and get a ranked list of those patients that are most likely to respond to scheduling of appointments.
+
+## API
+
+`AppointmentRanker.updateFromHistoricalData(filePath)`<br/>
+Processes a json file of historical patient data.
+
+`AppointmentRanker.getTopPatientsForLocation(location)`<br/>
+Gets the top 10 patients that are most likely to accept an appointment near a given clinic location.
+
+### Solution Info
+
+- Build: npm run build
+- Test: npm test
+- Example case: npm run start
+- Author: Akash Gupta (akash.gupta1@gmail.com)
+
 # Luma Technical Interview
 
 ## Problem Definition
