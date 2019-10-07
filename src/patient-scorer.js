@@ -25,14 +25,14 @@ export default class PatientScorer {
   }
 
   static getNormalizedScoreForAcceptedOffers(numAcceptedOffers) {
-    if (PatientScorer._getIsNewPatientByNumOffers(numAcceptedOffers)) {
+    if (PatientScorer._getShouldBumpPatientByNumOffers(numAcceptedOffers)) {
       return 10;
     }
     return Math.min(10, Math.max(1, numAcceptedOffers / 10));
   }
 
   static getNormalizedScoreForCanceledOffers(numCanceledOffers) {
-    if (PatientScorer._getIsNewPatientByNumOffers(numCanceledOffers)) {
+    if (PatientScorer._getShouldBumpPatientByNumOffers(numCanceledOffers)) {
       return 10;
     }
     return Math.max(1, 10 - Math.min(10, numCanceledOffers / 10));
@@ -48,8 +48,18 @@ export default class PatientScorer {
     return distance < 10000 ? 10 : 5;
   }
 
-  static _getIsNewPatientByNumOffers(numOffers) {
-    return numOffers < MAX_NUM_OFFERS_FOR_NEW_PATIENT;
+  /**
+   * Returns whether or not this patient has a low number of offers and if so,
+   * whether or not they should be randomly bumped up
+   * @param numOffers
+   * @returns {boolean}
+   * @private
+   */
+  static _getShouldBumpPatientByNumOffers(numOffers) {
+    if (numOffers < MAX_NUM_OFFERS_FOR_NEW_PATIENT) {
+      return Math.random() < 0.5;
+    }
+    return false;
   }
 }
 

@@ -27,7 +27,5 @@ describe('getNormalizedScoreForCanceledOffers()', function() {
     expect(PatientScorer.getNormalizedScoreForCanceledOffers(100)).to.be.below(10);
   });
 
-  it('Low info patient', function() {
-    expect(PatientScorer.getNormalizedScoreForCanceledOffers(5)).to.be.equal(10);
-  });
+  // TODO: Add stubbed random number generator to check randomly bumping patients
 });

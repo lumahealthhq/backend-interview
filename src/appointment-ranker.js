@@ -9,6 +9,11 @@ export default class AppointmentRanker {
     this._patientData = {};
   }
 
+  /**
+   * Processes a set of historical patient data for ranking
+   *
+   * @param historicalDataPath
+   */
   updateFromHistoricalData(historicalDataPath) {
     const data = JSON.parse(fs.readFileSync(historicalDataPath)); // TODO: Make this async
     data.forEach(record => {
@@ -23,6 +28,12 @@ export default class AppointmentRanker {
     });
   }
 
+  /**
+   * Get the top 10 patients that would schedule appointments for a given clinic location.
+   * Note: Patients with little data on acceptance of scheduling offers will be randomly bumped up.
+   * @param location
+   * @returns {*[]} Ordered list of patients
+   */
   getTopPatientsForLocation(location) {
     const dynamicData = {
       location: location
