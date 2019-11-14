@@ -33,11 +33,11 @@ def allowed_image_filesize(filesize):
 
 @app.route("/")
 def index():
-    return render_template("upload_image.html")
+    return render_template("upload_file.html")
 
 
 @app.route("/upload", methods=["GET", "POST"])
-def upload_image():
+def upload_file():
     print(request.method)
     if (request.method == "POST"):
         print("request_method")
@@ -63,7 +63,7 @@ def upload_image():
             else:
                 print("That file extension is not allowed")
                 return redirect(request.url)
-    return render_template("upload_image.html")
+    return render_template("upload_file.html")
 
 def isFloat(s):
     try:
@@ -79,5 +79,5 @@ def sign_up():
         lat = req.get("latitude")
         lon = req.get("longitude")
         if isFloat(lat) and float(lat) <= 90 and float(lat) >= -90 and isFloat(lon) and float(lon) <= 90 and float(lon) >= -90:
-            return render_template("upload_image.html", your_list=scorePatients.run(lat, lon))
-        return render_template("upload_image.html", error_info="invalid location")
+            return render_template("upload_file.html", your_list=scorePatients.run(lat, lon))
+        return render_template("upload_file.html", error_info="invalid location")
