@@ -62,6 +62,18 @@ An index.js (/example/index.js) is included with the project that you can run an
 $ node -r esm index.js
 ```
 
+## Scoring Algorithm
+A patient's appointment-likelihood score is determined using various variables.
+
+The complete list is as follows:
+- Age (10%)
+- Distance from specified practice (10%)
+- Number of accepted offers (30%)
+- Number of canceled offers (30%)
+- Average reply time (20%)
+
+While the current configuration of these values are hardcoded into the model, we plan to implement configurable models in the future to fit your organization's needs.
+
 ## Running the tests
 
 Run the following command:
