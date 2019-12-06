@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-import PatientScorer from "../src/PatientScorer";
+import PatientScorer from "../PatientScorer";
 
 describe('PatientScorer#calculateAgeScore()', function() {
     it('above cutoff', function() {

@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-import RankGenerator from "../src/RankGenerator";
+import RankGenerator from "../RankGenerator";
 
 describe('RankGenerator#constructor', function() {
     let rankGenerator;

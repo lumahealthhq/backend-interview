@@ -1,8 +1,8 @@
 {
   "name": "@jahmezz/patient-ranker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Entry for Luma Health full-stack interview.",
-  "main": "src/index.js",
+  "main": "example/index.js",
   "scripts": {
     "start": "node -r esm index.js",
     "test": "mocha --require esm"
