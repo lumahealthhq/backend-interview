@@ -1,8 +1,8 @@
 // import dependencies
-import RankGenerator from './RankGenerator'
+import RankGenerator from '../RankGenerator'
 
 // output top patients to contact given a location
-let dataPath = "./sample-data/patients.json";
+let dataPath = "../sample-data/patients.json";
 let location = {
     "latitude": "68.8129",
     "longitude": "71.3018"
