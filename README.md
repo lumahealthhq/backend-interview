@@ -56,7 +56,7 @@ ID: 9902ce99-e4aa-434b-a5b5-49f2ae156391
 Name: Laurine Kshlerin
 ```
 
-An index.js is included with the project that you can run and review as an interactive demo.
+An index.js (/example/index.js) is included with the project that you can run and review as an interactive demo.
 
 ```
 $ node -r esm index.js
