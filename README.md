@@ -37,7 +37,7 @@ Then, request a list of patients using patientRanker.fetchBestPatients(facilityL
 This function accepts an object containing latitude and longitude.
 The output is a sorted array of the patients most likely to accept an appointment offer.
 
-# Input
+### Input
 ```
 let facilityLocation = {
     "latitude": "68.8129",
@@ -49,7 +49,7 @@ console.log("ID: " + bestPatients[0].entry.id);
 console.log("Name: " + bestPatients[0].entry.name);
 ```
 
-# Output
+### Output
 ```
 Score: 9.26
 ID: 9902ce99-e4aa-434b-a5b5-49f2ae156391
