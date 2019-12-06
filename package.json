@@ -1,8 +1,8 @@
 {
-  "name": "james-kahng-entry",
+  "name": "@jahmezz/patient-ranker",
   "version": "0.1.0",
   "description": "Entry for Luma Health full-stack interview.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node -r esm index.js",
     "test": "mocha --require esm"
@@ -28,5 +28,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^6.2.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }
