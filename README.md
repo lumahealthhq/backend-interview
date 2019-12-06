@@ -1,37 +1,88 @@
-# Luma Technical Interview
+# Patient Ranker
 
-## Problem Definition
+Healthcare facilities spend a large amount of time attempting to get a hold of patients. Patients are liable to cancel appointments, fail to respond in a timely fashion, and take other actions that can generally lower a facility's efficiency in filling schedules.
 
-A busy hospital has a list of patients waiting to see a doctor. The waitlist is created sequentially (e.g. patients are added in a fifo order) from the time the patient calls.  Once there is an availability, the front desk calls each patient to offer the appointment in the order they were added to the waitlist. The staff member from the front desk has noticed that she wastes a lot of time trying to find a patient from the waitlist since they&#39;re often not available, don&#39;t pick up the phone, etc.  She would like to generate a better list that will increase her chances of finding a patient in the first few calls.
+Patient Ranker is a customizable library that provides a framework for ranking the patients' likelihood of accepting appointments based on historical data.
 
-## Interview Task
+It accepts patient historical data and outputs a ranked list of the patients most likely to respond.
 
-Given patient demographics and behavioral data (see sample-data/patients.json), create an algorithm that will process a set of historical patient data and compute a score for each patient that (1 as the lowest, 10 as the highest) that represents the chance of a patient accepting the offer off the waitlist. Take in consideration that patients who have little behavior data should be randomly added to the top list as to give them a chance to be selected. Expose an api that takes a facility's location as input and returns an ordered list of 10 patients who will most likely accept the appointment offer.
+### Prerequisites
 
-## Weighting Categories
+This library was built on Node v8.6.0.
 
-Demographic
+It is written in ES6, meaning you must run it with esm for it to run properly.
 
-- age  (weighted 10%)
-- distance to practice (weighted 10%)
+```
+$ node -r esm {your project}
+```
 
-Behavior
+## Getting Started
 
-- number of accepted offers (weighted 30%)
-- number of cancelled offers (weighted 30%)
-- reply time (how long it took for patients to reply) (weighted 20%)
+First, install the library.
 
-## Patient Model
+```
+$ npm install @jahmezz/patient-ranker
+```
 
-- ID
-- Age (in years)
-- location
-  - Lat
-  - long
-- acceptedOffers (integer)
-- canceledOffers (integer)
-- averageReplyTime (integer, in seconds)
+Import the module into your project. Then, Load your patient data as JSON.
 
-## Deliverables
+```
+import RankGenerator from './RankGenerator'
+let patientRanker = new RankGenerator();
+patientRanker.loadPatientData({your patient data});
+```
 
-The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+Then, request a list of patients using patientRanker.fetchBestPatients(facilityLocation).
+
+This function accepts an object containing latitude and longitude.
+The output is a sorted array of the patients most likely to accept an appointment offer.
+
+# Input
+```
+let facilityLocation = {
+    "latitude": "68.8129",
+    "longitude": "71.3018"
+}
+let bestPatients = patientRanker.fetchBestPatients(facilityLocation);
+console.log("Score: " + bestPatients[0].score);
+console.log("ID: " + bestPatients[0].entry.id);
+console.log("Name: " + bestPatients[0].entry.name);
+```
+
+# Output
+```
+Score: 9.26
+ID: 9902ce99-e4aa-434b-a5b5-49f2ae156391
+Name: Laurine Kshlerin
+```
+
+An index.js is included with the project that you can run and review as an interactive demo.
+
+```
+$ node -r esm index.js
+```
+
+## Running the tests
+
+Run the following command:
+```
+$ npm test
+```
+
+The test suite consists of unit tests ensuring the functions in this library work properly.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+
+## Authors
+
+* **James Kahng** - *Initial work* - [jahmezz](https://github.com/jahmezz)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Much inspiration drawn from Akash's solution to the interview question.
