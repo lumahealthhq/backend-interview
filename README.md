@@ -24,10 +24,10 @@ First, install the library.
 $ npm install @jahmezz/patient-ranker
 ```
 
-Import the module into your project. Then, Load your patient data as JSON.
+Import the RankGenerator module into your project. Then, Load your patient data as JSON.
 
 ```
-import RankGenerator from './RankGenerator'
+import RankGenerator from '@jahmezz/patient-ranker/RankGenerator'
 let patientRanker = new RankGenerator();
 patientRanker.loadPatientData({your patient data});
 ```
