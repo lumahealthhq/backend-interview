@@ -11,7 +11,7 @@ class PatientController {
         request.body.patients || PatientsGenerator.call(randomPatientsQty);
       const patientsRank = PatientsRanker.call(patients, facilityLocation);
 
-      return response.status(200).json(patientsRank);
+      return response.status(200).json(patientsRank.reverse());
     } catch (error) {
       return response.status(500).json({ error: error.message });
     }
