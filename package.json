@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/raphaelcleto/backend-interview/issues"
   },
-  "homepage": "https://github.com/raphaelcleto/backend-interview#readme"
+  "homepage": "https://github.com/raphaelcleto/backend-interview#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2"
+  }
 }
