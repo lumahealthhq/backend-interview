@@ -27,7 +27,8 @@
 
 > GET /patients/rank
 
-| Property                    | Type                               |
-| --------------------------- | ---------------------------------- |
-| facilityLocation (required) | object with latitude and longitude |
-| patients (optional)         | array of patients objects          |
+| Property                    | Type                                              |
+| --------------------------- | ------------------------------------------------- |
+| facilityLocation (required) | object with latitude and longitude                |
+| patients (optional)         | array of patients objects                         |
+| patientsQty (optional)      | number of patients objects that will be generated |
