@@ -44,7 +44,7 @@ describe('Patient', () => {
 
     const firstPatientScore = response.body[0].score;
 
-    expect(firstPatientScore).toBe(10);
+    expect(+firstPatientScore.toFixed()).toBe(10);
   });
 
   it('should return at least one patient with score 1', async () => {
@@ -54,6 +54,6 @@ describe('Patient', () => {
 
     const firstPatientScore = response.body[9].score;
 
-    expect(firstPatientScore).toBe(1);
+    expect(+firstPatientScore.toFixed()).toBe(1);
   });
 });
