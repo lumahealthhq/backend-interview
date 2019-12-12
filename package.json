@@ -4,7 +4,9 @@
   "description": "## Problem Definition",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/Server.js",
+    "start": "node ./src/Server.js"
   },
   "repository": {
     "type": "git",
