@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/raphaelcleto/backend-interview#readme",
   "devDependencies": {
-    "eslint": "^6.7.2"
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1"
   }
 }
