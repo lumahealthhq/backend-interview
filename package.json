@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/raphaelcleto/backend-interview#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.23",
     "eslint": "^6.7.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.7.0",
