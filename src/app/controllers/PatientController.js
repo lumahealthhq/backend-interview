@@ -1,12 +1,22 @@
+const yup = require('yup');
 const PatientsGenerator = require('../../services/PatientsGenerator');
 const PatientsRanker = require('../../services/PatientsRanker');
 
 class PatientController {
-  patientsRank(request, response) {
+  async patientsRank(request, response) {
     try {
-      const { facilityLocation } = request.body;
+      const schema = yup.object().shape({
+        facilityLocation: yup.object().required(),
+        patientsQty: yup.number().min(10),
+      });
 
-      const randomPatientsQty = 30;
+      const isSchemaValid = await schema.isValid(request.body);
+      if (!isSchemaValid)
+        return response.status(400).json({ error: 'Wrong request format' });
+
+      const { facilityLocation, patientsQty } = request.body;
+
+      const randomPatientsQty = patientsQty || 30;
       const patients =
         request.body.patients || PatientsGenerator.call(randomPatientsQty);
       const patientsRank = PatientsRanker.call(patients, facilityLocation);
