@@ -1,37 +1,33 @@
-# Luma Technical Interview
+# Luma Health - Back-end Test Solution
 
-## Problem Definition
+## Running the code
 
-A busy hospital has a list of patients waiting to see a doctor. The waitlist is created sequentially (e.g. patients are added in a fifo order) from the time the patient calls.  Once there is an availability, the front desk calls each patient to offer the appointment in the order they were added to the waitlist. The staff member from the front desk has noticed that she wastes a lot of time trying to find a patient from the waitlist since they&#39;re often not available, don&#39;t pick up the phone, etc.  She would like to generate a better list that will increase her chances of finding a patient in the first few calls.
+**Install all npm modules**
 
-## Interview Task
+`npm install`
 
-Given patient demographics and behavioral data (see sample-data/patients.json), create an algorithm that will process a set of historical patient data and compute a score for each patient that (1 as the lowest, 10 as the highest) that represents the chance of a patient accepting the offer off the waitlist. Take in consideration that patients who have little behavior data should be randomly added to the top list as to give them a chance to be selected. Expose an api that takes a facility's location as input and returns an ordered list of 10 patients who will most likely accept the appointment offer.
+**Initialize the server**
 
-## Weighting Categories
+`npm start`
 
-Demographic
+## Process description
 
-- age  (weighted 10%)
-- distance to practice (weighted 10%)
+- The API user should pass the `facilityLocation` latitude and longitude as request body to `/patients/rank` route
+  - The user can also pass a patients list inside the request.body, otherwise, the PatientsGenerator service will be called and generate 30 random patients
+- The PatientsRanker service will be called and will do the magic
 
-Behavior
+## The magic behind PatientsRanker service
 
-- number of accepted offers (weighted 30%)
-- number of cancelled offers (weighted 30%)
-- reply time (how long it took for patients to reply) (weighted 20%)
+1. Calls scoreAllPatients() method, that will calculate each patient score based on categories weights;
+2. Calls .sortPatients() method that will sort all patients based on theirs scores;
+3. Then, it will generated a limited list (just a slice of the original array - only 10 patients with more score);
+4. Calls ScoreNormalizer to each limitedOrderedList (it uses the https://en.wikipedia.org/wiki/Feature_scaling formula to rescaling inside the grade range - 1 to 10 points).
 
-## Patient Model
+## Endpoint
 
-- ID
-- Age (in years)
-- location
-  - Lat
-  - long
-- acceptedOffers (integer)
-- canceledOffers (integer)
-- averageReplyTime (integer, in seconds)
+> GET /patients/rank
 
-## Deliverables
-
-The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+| Property                    | Type                               |
+| --------------------------- | ---------------------------------- |
+| facilityLocation (required) | object with latitude and longitude |
+| patients (optional)         | array of patients objects          |
