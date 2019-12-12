@@ -1,0 +1,20 @@
+{
+  "name": "backend-interview",
+  "version": "1.0.0",
+  "description": "## Problem Definition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelcleto/backend-interview.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raphaelcleto/backend-interview/issues"
+  },
+  "homepage": "https://github.com/raphaelcleto/backend-interview#readme"
+}
