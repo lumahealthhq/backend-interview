@@ -1,0 +1,4 @@
+.coverage
+dist/
+patient_sorting.egg-info/
+.vscode/

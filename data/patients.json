@@ -1,0 +1,14 @@
+[
+    {
+        "id": "792f1ff2-0f47-4c01-8253-662d38b088dd",
+        "name": "Test",
+        "age": 0,
+        "location": {
+            "latitude": "0.0",
+            "longitude": "0.0"
+        },
+        "acceptedOffers": 0,
+        "canceledOffers": 0,
+        "averageReplyTime": 0
+    }
+]

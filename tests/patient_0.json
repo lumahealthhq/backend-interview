@@ -1,0 +1,14 @@
+[
+    {
+        "id": "da91200d-1df8-4460-9b9c-342d92d87ca9",
+        "name": "John Doe",
+        "age": 0,
+        "location": {
+            "latitude": 0,
+            "longitude": 0
+        },
+        "acceptedOffers": 0,
+        "canceledOffers": 0,
+        "averageReplyTime": 0
+    }
+]
