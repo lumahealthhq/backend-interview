@@ -1,602 +1,602 @@
 [
     {
-        "id": "da91200d-1df8-4460-9b9c-342d92d87ca9",
-        "name": "Tyler Morton",
-        "age": 69,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 32,
-        "canceledOffers": 77,
-        "averageReplyTime": 3490
-    },
-    {
-        "id": "b6fc0951-304a-46c1-b50c-279880e1450a",
-        "name": "Craig Copeland",
-        "age": 69,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 34,
-        "canceledOffers": 99,
-        "averageReplyTime": 1738
-    },
-    {
-        "id": "ea49221e-69c7-4de6-abdb-17b2ba4c0dd6",
-        "name": "Kathleen Owens",
-        "age": 80,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 21,
-        "canceledOffers": 15,
-        "averageReplyTime": 3439
-    },
-    {
-        "id": "3294f80a-bfbe-48cd-afef-9ad71917c582",
-        "name": "Rodney Gonzales",
-        "age": 31,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 23,
-        "canceledOffers": 23,
-        "averageReplyTime": 2076
-    },
-    {
-        "id": "d284e178-2866-4ff2-a8af-aa1dc9f74cde",
-        "name": "George Meyer",
-        "age": 25,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 46,
-        "canceledOffers": 92,
-        "averageReplyTime": 744
-    },
-    {
-        "id": "6fdaac87-7c4b-4e94-968d-64ea43ff665e",
-        "name": "Charles Rocha",
-        "age": 62,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 96,
-        "canceledOffers": 51,
-        "averageReplyTime": 1368
-    },
-    {
-        "id": "b0d270e6-aa4e-4b81-b78e-2709b3eedc04",
-        "name": "Christine Herrera",
-        "age": 35,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 39,
-        "canceledOffers": 96,
-        "averageReplyTime": 1051
-    },
-    {
-        "id": "1c382704-b8e2-4d09-97a3-7b633cb76c95",
-        "name": "Elizabeth Henderson",
-        "age": 77,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 46,
-        "canceledOffers": 43,
-        "averageReplyTime": 2040
-    },
-    {
-        "id": "642c14ff-fb6c-4651-8c33-272e9646cf43",
-        "name": "Vanessa Lam",
-        "age": 29,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 17,
-        "canceledOffers": 86,
-        "averageReplyTime": 1447
-    },
-    {
-        "id": "b7690e0c-34cf-4af9-ad63-078727dad65d",
-        "name": "John Smith",
-        "age": 82,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 11,
-        "canceledOffers": 27,
-        "averageReplyTime": 1979
-    },
-    {
-        "id": "2c774e5a-9cea-4a72-8352-f0d4800d5839",
-        "name": "Christopher Hopkins",
-        "age": 85,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 20,
-        "canceledOffers": 44,
-        "averageReplyTime": 2308
-    },
-    {
-        "id": "bfc80677-bd1b-4ff7-b6e2-396b0bc5e587",
-        "name": "Emily Graham",
-        "age": 21,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 62,
-        "canceledOffers": 79,
-        "averageReplyTime": 600
-    },
-    {
-        "id": "f430ea92-81f1-4777-abaf-f1d615c8c3e7",
-        "name": "Bobby Armstrong",
-        "age": 47,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 13,
-        "canceledOffers": 77,
-        "averageReplyTime": 1330
-    },
-    {
-        "id": "f328f010-7ae0-43cd-8e61-3db0c1e71425",
-        "name": "Emily White",
-        "age": 82,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 100,
-        "canceledOffers": 81,
-        "averageReplyTime": 3468
-    },
-    {
-        "id": "d80264d7-9130-4ed7-94ec-fccc43578ec6",
-        "name": "Chad Mitchell",
-        "age": 79,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 63,
-        "canceledOffers": 88,
-        "averageReplyTime": 384
-    },
-    {
-        "id": "e2688ce5-c462-44a5-95d4-b167abcdf887",
-        "name": "Michael Franco",
-        "age": 75,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 85,
-        "canceledOffers": 20,
-        "averageReplyTime": 433
-    },
-    {
-        "id": "a3e7c71a-eff8-46eb-b209-7f3f1f66ebe3",
-        "name": "Jeffrey Austin",
-        "age": 80,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 73,
-        "canceledOffers": 57,
-        "averageReplyTime": 175
-    },
-    {
-        "id": "5130ad29-8a0b-48e6-818d-1831b49e4264",
-        "name": "Amy Baker",
-        "age": 74,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 1,
-        "canceledOffers": 45,
-        "averageReplyTime": 1472
-    },
-    {
-        "id": "cc644d42-ece3-43dc-903f-62cb5a30c55f",
-        "name": "Heather Obrien",
-        "age": 81,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 80,
-        "canceledOffers": 19,
-        "averageReplyTime": 3409
-    },
-    {
-        "id": "39d0638f-8d3c-430a-88bd-bc217082830a",
-        "name": "Christopher Bullock",
-        "age": 38,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 44,
-        "canceledOffers": 59,
-        "averageReplyTime": 1956
-    },
-    {
-        "id": "ad75490c-9dfc-478c-b087-dd42c8a7bb9e",
-        "name": "Jason Edwards",
-        "age": 73,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 58,
-        "canceledOffers": 26,
-        "averageReplyTime": 1573
-    },
-    {
-        "id": "ea00883a-6237-4b25-b64d-0bfaf96705c6",
-        "name": "Christina Cooper DDS",
-        "age": 67,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 69,
-        "canceledOffers": 6,
-        "averageReplyTime": 1697
-    },
-    {
-        "id": "29e4adb2-9453-4c75-8d61-081572d83422",
-        "name": "Kari Hill",
-        "age": 88,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 40,
-        "canceledOffers": 61,
-        "averageReplyTime": 504
-    },
-    {
-        "id": "179fa2b2-fb69-43df-b4df-8ec055c59e5b",
-        "name": "Andrew Daniel",
-        "age": 54,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 0,
-        "canceledOffers": 91,
-        "averageReplyTime": 377
-    },
-    {
-        "id": "12d8cc1b-30ab-4dd8-bfba-481ec39ffc0c",
-        "name": "Edward Ibarra",
-        "age": 57,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 97,
-        "canceledOffers": 83,
-        "averageReplyTime": 3207
-    },
-    {
-        "id": "9932af1c-dd16-4659-bbaf-805a8e90a8c6",
-        "name": "Alfred White",
-        "age": 72,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 2,
-        "canceledOffers": 2,
-        "averageReplyTime": 3102
-    },
-    {
-        "id": "9783ca5d-aa22-401b-a89b-14d8e68377da",
-        "name": "Amber Nash",
-        "age": 70,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 99,
-        "canceledOffers": 72,
-        "averageReplyTime": 1327
-    },
-    {
-        "id": "5309dfd6-4d2f-48d6-9747-c3eb6dfa3d6c",
-        "name": "Alexandria Miller",
-        "age": 22,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 6,
-        "canceledOffers": 55,
-        "averageReplyTime": 360
-    },
-    {
-        "id": "ddaa0277-becd-487d-8f87-3e42c6df2460",
-        "name": "Anthony Harper",
-        "age": 61,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 48,
-        "canceledOffers": 9,
-        "averageReplyTime": 2210
-    },
-    {
-        "id": "6d296f4a-b799-4f80-b3ce-efae46a6b0e6",
-        "name": "Becky Martinez",
-        "age": 54,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 93,
-        "canceledOffers": 36,
-        "averageReplyTime": 2358
-    },
-    {
-        "id": "7e8a833c-20d8-4bea-bf27-9128ce39224d",
-        "name": "Carrie Richardson",
-        "age": 32,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 33,
-        "canceledOffers": 42,
-        "averageReplyTime": 2563
-    },
-    {
-        "id": "8ad48c2e-b44f-48a1-bbd3-823996b01c7c",
-        "name": "Adam Jones",
-        "age": 22,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 65,
-        "canceledOffers": 83,
-        "averageReplyTime": 1187
-    },
-    {
-        "id": "6e5e9223-2448-43b3-ba81-1ce432016feb",
-        "name": "Kyle Nelson",
-        "age": 60,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 22,
-        "canceledOffers": 98,
-        "averageReplyTime": 1487
-    },
-    {
-        "id": "65927cf0-86ba-4eba-886d-8887e339e701",
-        "name": "Caitlin Best",
-        "age": 50,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 41,
-        "canceledOffers": 5,
-        "averageReplyTime": 429
-    },
-    {
-        "id": "6d8452e2-4c79-4b94-a05d-033cbeb27e83",
-        "name": "Stephanie Russell",
-        "age": 29,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 96,
-        "canceledOffers": 27,
-        "averageReplyTime": 1096
-    },
-    {
-        "id": "55233e38-aaa5-44f1-9f13-2b50df19416a",
-        "name": "Meghan Castaneda",
-        "age": 71,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 91,
-        "canceledOffers": 48,
-        "averageReplyTime": 105
-    },
-    {
-        "id": "9e58f29b-2f55-47f5-8d52-9863f3ecd242",
-        "name": "Tony Guzman",
-        "age": 27,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 0,
-        "canceledOffers": 11,
-        "averageReplyTime": 1453
-    },
-    {
-        "id": "75714d4d-b853-4f9a-b82d-a8693113c746",
-        "name": "Kayla Carpenter",
-        "age": 47,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 97,
-        "canceledOffers": 36,
-        "averageReplyTime": 2219
-    },
-    {
-        "id": "7f0049c1-ab81-4cde-b80d-7e086b4174da",
-        "name": "Daniel Smith",
-        "age": 73,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 46,
-        "canceledOffers": 57,
-        "averageReplyTime": 1582
-    },
-    {
-        "id": "a7ca01fa-59e5-420e-98b5-ba5c5332032a",
-        "name": "Lisa Padilla",
-        "age": 75,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 28,
-        "canceledOffers": 90,
-        "averageReplyTime": 968
-    },
-    {
-        "id": "0e0f913e-1e70-4c7a-b547-a9c201fd5913",
-        "name": "Tiffany Webb",
-        "age": 77,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 9,
-        "canceledOffers": 88,
-        "averageReplyTime": 3522
-    },
-    {
-        "id": "dc869e8d-655f-4367-ba32-49ea93933f2f",
-        "name": "Megan Young",
-        "age": 30,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 38,
-        "canceledOffers": 15,
-        "averageReplyTime": 3084
-    },
-    {
-        "id": "681a26fa-552f-4387-8026-3e4c248e45ba",
-        "name": "Glen Rosales",
-        "age": 41,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 69,
-        "canceledOffers": 29,
-        "averageReplyTime": 3490
-    },
-    {
-        "id": "db876a0a-0a8f-4684-b886-69ae6e9ec6ca",
-        "name": "Joel Spears",
-        "age": 79,
-        "location": {
-            "latitude": "36.06523",
-            "longitude": "-119.01677"
-        },
-        "acceptedOffers": 73,
-        "canceledOffers": 63,
-        "averageReplyTime": 2017
-    },
-    {
-        "id": "aa1dcafc-5b0b-4360-98be-90f2ae2cdf18",
-        "name": "Crystal Smith",
-        "age": 52,
-        "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
-        },
-        "acceptedOffers": 27,
-        "canceledOffers": 88,
-        "averageReplyTime": 2997
-    },
-    {
-        "id": "4807c3b6-d0f7-4793-864f-28e6c3d4dc90",
-        "name": "Hannah Mcclain",
+        "id": "94b7a900-7b19-4b49-9ed3-439f95c66af6",
+        "name": "Carol Kim",
         "age": 78,
         "location": {
             "latitude": "37.73604",
             "longitude": "-120.93549"
         },
-        "acceptedOffers": 35,
-        "canceledOffers": 28,
-        "averageReplyTime": 342
+        "acceptedOffers": 13,
+        "canceledOffers": 81,
+        "averageReplyTime": 404
     },
     {
-        "id": "61b8e027-70dd-42d1-8bad-ea97f9b56ea2",
-        "name": "Ashley Garcia",
-        "age": 54,
+        "id": "8b747729-62d8-4a9f-bb57-456fe3885894",
+        "name": "Joshua Hall",
+        "age": 30,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 24,
+        "canceledOffers": 29,
+        "averageReplyTime": 1558
+    },
+    {
+        "id": "8209830b-73a3-425d-8a42-e6c7c4593d72",
+        "name": "Ann Frank",
+        "age": 58,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 18,
+        "canceledOffers": 55,
+        "averageReplyTime": 1050
+    },
+    {
+        "id": "abd354cc-0c63-45e0-8103-bf86450d27e7",
+        "name": "Donna Zuniga",
+        "age": 39,
         "location": {
             "latitude": "37.73604",
             "longitude": "-120.93549"
         },
-        "acceptedOffers": 85,
-        "canceledOffers": 18,
-        "averageReplyTime": 3068
+        "acceptedOffers": 71,
+        "canceledOffers": 44,
+        "averageReplyTime": 1202
     },
     {
-        "id": "22993808-0f65-4fb7-8e15-a9b8b7d841b0",
-        "name": "Gary Hughes",
+        "id": "f72fe466-9d31-4a6d-8c4b-bf2da8575179",
+        "name": "Samantha Grant",
+        "age": 52,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 69,
+        "canceledOffers": 38,
+        "averageReplyTime": 560
+    },
+    {
+        "id": "65e8f191-7852-4d9c-a02a-788d163aa302",
+        "name": "Brittany Nelson",
+        "age": 37,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 25,
+        "canceledOffers": 56,
+        "averageReplyTime": 1013
+    },
+    {
+        "id": "1ce809c9-28d9-40ef-bd54-b47e6bb39cd4",
+        "name": "Diane Burgess",
+        "age": 60,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 63,
+        "canceledOffers": 21,
+        "averageReplyTime": 1034
+    },
+    {
+        "id": "c710c21f-50ff-41fa-9b7e-4f14dbced089",
+        "name": "Dana Snyder",
+        "age": 51,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 12,
+        "canceledOffers": 74,
+        "averageReplyTime": 3219
+    },
+    {
+        "id": "e8f676ce-80f6-4928-9b5b-5e7541dbb9dc",
+        "name": "Jonathan Phillips",
+        "age": 71,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 23,
+        "canceledOffers": 68,
+        "averageReplyTime": 2365
+    },
+    {
+        "id": "8b510367-855f-4de2-b841-eb215729b8ca",
+        "name": "Anne Park",
+        "age": 26,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 12,
+        "canceledOffers": 52,
+        "averageReplyTime": 921
+    },
+    {
+        "id": "282e255d-a950-425b-8091-2c6289bb69e7",
+        "name": "Michael Patrick",
+        "age": 28,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 61,
+        "canceledOffers": 99,
+        "averageReplyTime": 1402
+    },
+    {
+        "id": "9f125dfc-fba5-4a54-86ef-caf63054c538",
+        "name": "Christopher Salazar",
+        "age": 27,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 79,
+        "canceledOffers": 45,
+        "averageReplyTime": 339
+    },
+    {
+        "id": "33a963a4-90dc-4b80-afd8-f58ad9b0b422",
+        "name": "Christopher Flores",
+        "age": 55,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 13,
+        "canceledOffers": 29,
+        "averageReplyTime": 1189
+    },
+    {
+        "id": "49e57cc4-aa88-4161-8b47-bf9d0e5ed4e8",
+        "name": "Melissa Waller",
+        "age": 50,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 18,
+        "canceledOffers": 84,
+        "averageReplyTime": 2177
+    },
+    {
+        "id": "781dde53-b559-4d3b-af6b-c28db66caba5",
+        "name": "Danielle Mason",
+        "age": 77,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 65,
+        "canceledOffers": 90,
+        "averageReplyTime": 769
+    },
+    {
+        "id": "d594d425-d877-48db-a10b-07c5d53473d2",
+        "name": "Carol Trevino",
+        "age": 48,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 31,
+        "canceledOffers": 15,
+        "averageReplyTime": 1254
+    },
+    {
+        "id": "be237695-28ed-43fb-9aa1-eb5adbb02704",
+        "name": "Brian Brown",
+        "age": 89,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 37,
+        "canceledOffers": 38,
+        "averageReplyTime": 3459
+    },
+    {
+        "id": "8b63b970-a6f0-48da-add9-02ebde1fec31",
+        "name": "Benjamin Caldwell",
+        "age": 36,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 5,
+        "canceledOffers": 69,
+        "averageReplyTime": 1095
+    },
+    {
+        "id": "53cc1852-a2f5-4720-8daa-de4bcda269d4",
+        "name": "Laurie Howard",
+        "age": 75,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 3,
+        "canceledOffers": 75,
+        "averageReplyTime": 2326
+    },
+    {
+        "id": "929d98a7-0435-41a4-8b36-c4fe954091f8",
+        "name": "Matthew Lyons Jr.",
+        "age": 85,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 68,
+        "canceledOffers": 86,
+        "averageReplyTime": 728
+    },
+    {
+        "id": "b51148f5-a53c-47e0-b029-c6e40b4905c9",
+        "name": "Katherine Brown",
+        "age": 57,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 46,
+        "canceledOffers": 48,
+        "averageReplyTime": 1073
+    },
+    {
+        "id": "f10b69ca-898a-4b05-b205-f7a35f154de9",
+        "name": "Andrew Anderson",
+        "age": 44,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 23,
+        "canceledOffers": 4,
+        "averageReplyTime": 1943
+    },
+    {
+        "id": "ebfcfc35-4af3-4746-8df4-0e6a4ee0c83e",
+        "name": "Dennis Smith",
+        "age": 62,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 82,
+        "canceledOffers": 90,
+        "averageReplyTime": 3127
+    },
+    {
+        "id": "dcd9c3eb-22ab-4207-86b4-2707d4c5a1dd",
+        "name": "Henry Kelly",
+        "age": 30,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 94,
+        "canceledOffers": 13,
+        "averageReplyTime": 1861
+    },
+    {
+        "id": "2967a505-6223-41db-bca8-c55465d5e0e0",
+        "name": "James Crawford",
+        "age": 23,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 16,
+        "canceledOffers": 72,
+        "averageReplyTime": 512
+    },
+    {
+        "id": "dabd91a8-8915-40b3-bba3-9b013cbbf951",
+        "name": "Alyssa Elliott",
+        "age": 70,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 3,
+        "canceledOffers": 81,
+        "averageReplyTime": 3495
+    },
+    {
+        "id": "167d7f09-32a0-4f97-a925-f534f3ace007",
+        "name": "Kathryn Ray DDS",
+        "age": 83,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 44,
+        "canceledOffers": 32,
+        "averageReplyTime": 2683
+    },
+    {
+        "id": "33650437-913e-49ab-9270-ec0147596c96",
+        "name": "Angela Peterson",
+        "age": 77,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 87,
+        "canceledOffers": 51,
+        "averageReplyTime": 3031
+    },
+    {
+        "id": "8dc453a0-b190-414a-abef-d064571860f7",
+        "name": "William Ballard",
+        "age": 34,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 88,
+        "canceledOffers": 85,
+        "averageReplyTime": 380
+    },
+    {
+        "id": "1f23b2e6-27ab-4344-886c-803d045d6a35",
+        "name": "Melissa Booth",
+        "age": 64,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 11,
+        "canceledOffers": 49,
+        "averageReplyTime": 827
+    },
+    {
+        "id": "6b34a969-3f39-4688-9246-62610005f2c2",
+        "name": "Laura Reynolds",
+        "age": 65,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 8,
+        "canceledOffers": 82,
+        "averageReplyTime": 1290
+    },
+    {
+        "id": "d42861f6-ea82-43f3-9f52-7660ac2cb126",
+        "name": "Angel Miller",
+        "age": 27,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 67,
+        "canceledOffers": 45,
+        "averageReplyTime": 1195
+    },
+    {
+        "id": "f93960df-b847-4fee-b0c2-9fec320ff13f",
+        "name": "Brandon Brown",
+        "age": 50,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 17,
+        "canceledOffers": 63,
+        "averageReplyTime": 1806
+    },
+    {
+        "id": "00158972-9fba-4af5-9e72-1cddbd4d4b3d",
+        "name": "Russell Tucker",
+        "age": 29,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 18,
+        "canceledOffers": 40,
+        "averageReplyTime": 2525
+    },
+    {
+        "id": "e679eba4-f887-4177-8b48-498134991942",
+        "name": "Michelle Velasquez MD",
+        "age": 57,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 65,
+        "canceledOffers": 15,
+        "averageReplyTime": 3441
+    },
+    {
+        "id": "582743e9-ea1f-41ef-aacc-034a940eb4ea",
+        "name": "Paul Blake",
+        "age": 60,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 2,
+        "canceledOffers": 86,
+        "averageReplyTime": 509
+    },
+    {
+        "id": "3038d3ec-e900-47fa-a37c-fd07712a26b7",
+        "name": "Ashley Guzman",
+        "age": 36,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 43,
+        "canceledOffers": 9,
+        "averageReplyTime": 4
+    },
+    {
+        "id": "68967767-3758-4792-9ef7-783bee3726e3",
+        "name": "Kim Bradford",
+        "age": 63,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 53,
+        "canceledOffers": 90,
+        "averageReplyTime": 352
+    },
+    {
+        "id": "26ae4786-409a-48d3-a9e2-bd5381ff48e1",
+        "name": "Jennifer Ramirez",
+        "age": 61,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 66,
+        "canceledOffers": 61,
+        "averageReplyTime": 2333
+    },
+    {
+        "id": "645c5c59-5d2d-423f-9bdc-442451282c5a",
+        "name": "Melissa Sullivan",
+        "age": 43,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 56,
+        "canceledOffers": 84,
+        "averageReplyTime": 1246
+    },
+    {
+        "id": "7c053316-d300-450c-872d-0d0570c5e2d5",
+        "name": "Holly Allen",
+        "age": 89,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 89,
+        "canceledOffers": 22,
+        "averageReplyTime": 2931
+    },
+    {
+        "id": "25b2b4d4-fba2-4650-a2c0-919d49e8732f",
+        "name": "Alice Miller",
+        "age": 44,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 55,
+        "canceledOffers": 50,
+        "averageReplyTime": 901
+    },
+    {
+        "id": "95c87d0c-2fa4-4ca6-a60e-3e2e49f4925a",
+        "name": "Amanda Elliott",
+        "age": 46,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 4,
+        "canceledOffers": 93,
+        "averageReplyTime": 2802
+    },
+    {
+        "id": "e11c8f39-72b3-4edd-a350-680bd188d498",
+        "name": "Jasmin Young",
+        "age": 46,
+        "location": {
+            "latitude": "37.73604",
+            "longitude": "-120.93549"
+        },
+        "acceptedOffers": 93,
+        "canceledOffers": 9,
+        "averageReplyTime": 1383
+    },
+    {
+        "id": "2e5af6fe-21f3-4ff1-883e-2104afaf1107",
+        "name": "Jessica Hughes",
+        "age": 59,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 72,
+        "canceledOffers": 57,
+        "averageReplyTime": 1310
+    },
+    {
+        "id": "41c9bd60-7936-4e72-a8c8-901c641b9137",
+        "name": "Ashley Martin",
+        "age": 43,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 33,
+        "canceledOffers": 98,
+        "averageReplyTime": 3308
+    },
+    {
+        "id": "cee11a52-90fc-40f2-98a0-bd8f45d41f1f",
+        "name": "Brett Lopez",
         "age": 70,
         "location": {
             "latitude": "36.06523",
             "longitude": "-119.01677"
         },
-        "acceptedOffers": 23,
-        "canceledOffers": 30,
-        "averageReplyTime": 63
+        "acceptedOffers": 50,
+        "canceledOffers": 13,
+        "averageReplyTime": 2979
     },
     {
-        "id": "877faf71-8b6b-4c5c-be36-cac917b71602",
-        "name": "Crystal Fields",
-        "age": 72,
+        "id": "3e8ca436-34af-4f0f-93fa-0a911c5d3029",
+        "name": "Eric Miller",
+        "age": 64,
         "location": {
             "latitude": "37.73604",
             "longitude": "-120.93549"
         },
-        "acceptedOffers": 22,
-        "canceledOffers": 59,
-        "averageReplyTime": 3507
+        "acceptedOffers": 21,
+        "canceledOffers": 71,
+        "averageReplyTime": 890
     },
     {
-        "id": "5285fdf2-7368-4e88-8988-82c1566414ce",
-        "name": "Amy Bradford",
-        "age": 58,
+        "id": "03236119-7a34-45b5-be40-d145f85c25e5",
+        "name": "Amy Frost",
+        "age": 21,
         "location": {
-            "latitude": "37.73604",
-            "longitude": "-120.93549"
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
         },
-        "acceptedOffers": 1,
-        "canceledOffers": 61,
-        "averageReplyTime": 3371
+        "acceptedOffers": 90,
+        "canceledOffers": 9,
+        "averageReplyTime": 1212
+    },
+    {
+        "id": "bbd284a6-ea72-4f3b-9564-998bb84d1e05",
+        "name": "Tina Frazier",
+        "age": 25,
+        "location": {
+            "latitude": "36.06523",
+            "longitude": "-119.01677"
+        },
+        "acceptedOffers": 10,
+        "canceledOffers": 65,
+        "averageReplyTime": 1399
     }
 ]

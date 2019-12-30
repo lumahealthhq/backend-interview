@@ -53,7 +53,14 @@ def get_random_low_score(datafile, lat, lon):
     """Get a single entry with a score < 5.0."""
     df = normalize_score_and_renormalize(
         load_from_file(datafile, lat, lon))
-    return df.query('score <= 5.0').sample()
+    df = df.query('score <= 5.0').sample()
+    return df
+
+
+def get_mostly_top_scores(datafile, lat, lon, num):
+    """Get the top N-1 scores, and put a bad score in 1st place."""
+    return get_random_low_score(datafile, lat, lon).append(
+        get_top_scores(datafile, lat, lon, num - 1), sort=False)
 
 
 def load_from_file(datafile, lat, lon):
