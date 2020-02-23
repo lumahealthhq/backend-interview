@@ -1,0 +1,14 @@
+{
+  "name": "waitinglist_challenge",
+  "version": "1.0.0",
+  "description": "nodejs_challenge",
+  "main": "app.js",
+  "author": "André de Souza Medeiros Leal",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "geo-distance": "^0.2.0",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2"
+  }
+}

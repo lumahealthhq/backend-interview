@@ -1,0 +1,3 @@
+Server: lumahealth.mysql.dbaas.com.br
+user: lumahealth
+pass: Lum@H3alth#
