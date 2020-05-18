@@ -1,0 +1,17 @@
+# compressed files
+*.tar.gz
+*.tar
+*.zip
+*.7z
+
+# resources
+node_modules/
+package-lock.json
+
+# tmp files
+*.temp
+*.tmp
+*.autosave
+*\~
+*.lock
+*.lck

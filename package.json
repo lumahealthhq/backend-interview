@@ -1,0 +1,48 @@
+{
+  "name": "backend-interview",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node --harmony server/cluster.js",
+    "test": "DB_PATH=./test/fixtures.json SERVER_API_PORT=9999 NODE_ENV=test node --harmony ./node_modules/mocha/bin/mocha --harmony --recursive --exit ./test/bootstrap.js ./test/server",
+    "test-single": "DB_PATH=./test/fixtures.json SERVER_API_PORT=9999 NODE_ENV=test node --harmony ./node_modules/mocha/bin/mocha --harmony --exit ./test/bootstrap.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumahealthhq/backend-interview.git"
+  },
+  "author": "San 'rdn' Mônico <san@monico.com.br> (https://monico.com.br)",
+  "contributors": [
+    "San 'rdn' Mônico <san@monico.com.br> (https://monico.com.br)"
+  ],
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/lumahealthhq/backend-interview/issues"
+  },
+  "homepage": "https://github.com/lumahealthhq/backend-interview#readme",
+  "os": [
+    "android",
+    "darwin",
+    "linux"
+  ],
+  "engines": {
+    "node": ">=13.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.8.0",
+    "mocha": "^7.1.2",
+    "node-fetch": "^2.6.0"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "frameguard": "^3.1.0",
+    "helmet": "^3.22.0",
+    "referrer-policy": "^1.2.0"
+  }
+}
