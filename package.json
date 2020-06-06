@@ -1,0 +1,24 @@
+{
+  "name": "backend-interview",
+  "version": "1.0.0",
+  "description": "Backend test for Luma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosjmendoza91/backend-interview.git"
+  },
+  "keywords": [
+    "test",
+    "backend",
+    "luma"
+  ],
+  "author": "Carlos Mendoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosjmendoza91/backend-interview/issues"
+  },
+  "homepage": "https://github.com/carlosjmendoza91/backend-interview#readme"
+}
