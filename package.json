@@ -4,7 +4,7 @@
   "description": "Backend test for Luma",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/carlosjmendoza91/backend-interview#readme",
   "dependencies": {
     "geo-distance": "^0.2.0",
+    "mocha": "^7.2.0",
     "underscore": "^1.10.2"
   }
 }
