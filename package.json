@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/carlosjmendoza91/backend-interview/issues"
   },
-  "homepage": "https://github.com/carlosjmendoza91/backend-interview#readme"
+  "homepage": "https://github.com/carlosjmendoza91/backend-interview#readme",
+  "dependencies": {
+    "geo-distance": "^0.2.0",
+    "underscore": "^1.10.2"
+  }
 }
