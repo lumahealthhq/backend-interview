@@ -10,7 +10,7 @@ const HOST = "localhost";
 
 const app = express();
 
-app.get("/v1/generate-patient-list", async (req, res) => {
+app.get("/v1/generate-patients-list", async (req, res) => {
   const lat = Number(req.query.lat);
   const lon = Number(req.query.lon);
 
