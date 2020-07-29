@@ -28,14 +28,14 @@ chai.use(chaiHttp);
 
     });
   
-    describe('/POST grade', () => {
-        it('Verify grade result', (done) => {
+    describe('/POST  patient attendance score', () => {
+        it('Verify patient attendance score ', (done) => {
             let coordenates = { 
                 latitude: 51.5104, 
                 longitude: 7.49397
             }
               chai.request('http://localhost:3100')
-              .post('/api/getbestgradepatients')
+              .post('/api/getpatients')
               .send(coordenates)
               .end((err, res) => {
                   res.should.have.status(200);

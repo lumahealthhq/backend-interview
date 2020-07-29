@@ -64,37 +64,35 @@ exports.setPatients = (req, res )=>{
 
 //function to change the maximum range of the variables that are used to calculate the score
 function updateDataRange(maxAge,maxAcceptedOffers,maxCanceledOffers,maxAverageReplyTime){
-		AppotinmentData.insertMany({ 
-			maxAge:maxAge,
-			maxAcceptedOffers:maxAcceptedOffers,
-			maxCanceledOffers:maxCanceledOffers,
-			maxAverageReplyTime:maxAverageReplyTime
-		}).
-		then(function (docs) {
-		    	docs.forEach(patient=>{
-					setMinMax(patient);
-		    	}); 
-		}).
-		catch(function (err) {
-		    	console.log(err);
-		        res.status(500).send(err);
-		});
+	AppotinmentData.insertMany({ 
+		maxAge:maxAge,
+		maxAcceptedOffers:maxAcceptedOffers,
+		maxCanceledOffers:maxCanceledOffers,
+		maxAverageReplyTime:maxAverageReplyTime
+	}).then(function (docs) {
+		docs.forEach(patient=>{
+			setMinMax(patient);
+		}); 
+	}).catch(function (err) {
+		console.log(err);
+		res.status(500).send(err);
+	});
 }
 
 // retrieve patients list from database
 function getPatients(){
-		return  Patient.find().exec();
+	return  Patient.find().exec();
 	
 }
 
 // function that receive coordenates and return patients with 10 best scores
 exports.getbestgradepatients = (req, res )=>{
-		let coodenates= req.body;
-		getPatients().then((patients) => {
-   				res.json(scoreCalc(patients,coodenates));
-  		}).catch(function (err) {
-				console.log(err);
-				res.status(500).send(err);
+	let coodenates= req.body;
+	getPatients().then((patients) => {
+   		res.json(scoreCalc(patients,coodenates));
+  	}).catch(function (err) {
+		console.log(err);
+		res.status(500).send(err);
 	});
 }
 
@@ -128,19 +126,19 @@ function scoreCalc(patients, coodenates){
 
 //patients with missing data receive that tha will increase their score , therefore they will have a chance
 function normalizePacientData(pacient,hospitalCoordenates){
-		let normalizedPacientData={
-				id:pacient.id,
-				name:pacient.name,
-				age:(pacient.age)?pacient.age : maxAge,
-				acceptedOffers:(pacient.acceptedOffers)?pacient.acceptedOffers : maxAcceptedOffers,
-				canceledOffers:(pacient.canceledOffers)?pacient.canceledOffers : minCanceledOffers,
-				averageReplyTime:(pacient.averageReplyTime)?pacient.averageReplyTime : minAverageReplyTime,
-				location:{
-					latitude:(pacient.location)?pacient.location.latitude : hospitalCoordenates.latitude,
-					longitude:(pacient.location)?pacient.location.longitude : hospitalCoordenates.longitude
-				}
-		};
-		return  normalizedPacientData;
+	let normalizedPacientData={
+		id:pacient.id,
+		name:pacient.name,
+		age:(pacient.age)?pacient.age : maxAge,
+		acceptedOffers:(pacient.acceptedOffers)?pacient.acceptedOffers : maxAcceptedOffers,
+		canceledOffers:(pacient.canceledOffers)?pacient.canceledOffers : minCanceledOffers,
+		averageReplyTime:(pacient.averageReplyTime)?pacient.averageReplyTime : minAverageReplyTime,
+		location:{
+			latitude:(pacient.location)?pacient.location.latitude : hospitalCoordenates.latitude,
+			longitude:(pacient.location)?pacient.location.longitude : hospitalCoordenates.longitude
+		}
+	};
+	return  normalizedPacientData;
 }
 
 

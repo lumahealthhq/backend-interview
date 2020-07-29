@@ -30,7 +30,7 @@ mongoose
 
 app.use('/api', patientRoutes);
 
-const port = 3100 ;
+const port = process.env.PORT ;
 
-  app.listen(port, function () { console.log('Example app listening on port '+port+'!! Go to https://localhost:'+port+'/')});
+  app.listen(port, function () { console.log('backend-interview app listening on port '+port+'!! Go to https://localhost:'+port+'/')});
 
