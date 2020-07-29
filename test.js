@@ -1,6 +1,7 @@
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let should = chai.should();
+var expect = chai.expect;
 
 chai.use(chaiHttp);
 
@@ -20,6 +21,7 @@ chai.use(chaiHttp);
               .send(patients) 
               .end((err, res) => {
                   res.should.have.status(200);
+
                 done();
               });
         });
@@ -38,6 +40,7 @@ chai.use(chaiHttp);
               .end((err, res) => {
                   res.should.have.status(200);
                   res.body.should.be.a('array');
+                  expect(res.body).to.have.length(10);
                 done();
               });
         });
