@@ -35,3 +35,44 @@ Behavior
 ## Deliverables
 
 The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+
+
+## Api Endpoints
+
+
+Post  url =/api/setpatients , parameter = patients[] ,  parameter example	{	"id":"541d25c9-9500-4265-8967-240f44ecf723",
+																				"name":"ramiro",
+																				"age":100,
+																				"acceptedOffers":100,
+																				"canceledOffers":0,
+																				"averageReplyTime":1,
+																				"location":{
+																					"latitude":"32.9053",
+																					"longitude":"7.6264"
+																				}
+																			}
+
+Post  url =/api/getbestgradepatients  ,parameter= coordenates , parameter example 	{ latitude: 51.5104, longitude: 7.49397 }
+
+
+## Api dependencies
+ 	"body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "geolib": "^3.3.1",
+    "mocha": "^8.0.1",
+    "mongoose": "^5.9.26",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.0"
+
+## Api test command
+   npm test
+
+
+
+
