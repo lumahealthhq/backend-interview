@@ -80,15 +80,15 @@ function updateDataRange(maxAge,maxAcceptedOffers,maxCanceledOffers,maxAverageRe
 }
 
 // retrieve patients list from database
-function getPatients(){
+function getPatientsFromDatabase(){
 	return  Patient.find().exec();
 	
 }
 
 // function that receive coordenates and return patients with 10 best scores
-exports.getbestgradepatients = (req, res )=>{
+exports.getpatients = (req, res )=>{
 	let coodenates= req.body;
-	getPatients().then((patients) => {
+	getPatientsFromDatabase().then((patients) => {
    		res.json(scoreCalc(patients,coodenates));
   	}).catch(function (err) {
 		console.log(err);

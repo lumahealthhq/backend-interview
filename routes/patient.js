@@ -10,5 +10,5 @@ const {
 
 
 router.post("/setpatients",setPatients);
-router.post("/getpatients",getbestgradepatients);
+router.post("/getpatients",getpatients);
 module.exports = router;

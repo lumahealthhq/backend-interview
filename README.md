@@ -52,7 +52,7 @@ Post  url =/api/setpatients , parameter = patients[] ,  parameter example	{	"id"
 																				}
 																			}
 
-Post  url =/api/getbestgradepatients  ,parameter= coordenates , parameter example 	{ latitude: 51.5104, longitude: 7.49397 }
+Post  url =/api/getpatients  ,parameter= coordenates , parameter example 	{ latitude: 51.5104, longitude: 7.49397 }
 
 
 ## Api dependencies
