@@ -20,7 +20,6 @@ const patientSchema = new mongoose.Schema(
         location: { 
             type: Object
            
-          
         },
         age: { 
             type: Number,
