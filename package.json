@@ -14,22 +14,11 @@
   },
   "homepage": "https://github.com/lumahealthhq/backend-interview#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "faker": "^4.1.0",
-    "geolib": "^3.3.1",
-    "mocha": "^8.0.1",
-    "mongoose": "^5.9.26",
-    "morgan": "^1.10.0",
+    "patientscore": "file:patientscore",
     "uuid": "^8.3.0"
   },
   "scripts": {
-    "test": "mocha --timeout 100000",
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
