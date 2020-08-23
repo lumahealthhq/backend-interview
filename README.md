@@ -33,6 +33,16 @@ An api that provides a client list recommendation for a given position.
 
   `yarn test`
 
+## Running using Docker
+
+- First, build the image.
+
+  `docker build -t lucaskc/patient-recommender .`
+
+- Then, run using
+
+  `docker run -p 8000:8000 lucaskc/patient-recommender`
+
 # API
 
 Application base URL: /api/v1
