@@ -6,8 +6,9 @@ const NormalizationService = require("./NormalizationService.js");
 /**
  * Class responsible for recommending the top 10 promising patients to accept appointment offers.
  * 
- * @constant {Object} maxMinObj Object that holds features minima and maxima.
- * @property {}
+ * @constant {String[]} featuresToBeNormalized Features to be considered in the normalization process.
+ * @property {Object[]} patients List of patients.
+ * @property {Object} facilityPosition Object that holds a facility position, that is, latitude and longitude values.
  */
 class RecommendationService {
     featuresToBeNormalized = Object.freeze([
@@ -102,7 +103,7 @@ class RecommendationService {
     /**
      * Returns the 10 patients that will most likely accept an appointment offer.
      * The 7 first patients selected are the ones with the best total score value, which goes from 1 to 10.
-     * The 3 remaining ones are ramdomly chosen by taking in consideration the ones with the greatest demographic value.
+     * The 3 remaining ones are randomly chosen by taking into consideration the ones with the greatest demographic value.
      * 
      * @returns {PatientWrapper[]} The top 10 recommended patients.
      */
@@ -148,7 +149,7 @@ class RecommendationService {
 
     /**
      * Determines the size, in percentage, that is going to be used to cut the patients left in order to 
-     * ramdomly pick the 3 last patients.
+     * randomly pick the 3 last patients.
      * 
      * It starts from 0.1 (10%). If the slice size (multiplier times the number of patients left) is less than 3, 
      * it adds 10% until it reaches 3.
@@ -156,7 +157,7 @@ class RecommendationService {
      *
      * @param {Number} patientsLeft Size of the list containing Patient Wrappers that were not recommended yet.
      * @returns A percentage multiplier (from 0.1 to 1) that determines the patient list size we're using to 
-     * ramdomly pick the last 3 patients.
+     * randomly pick the last 3 patients.
      */
     determineSliceMultiplier(patientsLeft) {
         // Selecting an appropriate value of x so that the resulting set contains enough patients for our random selection.

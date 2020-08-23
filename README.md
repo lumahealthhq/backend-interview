@@ -81,6 +81,6 @@ Application base URL: /api/v1
 
 # Implementation decisions
 
-- For the recommendation, it was decided to pick the first 7 patients with the highest score (behavior score + demographic score). The 3 other ones are picked randomly within a slice of the left patients with the highest demographic score (instead of just choosing the ones with smallest behavior scores). By taking this decision, I'm focusing on recommending the more promising ones while not disconsidering the ones with smallest behavior scores as well.
+- For the recommendation, the first 7 patients with the highest score (behavior score + demographic score) are chosen. The 3 other ones are picked randomly within a slice of the left patients with the highest demographic score (instead of just choosing the ones with smallest behavior scores). By taking this decision, I'm focusing on recommending the more promising ones disconsidering behavior scores. This allows promising candidates, even with low behavior scores, to be selected.
 
 - Added the dependency **rimraf**. If you want to import this project, you should add `"postinstall": "rimraf src/server app.js"` within "scripts" in the `package.json` file before running `yarn install`. This will remove unnecessary files after the installation.
