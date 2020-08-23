@@ -128,13 +128,13 @@ class RecommendationService {
         // Select an appropriate value of x so that the resulting set contains enough patients for our random selection.
         let x = 0.1;
         while (
-            Math.floor(x * bestDemographicScoresLeft.length) < 3 &&
+            Math.ceil(x * bestDemographicScoresLeft.length) < 3 &&
             !(Math.abs(x - 1) < 0.01)
         ) {
             x += 0.1;
         }
 
-        const sliceSize = Math.floor(x * bestDemographicScoresLeft.length);
+        const sliceSize = Math.ceil(x * bestDemographicScoresLeft.length);
 
         const restRecommended = new Set();
         // We need to check if restRecommended.size is less than the slice size because the random method
