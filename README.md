@@ -6,8 +6,8 @@ An api that provides a client list recommendation for a given position.
 
 ## Prerequisites
 
-- Node
-- Yarn
+- Node (v14.8.0 or higher)
+- Yarn (v1.22.4 or higher)
 
 ## Running
 
