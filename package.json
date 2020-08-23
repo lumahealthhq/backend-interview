@@ -1,0 +1,31 @@
+{
+    "name": "patient-recomender",
+    "version": "1.0.0",
+    "description": "An api that provides a client list recommendation for a given position.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "jest"
+    },
+    "repository": "https://github.com/lucaskc/patient-recomender.git",
+    "author": "Lucas Crocomo <lucas.crocomo@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@jest/globals": "^26.4.2",
+        "express": "^4.17.1",
+        "rimraf": "^3.0.2",
+        "spherical-geometry-js": "2.0.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.7.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jest": "^23.20.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.0",
+        "prettier": "^2.0.5",
+        "supertest": "^4.0.2"
+    }
+}
