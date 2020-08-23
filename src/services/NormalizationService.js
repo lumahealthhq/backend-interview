@@ -1,6 +1,5 @@
 const { capitalizeFirstLetter } = require("../utils/utils.js");
 const PatientWrapper = require("../models/PatientWrapper.js");
-const PatientWrapper = require("../models/PatientWrapper.js");
 
 /**
  * Class responsible for providing Minimax normalization functionality.
