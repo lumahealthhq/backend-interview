@@ -1,5 +1,5 @@
 {
-  "name": "patient-recomender",
+  "name": "patient-recommender",
   "version": "1.0.0",
   "description": "An api that provides a client list recommendation for a given position.",
   "main": "index.js",
