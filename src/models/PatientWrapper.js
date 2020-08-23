@@ -9,16 +9,22 @@ class PatientWrapper {
     // Computed values.
     distanceToFacility;
 
+    // Object that stores behavior, demographic and total score (behavior + demographic).
     scores;
 
+    // Normalized age.
     normAge;
 
+    // Normalized number of accepted offers.
     normAcceptedOffers;
 
+    // Normalized number of canceled offers.
     normCanceledOffers;
 
+    // Normalized average reply time.
     normAverageReplyTime;
 
+    // Normalized distance to facility. This is the first field to be set.
     normDistanceToFacility;
 
     constructor(patient) {

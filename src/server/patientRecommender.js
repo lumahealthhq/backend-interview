@@ -9,7 +9,6 @@ router.get("/ping", (req, res) => res.send("pong"));
 router.get("/queue", (req, res) => {
     let { latitude, longitude } = req.query;
 
-    // eslint-disable-next-line eqeqeq
     if (
         latitude === "" ||
         longitude === "" ||
@@ -44,7 +43,7 @@ router.get("/queue", (req, res) => {
 
         return res.status(200).json(recommendedPatients);
     } catch (e) {
-        // eslint-disable-next-line no-console
+
         console.error(e);
         return res
             .status(500)

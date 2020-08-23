@@ -1,6 +1,17 @@
 const { capitalizeFirstLetter } = require("../utils/utils.js");
+const PatientWrapper = require("../models/PatientWrapper.js");
+const PatientWrapper = require("../models/PatientWrapper.js");
 
+/**
+ * Class responsible for providing Minimax normalization functionality.
+ */
 class NormalizationService {
+
+    /**
+     * Constructs a NormalizationService.
+     * 
+     * @param {String[]} featuresToNormalize Features to be considered in the normalization process.
+     */
     constructor(featuresToNormalize) {
         this.featuresToNormalize = featuresToNormalize;
 
@@ -18,17 +29,27 @@ class NormalizationService {
         };
     }
 
+    /**
+     * Given a list of patient wrappers, returns a processed list containing all patients 
+     * filled with the computed normalization fields.
+     * 
+     * @param {PatientWrapper[]} patientWs List of patient wrappers.
+     * @return {PatientWrapper[]} List of patient wrapper updated with normalization fields.
+     */
     normalize(patientWs) {
-        const filledMaxMinObj = this._setMinMaxForAllPatients(
-            patientWs,
-            this.maxMinObj
-        );
+        this._setMinMaxForAllPatients(patientWs, this.maxMinObj);
 
-        this._normalizeFeatures(patientWs, filledMaxMinObj);
+        this._normalizeFeatures(patientWs, this.maxMinObj);
 
         return patientWs;
     }
 
+    /**
+     * Populates maxMinObj with minima and maxima considering the features to normalize.
+     * 
+     * @param {PatientWrapper[]} patientWs List of patient wrappers.
+     * @param {Object} maxMinObj Object that holds features minima and maxima.
+     */
     _setMinMaxForAllPatients(patientWs, maxMinObj) {
         const self = this;
         patientWs.forEach((patient) =>
@@ -40,10 +61,17 @@ class NormalizationService {
                 );
             })
         );
-
-        return maxMinObj;
     }
 
+    /**
+     * Compares the patient feature value to the current maximum and minimum find so far.
+     * If it's lesser than the current minimum or greater than the current maximum,
+     * UPDATES maxMinObj, setting them as the new ones.
+     * 
+     * @param {String} featureName The feature name.
+     * @param {Object} maxMinObj Object that holds features minima and maxima.
+     * @param {PatientWrapper} patientW The patient wrapper.
+     */
     static _setFeatureMinMax(featureName, maxMinObj, patientW) {
         const firstLetterCapitalizedFeature = capitalizeFirstLetter(
             featureName
@@ -63,6 +91,12 @@ class NormalizationService {
         }
     }
 
+    /**
+     * Normalizes the features and fills the patients within patientWs taking in consideration maxMinObj.
+     * 
+     * @param {PatientWrapper[]} patientWs List of patient wrappers.
+     * @param {*} maxMinObj Object that holds features minima and maxima.
+     */
     _normalizeFeatures(patientWs, maxMinObj) {
         const self = this;
         patientWs.forEach((pw) =>
@@ -84,7 +118,7 @@ class NormalizationService {
                 pw[featureNormName] =
                     1 +
                     ((featureValue - minFeatureValue) * (10 - 1)) /
-                        (maxFeatureValue - minFeatureValue);
+                    (maxFeatureValue - minFeatureValue);
             })
         );
     }

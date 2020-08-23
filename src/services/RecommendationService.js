@@ -3,6 +3,9 @@ const { getRandomArbitrary } = require("../utils/utils.js");
 const PatientWrapper = require("../models/PatientWrapper.js");
 const NormalizationService = require("./NormalizationService.js");
 
+/**
+ * Class responsible for recommending the top 10 promising patients to accept appointment offers.
+ */
 class RecommendationService {
     featuresToBeNormalized = Object.freeze([
         { name: "age", weight: 0.1 },
@@ -12,6 +15,12 @@ class RecommendationService {
         { name: "distanceToFacility", weight: 0.1 },
     ]);
 
+    /**
+     * Constructs a RecommendationService.
+     * 
+     * @param {Object[]} patients List of patients.
+     * @param {Object} facilityPosition Object that holds a facility position, that is, latitude and longitude values.
+     */
     constructor(patients, facilityPosition) {
         this.normalizationService = new NormalizationService(
             this.featuresToBeNormalized
@@ -21,6 +30,9 @@ class RecommendationService {
         this.facilityPosition = facilityPosition;
     }
 
+    /**
+     * Recommends top 10 promising patients to accept appointment offers.
+     */
     recommendTopTen() {
         this._setDistancesToFacility();
         this.normalizationService.normalize(this.patientWs);
@@ -30,6 +42,10 @@ class RecommendationService {
         return this._recommend().map((pw) => pw.getPatient());
     }
 
+    /**
+     * Computes and populates the list of Patient Wrappers with their respective distance to
+     * the facility.
+     */
     _setDistancesToFacility() {
         const self = this;
         self.patientWs.forEach((pw) => {
@@ -52,6 +68,9 @@ class RecommendationService {
         });
     }
 
+    /**
+     * Computes and fills the scores for all patient wrappers.
+     */
     _computeAllScores() {
         const self = this;
         self.patientWs.forEach((pw) => {
@@ -59,6 +78,11 @@ class RecommendationService {
         });
     }
 
+    /**
+     * Computes and fills the scores of a single patient.
+     * 
+     * @param {PatientWrapper} patientW The patient being considered to the score evaluation.
+     */
     static _computeScore(patientW) {
         const behaviorScore =
             0.3 * patientW.normAcceptedOffers +
@@ -72,6 +96,13 @@ class RecommendationService {
         return { behaviorScore, demographicScore, totalScore };
     }
 
+    /**
+     * Returns the 10 patients that will most likely accept an appointment offer.
+     * The 7 first patients selected are the ones with the best total score value, which goes from 1 to 10.
+     * The 3 remaining ones are ramdomly chosen by taking in consideration the ones with the greatest behavior value.
+     * 
+     * @returns {PatientWrapper[]} The top 10 recommended patients.
+     */
     _recommend() {
         const numberOfPatients = this.patientWs.length;
 
@@ -103,6 +134,9 @@ class RecommendationService {
         const sliceSize = Math.floor(x * bestDemographicScoresLeft.length);
 
         const restRecommended = new Set();
+        // We need to check if restRecommended.size is less than the slice size because the random method
+        // called could draw the same value more than once. If it's greater than the slice size, that means we don't have
+        // enough patients to recommend.
         while (restRecommended.size < 3 && restRecommended.size < sliceSize) {
             // getting random patient within the x% best demographic score slice
             const randomPatient =
