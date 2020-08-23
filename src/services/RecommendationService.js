@@ -102,7 +102,7 @@ class RecommendationService {
     /**
      * Returns the 10 patients that will most likely accept an appointment offer.
      * The 7 first patients selected are the ones with the best total score value, which goes from 1 to 10.
-     * The 3 remaining ones are ramdomly chosen by taking in consideration the ones with the greatest behavior value.
+     * The 3 remaining ones are ramdomly chosen by taking in consideration the ones with the greatest demographic value.
      * 
      * @returns {PatientWrapper[]} The top 10 recommended patients.
      */
@@ -125,16 +125,11 @@ class RecommendationService {
          * Then, we randomly pick the remaining patients from the first x% patients with the highest demografic scores.
          */
 
-        // Select an appropriate value of x so that the resulting set contains enough patients for our random selection.
-        let x = 0.1;
-        while (
-            Math.ceil(x * bestDemographicScoresLeft.length) < 3 &&
-            !(Math.abs(x - 1) < 0.01)
-        ) {
-            x += 0.1;
-        }
+        let patientsLeft = bestDemographicScoresLeft.length;
 
-        const sliceSize = Math.ceil(x * bestDemographicScoresLeft.length);
+        const multiplier = this.determineSliceMultiplier(patientsLeft);
+
+        const sliceSize = Math.ceil(multiplier * bestDemographicScoresLeft.length);
 
         const restRecommended = new Set();
         // We need to check if restRecommended.size is less than the slice size because the random method
@@ -149,6 +144,31 @@ class RecommendationService {
         }
 
         return [...topSeven, ...restRecommended];
+    }
+
+    /**
+     * Determines the size, in percentage, that is going to be used to cut the patients left in order to 
+     * ramdomly pick the 3 last patients.
+     * 
+     * It starts from 0.1 (10%). If the slice size (multiplier times the number of patients left) is less than 3, 
+     * it adds 10% until it reaches 3.
+     * The maximum value returned is 1 (100%), even if the slice size doesn't reach 3.
+     *
+     * @param {Number} patientsLeft Size of the list containing Patient Wrappers that were not recommended yet.
+     * @returns A percentage multiplier (from 0.1 to 1) that determines the patient list size we're using to 
+     * ramdomly pick the last 3 patients.
+     */
+    determineSliceMultiplier(patientsLeft) {
+        // Selecting an appropriate value of x so that the resulting set contains enough patients for our random selection.
+        let x = 0.1;
+        while (
+            Math.ceil(x * patientsLeft) < 3 &&
+            !(Math.abs(x - 1) < 0.01)
+        ) {
+            x += 0.1;
+        }
+
+        return x;
     }
 }
 
