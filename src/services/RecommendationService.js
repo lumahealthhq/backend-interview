@@ -5,14 +5,17 @@ const NormalizationService = require("./NormalizationService.js");
 
 /**
  * Class responsible for recommending the top 10 promising patients to accept appointment offers.
+ * 
+ * @constant {Object} maxMinObj Object that holds features minima and maxima.
+ * @property {}
  */
 class RecommendationService {
     featuresToBeNormalized = Object.freeze([
-        { name: "age", weight: 0.1 },
-        { name: "acceptedOffers", weight: 0.3 },
-        { name: "canceledOffers", weight: 0.3 },
-        { name: "averageReplyTime", weight: 0.2 },
-        { name: "distanceToFacility", weight: 0.1 },
+        "age",
+        "acceptedOffers",
+        "canceledOffers",
+        "averageReplyTime",
+        "distanceToFacility",
     ]);
 
     /**

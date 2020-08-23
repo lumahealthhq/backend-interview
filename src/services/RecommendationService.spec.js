@@ -41,3 +41,4 @@ describe("compute score method", () => {
         expect(RecommendationService._computeScore(patient)).toEqual(score);
     });
 });
+

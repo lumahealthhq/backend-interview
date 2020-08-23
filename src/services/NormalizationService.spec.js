@@ -62,12 +62,12 @@ describe("set minima and maxima for all patients", () => {
             maxAge: -Infinity,
         };
 
-        const svc = new NormalizationService([{ name: "age" }]);
+        const svc = new NormalizationService(["age"]);
 
-        const newMinMaxObject = svc._setMinMaxForAllPatients(pws, minMaxObj);
+        svc._setMinMaxForAllPatients(pws, minMaxObj);
 
-        expect(newMinMaxObject.minAge).toEqual(21);
-        expect(newMinMaxObject.maxAge).toEqual(46);
+        expect(minMaxObj.minAge).toEqual(21);
+        expect(minMaxObj.maxAge).toEqual(46);
     });
 });
 
@@ -78,7 +78,7 @@ describe("normalize features method", () => {
             maxAge: 46,
         };
 
-        const svc = new NormalizationService([{ name: "age" }]);
+        const svc = new NormalizationService(["age"]);
 
         svc._normalizeFeatures(pws, minMaxObj);
 

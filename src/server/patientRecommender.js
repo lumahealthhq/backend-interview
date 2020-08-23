@@ -4,7 +4,7 @@ const patients = require("../../patients.json");
 
 const router = express.Router();
 
-router.get("/ping", (req, res) => res.send("pong"));
+router.get("/ping", (req, res) => res.send({ message: "pong" }));
 
 router.get("/queue", (req, res) => {
     let { latitude, longitude } = req.query;
@@ -16,7 +16,7 @@ router.get("/queue", (req, res) => {
         longitude === undefined
     ) {
         // 422 - Unprocessable Entity
-        return res.status(422).json({ message: "can't process empty values" });
+        return res.status(422).json({ error: "Cannot process empty values" });
     }
 
     latitude = Number(latitude);
@@ -25,7 +25,7 @@ router.get("/queue", (req, res) => {
         // 422 - Unprocessable Entity
         return res
             .status(422)
-            .json({ message: "can't process non number values" });
+            .json({ error: "Cannot process non number values" });
     }
 
     const facilityPosition = {
@@ -47,7 +47,7 @@ router.get("/queue", (req, res) => {
         console.error(e);
         return res
             .status(500)
-            .json({ message: "Internal error, please try again later" });
+            .json({ error: "Internal error, please try again later" });
     }
 });
 

@@ -9,7 +9,9 @@ class NormalizationService {
     /**
      * Constructs a NormalizationService.
      * 
-     * @param {String[]} featuresToNormalize Features to be considered in the normalization process.
+     * 
+     * @property {Object} maxMinObj Object that holds features minima and maxima.
+     * @property {String[]} featuresToNormalize Features to be considered in the normalization process.
      */
     constructor(featuresToNormalize) {
         this.featuresToNormalize = featuresToNormalize;
@@ -52,9 +54,9 @@ class NormalizationService {
     _setMinMaxForAllPatients(patientWs, maxMinObj) {
         const self = this;
         patientWs.forEach((patient) =>
-            self.featuresToNormalize.forEach((feature) => {
+            self.featuresToNormalize.forEach(featureName => {
                 NormalizationService._setFeatureMinMax(
-                    feature.name,
+                    featureName,
                     maxMinObj,
                     patient
                 );
@@ -99,10 +101,9 @@ class NormalizationService {
     _normalizeFeatures(patientWs, maxMinObj) {
         const self = this;
         patientWs.forEach((pw) =>
-            self.featuresToNormalize.forEach(({ name }) => {
-                const firstLetterCapitalizedFeature = capitalizeFirstLetter(
-                    name
-                );
+            self.featuresToNormalize.forEach(featureName => {
+                const firstLetterCapitalizedFeature = capitalizeFirstLetter(featureName);
+
                 const featureMinName = `min${firstLetterCapitalizedFeature}`;
                 const featureMaxName = `max${firstLetterCapitalizedFeature}`;
                 const featureNormName = `norm${firstLetterCapitalizedFeature}`;
@@ -111,7 +112,7 @@ class NormalizationService {
                 const maxFeatureValue = maxMinObj[featureMaxName];
 
                 const patient = pw.getPatient();
-                const featureValue = patient[name] ?? pw[name];
+                const featureValue = patient[featureName] ?? pw[featureName];
 
                 // eslint-disable-next-line no-param-reassign
                 pw[featureNormName] =
