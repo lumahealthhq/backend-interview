@@ -7,7 +7,7 @@
     "start": "node app.js",
     "test": "jest"
   },
-  "repository": "https://github.com/lucaskc/patient-recomender.git",
+  "repository": "https://github.com/lucaskc/backend-interview.git",
   "author": "Lucas Crocomo <lucas.crocomo@gmail.com>",
   "license": "MIT",
   "dependencies": {
