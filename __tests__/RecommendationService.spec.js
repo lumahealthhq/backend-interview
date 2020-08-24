@@ -1,4 +1,4 @@
-const RecommendationService = require("./RecommendationService");
+const RecommendationService = require("../src/services/RecommendationService");
 
 describe("compute score method", () => {
     test("should return computed scores given a patient", () => {

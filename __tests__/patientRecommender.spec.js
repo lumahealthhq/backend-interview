@@ -1,7 +1,7 @@
 const request = require("supertest");
 const express = require("express");
-const service = require("./patientRecommender");
-const expectedResponse = require("../../responseExample.json");
+const service = require("../src/server/patientRecommender");
+const expectedResponse = require("./files/responseExample.json");
 
 const app = express();
 app.use(service);

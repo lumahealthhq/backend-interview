@@ -1,5 +1,5 @@
-const NormalizationService = require("./NormalizationService");
-const PatientWrapper = require("../models/PatientWrapper");
+const NormalizationService = require("../src/services/NormalizationService");
+const PatientWrapper = require("../src/models/PatientWrapper");
 
 const patients = [
     {

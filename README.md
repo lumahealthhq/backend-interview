@@ -35,13 +35,27 @@ An api that provides a client list recommendation for a given position.
 
 ## Running using Docker
 
-- First, build the image.
+- First, build the image
 
   `docker build -t lucaskc/patient-recommender .`
 
 - Then, run using
 
   `docker run -p 8000:8000 lucaskc/patient-recommender`
+
+- Or use **docker-compose** to run tests **and** start the application
+
+  - Running:
+
+    `docker-compose up`
+
+  - Rebuilding dockerfile image and running:
+
+    `docker-compose up --build`
+
+  - Stopping docker-compose:
+
+    `docker-compose down`
 
 # API
 
