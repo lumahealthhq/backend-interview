@@ -10,9 +10,10 @@ Please check README.md for further details.
 
 Please check the following test files.
 
-- `/src/server/patientRecommender.spec.js` tests the controller.
-- `/src/services/NormalizationService.spec.js` tests the NormalizationService class functionalities.
-- `/src/services/RecommendationService.spec.js` tests the RecommendationService class functionalities.
+- `/__tests__/patientRecommender.spec.js` tests the controller.
+- `/__tests__/NormalizationService.spec.js` tests the NormalizationService class functionalities.
+- `/__tests__/RecommendationService.spec.js` tests the RecommendationService class functionalities.
+- `/__tests__/utils.spec.js` tests the utils file functionalities.
 
 ## Checklist:
 

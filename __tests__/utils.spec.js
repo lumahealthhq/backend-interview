@@ -1,4 +1,4 @@
-const { capitalizeFirstLetter } = require("./utils");
+const { capitalizeFirstLetter } = require("../src/utils/utils");
 
 describe("capitalize first letter method", () => {
     test("should return the given string with the first letter capitalized", () => {
