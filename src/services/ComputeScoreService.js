@@ -25,9 +25,9 @@ class ComputeScoreService {
 
       return {
         ...patient,
-        score: (10 * score).toFixed(3),
-        behaviorScore: behaviorScore.toFixed(3),
-        demographicScore: demographicScore.toFixed(3),
+        score: (10 * score).toFixed(2),
+        behaviorScore: behaviorScore.toFixed(2),
+        demographicScore: demographicScore.toFixed(2),
       };
     });
 
