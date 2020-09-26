@@ -20,22 +20,22 @@ class NormalizeDataService {
           DATA_RANGE[data].max = patient[data];
         }
         DATA_RANGE[data].den = DATA_RANGE[data].max - DATA_RANGE[data].min;
+        patient.normalizedData = { [data]: 0 };
       }
     });
 
     const normalizedPatients = patients.map((patient) => {
       for (const data in DATA_RANGE) {
         if (DATA_RANGE[data].positiveCorrelation) {
-          patient[data] =
+          patient.normalizedData[data] =
             (patient[data] - DATA_RANGE[data].min) / DATA_RANGE[data].den;
         } else {
-          patient[data] =
+          patient.normalizedData[data] =
             (DATA_RANGE[data].max - patient[data]) / DATA_RANGE[data].den;
         }
       }
       return patient;
     });
-
     return normalizedPatients;
   }
 }

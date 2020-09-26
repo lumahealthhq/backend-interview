@@ -2,19 +2,27 @@ const express = require('express');
 
 const patients = require('../../patients.json');
 
-const ComputePatientsDistanceToFacilityService = require('../services/ComputePatientsDistanceToFacilityService');
-const NormalizeDataService = require('../services/NormalizeDataService');
-const ComputeScoreService = require('../services/ComputeScoreService');
+const {
+  ComputePatientsDistanceToFacilityService,
+  NormalizeDataService,
+  ComputeScoreService,
+  GenerateListOfPatientsService,
+} = require('../services/index');
 
 const routes = express.Router();
 const computePatientsDistanceToFacility = new ComputePatientsDistanceToFacilityService();
 const normalizeData = new NormalizeDataService();
 const computeScore = new ComputeScoreService();
+const generateListOfPatients = new GenerateListOfPatientsService();
 
-routes.get('/compute', (request, response) => {
+routes.get('/ping', (req, res) => res.send({ message: 'pong' }));
+
+routes.get('/generate-list', (request, response) => {
   const { lat, long } = request.query;
 
-  if (!lat || !long) return response.status(404).json({ error: 'deu ruim' });
+  if (!lat || !long) {
+    return response.status(404).json({ error: 'Cannot process invalid data' });
+  }
 
   const facilityLocation = { latitude: Number(lat), longitude: Number(long) };
 
@@ -27,7 +35,9 @@ routes.get('/compute', (request, response) => {
 
   const patientsWithScore = computeScore.execute(normalizedData);
 
-  return response.status(200).json(patientsWithScore);
+  const listOfPatients = generateListOfPatients.execute(patientsWithScore);
+
+  return response.status(200).json(listOfPatients);
 });
 
 module.exports = routes;

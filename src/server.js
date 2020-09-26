@@ -3,7 +3,7 @@ const routes = require('./routes/index');
 
 const server = express();
 
-server.use(routes);
+server.use('/v1', routes);
 
 const port = process.env.SERVER_PORT || 3000;
 
