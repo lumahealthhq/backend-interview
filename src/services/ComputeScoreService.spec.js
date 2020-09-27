@@ -36,7 +36,7 @@ describe('ComputeScore', () => {
   patientsWithScore = computeScore.execute(normalizedData);
 
   it('should calculate score for each patient in a given list', () => {
-    patientsWithScore.forEach(patient => {
+    patientsWithScore.forEach((patient) => {
       expect(patient).toHaveProperty('score');
       expect(patient).toHaveProperty('behaviorScore');
       expect(patient).toHaveProperty('demographicScore');
@@ -44,14 +44,6 @@ describe('ComputeScore', () => {
   });
 
   it('should return the correct score for the patients', () => {
-    // const patientDataRanges = {
-    //   age: { min: 10, max: 50 },
-    //   acceptedOffers: { min: 10, max: 50 },
-    //   canceledOffers: { min: 10, max: 50 },
-    //   averageReplyTime: { min: 10, max: 50 },
-    //   distanceToFacility: { min: 10, max: 50 },
-    // };
-
     expect(patientsWithScore[1].score).toBe('5.50');
     expect(patientsWithScore[1].behaviorScore).toBe('1.75');
     expect(patientsWithScore[1].demographicScore).toBe('1.00');
