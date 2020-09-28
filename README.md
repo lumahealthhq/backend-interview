@@ -1,6 +1,45 @@
 # Luma Technical Interview
 
-## Problem Definition
+## Requirements
+
+This application was built on Node.JS v12.14. It has not been tested on other versions. You will also need a package manager (npm or yarn).
+
+## Running
+
+First, you need to install all dependencies
+
+    $ npm install // or yarn
+
+Second, you need to start the project by using the following command:
+
+    $ npm start // or yarn start
+
+The application will run on port 3000. To execute it on another port, use the command:
+
+    $ SERVER_PORT=[port] npm start
+
+To run the tests, use:
+
+    $ npm test
+
+
+# API
+
+The application has only one route: `GET /v1/generate-list`
+
+It expects two parameters:
+
+  - `lat`   number
+  - `long`  number
+
+For example:
+
+`/v1/generate-list?lat=-26.5030&long=-155.1633`
+
+It will return 10 patients that will most likely attend the appointment in a facility that is located at latitude of -26.5030 and longitude of -155.1633
+
+
+# Problem Definition
 
 A busy hospital has a list of patients waiting to see a doctor. The waitlist is created sequentially (e.g. patients are added in a fifo order) from the time the patient calls.  Once there is an availability, the front desk calls each patient to offer the appointment in the order they were added to the waitlist. The staff member from the front desk has noticed that she wastes a lot of time trying to find a patient from the waitlist since they&#39;re often not available, don&#39;t pick up the phone, etc.  She would like to generate a better list that will increase her chances of finding a patient in the first few calls.
 
