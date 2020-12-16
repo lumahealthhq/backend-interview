@@ -30,9 +30,9 @@ class TestWeightingAlgorithmAPI(unittest.TestCase):
 
     def testGetPatientScore(self):
         #confirms the patient scoring algorithm is working correctly
-        samplePatient = {"location":{"latitude":"43.3205","longitude":"-140.8269"},"age":72,"acceptedOffers":87,"canceledOffers":87,"averageReplyTime":2675}
+        samplePatient =  {"acceptedOffers": 75, "age": 36,"averageReplyTime": 272, "canceledOffers": 3, "distanceToClinic": 61.546863561517085, "id": "15570ee8-522a-4641-8cae-64e72de3dae1", "location": {"latitude": "-60.6299",  "longitude": "160.5845"}, "name": "Treva Rau", "normalizedacceptedOffers": 0.7575757575757576, "normalizedage": 0.21739130434782608, "normalizedaverageReplyTime": 0.06908171861836562, "normalizedcanceledOffers": 0.030612244897959183, "normalizeddistanceToClinic":0.13234964348260764}
         samplePatientResult = getPatientScore(samplePatient,[0,0])
-        self.assertEqual(samplePatientResult, -542.5339341263153)
+        self.assertEqual(samplePatientResult,  0.21277687616618823)
 
 if __name__ == '__main__':
     unittest.main()
