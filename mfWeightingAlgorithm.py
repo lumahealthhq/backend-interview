@@ -49,6 +49,14 @@ def getScoredandSortedList(location):
         patientData = json.load(jsonData)
 
         for patient in patientData:
+            patientLon = float(patient['location']['longitude'])
+            patientLat = float(patient['location']['latitude'])
+            distanceToClinic = getDistance([patientLat, patientLon],location)
+            patient['distanceToClinic'] = distanceToClinic
+
+        featureScaledPatientData = featureScaling(patientData)
+
+        for patient in featureScaledPatientData:
             patientScore = getPatientScore(patient,location)
             patient['score'] = patientScore
         normalizedPatientData = normalizeScores(patientData)
@@ -67,6 +75,36 @@ def getScoredandSortedList(location):
 
         return sortedPatientData
 
+def featureScaling(patientData):
+    '''
+    Takes the patient data and and adds features to each patient for their normalized value between 0 and 1.
+    This means the weighting algorithm will not be biased by the scale of the input features
+    Parameters:
+    patientData(List of Dicts) - a list of all patients and their information
+
+    Returns:
+    patientData(List of Dicts) - a list of all patients and their information with added key and values for their normalized features.
+    '''
+
+    for feature in ['age','distanceToClinic','acceptedOffers','canceledOffers','averageReplyTime']:
+        newFeature = 'normalized' + feature
+        highValue = -10000.0
+        lowValue = 10000.0
+        #find the highest and lowest Values
+        for patient in patientData:
+            currentValue = patient[feature]
+            if currentValue > highValue:
+                highValue = currentValue
+            if currentValue < lowValue:
+                lowValue = currentValue
+
+        for patient in patientData:
+            currentValue = patient[feature]
+            #normalize from 0-1
+            newValue = (currentValue - lowValue)/(highValue-lowValue)
+            patient[newFeature] = newValue
+    return patientData
+
 def getPatientScore(patient,location):
     '''
     Generates a score for a given patient based on their data and the location of the facility being quereied
@@ -78,14 +116,14 @@ def getPatientScore(patient,location):
     Returns:
     score(float) - score represents the likelihood of coming to the clinic based on the weighting algorithm
     '''
-    patientLon = float(patient['location']['longitude'])
-    patientLat = float(patient['location']['latitude'])
-    distanceToClinic = getDistance([patientLat, patientLon],location)
-    score = patient['age']*.1 #postively correlated
-    score -= distanceToClinic*.1 #negatively correlated
-    score += patient['acceptedOffers']*.3 #positively correlated
-    score -= patient['canceledOffers']*.3 #negatively correlated
-    score -= patient['averageReplyTime']*.2 #negatviely correlated
+    # patientLon = float(patient['location']['longitude'])
+    # patientLat = float(patient['location']['latitude'])
+    # distanceToClinic = getDistance([patientLat, patientLon],location)
+    score = patient['normalizedage']*.1 #postively correlated
+    score -= patient['normalizeddistanceToClinic']*.1 #negatively correlated
+    score += patient['normalizedacceptedOffers']*.3 #positively correlated
+    score -= patient['normalizedcanceledOffers']*.3 #negatively correlated
+    score -= patient['normalizedaverageReplyTime']*.2 #negatviely correlated
     return score
 
 def getDistance(patient, clinic):
