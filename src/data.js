@@ -1,23 +1,19 @@
-const fs = require('fs');
+import { readFileSync } from 'fs';
 
 let patientData = [];
 
 try {
-  const rawData = fs.readFileSync('./sample-data/patients.json');
+  const rawData = readFileSync('./sample-data/patients.json');
   patientData = JSON.parse(rawData);
+  console.log(patientData)
 } catch (error){
   console.error('Error loading patient data:', error);
 }
 
-function getPatients(){
+export const getPatients = () => {
   return patientData;
 }
 
-function addPatient(newPatient){
+export const addPatient = (newPatient) => {
   patientData.push(newPatient);
 }
-
-module.exports = {
-  getPatients,
-  addPatient,
-};
