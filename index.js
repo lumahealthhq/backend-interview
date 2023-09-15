@@ -9,6 +9,7 @@ const __dirname = path.resolve();
 
 app.use(expressStatic(__dirname));
 
+
 app.get('/patients', (req, res) => {
 
   const patients = getPatients();

@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!Array.isArray(data)) {
             throw new Error('Response data is not an array.');
         }
-
-        data.forEach(patient => {
-            patient.score = computePatientScore(patient);
-        });
         displayTopPatients(data);
     })
     .catch(error => {
