@@ -11,7 +11,6 @@ app.use(expressStatic(__dirname));
 
 
 app.get('/patients', (req, res) => {
-
   const patients = getPatients();
 
   const scoredPatients = patients.map(patient => ({
