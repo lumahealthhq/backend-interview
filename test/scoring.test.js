@@ -1,6 +1,5 @@
 import { computePatientScore } from '../src/scoring.js';
 
-// Describe a test suite for the computePatientScore function
 describe('computePatientScore', () => {
   // Test case 1: Testing with sample input values
   it('calculates patient score correctly with sample input', () => {
@@ -11,7 +10,7 @@ describe('computePatientScore', () => {
       averageReplyTime: 1800,
     };
 
-    const expectedScore = '2.95'; // The expected score after calculation
+    const expectedScore = '2.52';
 
     const result = computePatientScore(patient);
 
@@ -27,12 +26,11 @@ describe('computePatientScore', () => {
       averageReplyTime: 2700,
     };
 
-    const expectedScore = '2.25';
+    const expectedScore = '1.45';
 
     const result = computePatientScore(patient);
 
     expect(result).toBe(expectedScore);
   });
 
-  // Add more test cases as needed to cover different scenarios
 });

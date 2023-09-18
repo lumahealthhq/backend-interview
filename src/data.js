@@ -9,10 +9,12 @@ try {
   console.error('Error loading patient data:', error);
 }
 
-export const getPatients = () => {
+export const getPatient = () => {
   return patientData;
 }
 
 export const addPatient = (newPatient) => {
   patientData.push(newPatient);
 }
+
+export { patientData };
