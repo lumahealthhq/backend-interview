@@ -5,6 +5,7 @@
     "target": "ESNext",
     "module": "commonjs",
     "outDir": "./dist",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
