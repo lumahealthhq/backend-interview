@@ -10,7 +10,8 @@ describe("Patients Routes", () => {
 
         expect(response.statusCode).toBe(400);
         expect(response.body).toEqual({
-          error: 'Missing required params "lat" and/or "lng"',
+          error: "MissingParamError",
+          message: "Missing param: lat",
         });
       });
 
@@ -21,7 +22,8 @@ describe("Patients Routes", () => {
 
         expect(response.statusCode).toBe(400);
         expect(response.body).toEqual({
-          error: 'Missing required params "lat" and/or "lng"',
+          error: "MissingParamError",
+          message: "Missing param: lng",
         });
       });
 
@@ -32,7 +34,8 @@ describe("Patients Routes", () => {
 
         expect(response.statusCode).toBe(400);
         expect(response.body).toEqual({
-          error: 'Missing required params "lat" and/or "lng"',
+          error: "MissingParamError",
+          message: "Missing param: lat",
         });
       });
     });
