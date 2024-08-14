@@ -12,7 +12,7 @@ export class PatientRecommendationListController implements Controller {
   ) {}
 
   async handle(request: PatientRecommendationListController.Request) {
-    const { lat, lng } = request;
+    const { lat, lng, debug } = request;
 
     if (!lat) return badRequest(new MissingParamError("lat"));
     if (!lng) return badRequest(new MissingParamError("lng"));
@@ -30,7 +30,16 @@ export class PatientRecommendationListController implements Controller {
 
       if (patientsRecommended.length === 0) return noContent();
 
-      return ok(patientsRecommended);
+      if (debug) return ok(patientsRecommended);
+
+      const patientsClean = patientsRecommended.map((x) => ({
+        id: x.id,
+        age: x.age,
+        name: x.name,
+        location: x.location,
+      }));
+
+      return ok(patientsClean);
     } catch (err) {
       return serverError(err as unknown as Error);
     }
@@ -41,5 +50,6 @@ export namespace PatientRecommendationListController {
   export type Request = {
     lat?: string;
     lng?: string;
+    debug?: any;
   };
 }

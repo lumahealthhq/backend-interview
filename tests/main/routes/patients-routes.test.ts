@@ -70,6 +70,33 @@ describe("Patients Routes", () => {
 
         expect(response.statusCode).toBe(200);
         expect(response.body.length).toBe(10);
+        expect(Object.keys(response.body[0])).toEqual([
+          "id",
+          "age",
+          "name",
+          "location",
+        ]);
+      });
+
+      it("Should include more information when providing debug flag", async () => {
+        const response = await request(app).get(
+          "/api/patients-recommended?lat=40&lng=-120&debug=true"
+        );
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body.length).toBe(10);
+        expect(Object.keys(response.body[0])).toEqual([
+          "id",
+          "name",
+          "location",
+          "age",
+          "acceptedOffers",
+          "canceledOffers",
+          "averageReplyTime",
+          "score",
+          "distance",
+          "littleBehaviorScore",
+        ]);
       });
     });
   });
