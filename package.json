@@ -4,7 +4,9 @@
   "author": "Laian <braumlaian@gmail.com>",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand --passWithNoTests"
+    "test": "jest --runInBand --passWithNoTests",
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "npm test -- --coverage"
   },
   "keywords": [],
   "license": "ISC",
