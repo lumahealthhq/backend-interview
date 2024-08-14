@@ -14,6 +14,9 @@
  * @property {string} name
  * @property {PatientLocation} location
  * @property {number} age
+ * @property {number | undefined} score
+ * @property {number | undefined} littleBehaviorScore
+ * @property {number | undefined} distance
  * @property {number} acceptedOffers
  * @property {number} canceledOffers
  * @property {number} averageReplyTime
