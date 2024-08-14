@@ -1,6 +1,6 @@
 const { getPatientsTopList } = require("../../lib/get-patients-top-list");
 
-const patientsSample = require("../../../sample-data/patients.json");
+const patientsSample = require("../../../patients.json");
 
 module.exports = (router) => {
   router.get("/patients-recommended", (request, response) => {
