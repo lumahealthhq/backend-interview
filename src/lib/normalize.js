@@ -8,5 +8,5 @@ module.exports.normalize = (value, min, max) => {
   // ? Avoid division by 0. Returning 0.5 because it's common ground.
   if (max === min) return 0.5;
 
-  return (value - min) / (max - min);
+  return Math.abs(value - min) / Math.abs(max - min);
 };
