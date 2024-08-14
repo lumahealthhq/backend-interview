@@ -1,0 +1,20 @@
+{
+    "space": 2,
+    "rules": {
+        "import/extensions": "off"
+    },
+    "overrides": [
+        {
+            "files": "src/model/*.model.ts",
+            "rules": {
+                "new-cap": "off"
+            }
+        },
+        {
+            "files": "src/**/*.spec.ts",
+            "rules": {
+                "n/file-extension-in-import": "off"
+            }
+        }
+    ]
+}
