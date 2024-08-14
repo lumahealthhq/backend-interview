@@ -1,4 +1,6 @@
-const { calculatePatientScore } = require("./calculate-patient-score");
+const {
+  calculatePatientScore,
+} = require("../../src/lib/calculate-patient-score");
 
 describe("calculatePatientScore", () => {
   describe("Calculates a score from 0 to 1 based on field normalization and weight", () => {

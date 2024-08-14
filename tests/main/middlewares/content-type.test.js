@@ -1,6 +1,6 @@
 const request = require("supertest");
 
-const { app } = require("../config/app");
+const { app } = require("../../../src/main/config/app");
 
 describe("contentType middleware", () => {
   it("Should return default content type as json", async () => {

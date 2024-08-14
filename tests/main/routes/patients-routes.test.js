@@ -1,6 +1,6 @@
 const request = require("supertest");
 
-const { app } = require("../config/app");
+const { app } = require("../../../src/main/config/app");
 
 describe("Patients Routes", () => {
   describe("GET /patients-recommended", () => {

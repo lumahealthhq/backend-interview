@@ -1,4 +1,6 @@
-const { calculateMinMaxValues } = require("./calculate-min-max-values");
+const {
+  calculateMinMaxValues,
+} = require("../../src/lib/calculate-min-max-values");
 
 describe("calculateMinMax", () => {
   it("Should calculate min and max values for patient fields", () => {

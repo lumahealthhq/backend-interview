@@ -1,4 +1,6 @@
-const { distanceBetweenCoords } = require("./distance-between-coordinates"); // Adjust the path accordingly
+const {
+  distanceBetweenCoords,
+} = require("../../src/lib/distance-between-coordinates"); // Adjust the path accordingly
 
 describe("distanceBetweenCoords", () => {
   it("Should calculate distance between Vitoria Airport and Luma Health's office", () => {

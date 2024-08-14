@@ -1,4 +1,6 @@
-const { getPatientsWithScores } = require("./get-patients-with-scores");
+const {
+  getPatientsWithScores,
+} = require("../../src/lib/get-patients-with-scores");
 
 describe("getPatientsWithScores", () => {
   it("Should return patients with scores", () => {

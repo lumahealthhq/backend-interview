@@ -1,4 +1,4 @@
-const GetPatientsTopList = require("./get-patients-top-list");
+const GetPatientsTopList = require("../../src/lib/get-patients-top-list");
 
 describe("getPatientsTopList", () => {
   describe("sortByScore", () => {
