@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest --runInBand --passWithNoTests",
     "test:watch": "npm test -- --watch",
+    "test:unit": "npm test -- -c ./jest-unit-config.js",
+    "test:integration": "npm test -- -c ./jest-integration-config.js",
     "test:coverage": "npm test -- --coverage"
   },
   "keywords": [],
