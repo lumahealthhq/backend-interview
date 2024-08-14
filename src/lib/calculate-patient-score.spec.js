@@ -2,45 +2,38 @@ const { calculatePatientScore } = require("./calculate-patient-score");
 
 describe("calculatePatientScore", () => {
   describe("Calculates a score from 0 to 1 based on field normalization and weight", () => {
+    const minMax = {
+      age: { max: 50, min: 10 },
+      acceptedOffers: { max: 95, min: 5 },
+      canceledOffers: { max: 250, min: 20 },
+      averageReplyTime: { max: 3000, min: 100 },
+    };
+
     it("Should return a perfect score", () => {
       const patient = {
         id: "1",
         name: "Michael Scott",
-        location: {
-          // * really close to the office
-          latitude: "-81.08",
-          longitude: "144.08",
-        },
+        distance: 1,
         age: 16,
         acceptedOffers: 95,
         canceledOffers: 20,
         averageReplyTime: 100,
       };
 
-      const officeCoords = {
-        latitude: "-81.09",
-        longitude: "144.09",
-      };
+      const { score, littleBehaviorScore } = calculatePatientScore(
+        patient,
+        minMax
+      );
 
-      const result = calculatePatientScore(patient, officeCoords, {
-        age: { max: 50, min: 10 },
-        acceptedOffers: { max: 95, min: 5 },
-        canceledOffers: { max: 250, min: 20 },
-        averageReplyTime: { max: 3000, min: 100 },
-      });
-
-      expect(result).toBeCloseTo(1, 0);
+      expect(score).toBeCloseTo(1, 0);
+      expect(littleBehaviorScore).toBe(0.8);
     });
 
     it("Should return a terrible score", () => {
       const patient = {
         id: "1",
         name: "Dwight Kurt Schrute",
-        location: {
-          // * extremely way from the office
-          latitude: "81.08",
-          longitude: "-144.08",
-        },
+        distance: 1000,
         // oldest
         age: 50,
         // lowest amount of accepted offers
@@ -51,30 +44,20 @@ describe("calculatePatientScore", () => {
         averageReplyTime: 3000,
       };
 
-      const officeCoords = {
-        latitude: "81.09",
-        longitude: "144.09",
-      };
+      const { score, littleBehaviorScore } = calculatePatientScore(
+        patient,
+        minMax
+      );
 
-      const result = calculatePatientScore(patient, officeCoords, {
-        age: { max: 50, min: 10 },
-        acceptedOffers: { max: 95, min: 5 },
-        canceledOffers: { max: 250, min: 20 },
-        averageReplyTime: { max: 3000, min: 100 },
-      });
-
-      expect(result).toBeCloseTo(0, 0);
+      expect(score).toBeCloseTo(0, 0);
+      expect(littleBehaviorScore).toBe(0);
     });
 
     it("Should return a mediocre score", () => {
       const patient = {
         id: "1",
         name: "Dwight Kurt Schrute",
-        // 50km distance to office
-        location: {
-          latitude: "80.64",
-          longitude: "144.08",
-        },
+        distance: 50,
         // average on everything
         age: 30,
         acceptedOffers: 50,
@@ -82,19 +65,13 @@ describe("calculatePatientScore", () => {
         averageReplyTime: 1550,
       };
 
-      const officeCoords = {
-        latitude: "81.09",
-        longitude: "144.09",
-      };
+      const { score, littleBehaviorScore } = calculatePatientScore(
+        patient,
+        minMax
+      );
 
-      const result = calculatePatientScore(patient, officeCoords, {
-        age: { max: 50, min: 10 },
-        acceptedOffers: { max: 95, min: 5 },
-        canceledOffers: { max: 250, min: 20 },
-        averageReplyTime: { max: 3000, min: 100 },
-      });
-
-      expect(result).toBeCloseTo(0.5, 0);
+      expect(score).toBeCloseTo(0.5, 0);
+      expect(littleBehaviorScore).toBe(0.4);
     });
   });
 });

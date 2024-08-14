@@ -13,34 +13,17 @@ const WEIGHT = {
 
 /**
  * @param {Patient} patient
- * @param {Object} officeCoords
- * @param {number} officeCoords.latitude
- * @param {number} officeCoords.longitude
  * @param {MinMaxPatientValues} minMaxValues
  *
- * @returns {number} score between 0 and 1, representing how likely the patient is to accept an appointment.
  */
-module.exports.calculatePatientScore = (
-  patient,
-  officeCoords,
-  minMaxValues
-) => {
-  // ? I plan to calculate this distance when mapping over patients and store it on patient object.
-  // ? However I don't have that yet
-  const officeDistance = distanceBetweenCoords(
-    parseFloat(officeCoords.latitude, 10),
-    parseFloat(officeCoords.longitude, 10),
-    parseFloat(patient.location.latitude, 10),
-    parseFloat(patient.location.longitude, 10)
-  );
-
+module.exports.calculatePatientScore = (patient, minMaxValues) => {
   // ? Assuming distances min=100 and max=0
   // ? The closer to the office, the higher the chance of accepting the appointment
   const distanceMax = 100;
   const distance =
-    officeDistance > distanceMax
+    patient.distance > distanceMax
       ? 0
-      : normalize(officeDistance, distanceMax, 0);
+      : normalize(patient.distance, distanceMax, 0);
 
   // ? The younger, the higher the chance of accepting the appointment
   const age = normalize(
@@ -70,11 +53,16 @@ module.exports.calculatePatientScore = (
     minMaxValues.averageReplyTime.min
   );
 
-  return (
-    age * WEIGHT.age +
-    distance * WEIGHT.distance +
+  const littleBehaviorScore =
     acceptedOffers * WEIGHT.acceptedOffers +
     canceledOffers * WEIGHT.canceledOffers +
-    averageReplyTime * WEIGHT.replyTime
-  );
+    averageReplyTime * WEIGHT.replyTime;
+
+  const score =
+    age * WEIGHT.age + distance * WEIGHT.distance + littleBehaviorScore;
+
+  return {
+    score,
+    littleBehaviorScore,
+  };
 };
