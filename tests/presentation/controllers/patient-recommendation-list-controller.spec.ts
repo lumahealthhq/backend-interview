@@ -1,4 +1,4 @@
-import patientsSample from "../../../patients.json";
+import patientsSample from "../../../src/assets/patients.json";
 
 import {
   ok,

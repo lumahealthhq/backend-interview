@@ -1,4 +1,4 @@
-import patientsSample from "../../../patients.json";
+import patientsSample from "../../assets/patients.json";
 
 import { IPatientsTopListGeneratorService } from "../../domain/services";
 
