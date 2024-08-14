@@ -1,5 +1,4 @@
 const { normalize } = require("./normalize");
-const { distanceBetweenCoords } = require("./distance-between-coordinates");
 
 require("../_types");
 
