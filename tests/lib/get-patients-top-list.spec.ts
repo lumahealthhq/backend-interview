@@ -1,4 +1,4 @@
-const GetPatientsTopList = require("../../src/lib/get-patients-top-list");
+import * as GetPatientsTopList from "../../src/lib/get-patients-top-list";
 
 describe("getPatientsTopList", () => {
   describe("sortByScore", () => {
@@ -13,6 +13,7 @@ describe("getPatientsTopList", () => {
         { score: 20 },
       ];
 
+      // @ts-ignore
       const sortedItems = GetPatientsTopList.sortByScore(items);
 
       expect(sortedItems).toStrictEqual([
@@ -43,6 +44,7 @@ describe("getPatientsTopList", () => {
       const littleBehaviorScoreEdge = 4;
 
       const itemsFiltered = GetPatientsTopList.filterLittleBehavior(
+        // @ts-ignore
         items,
         littleBehaviorScoreEdge
       );
@@ -65,6 +67,7 @@ describe("getPatientsTopList", () => {
         { littleBehaviorScore: 0 },
       ];
 
+      // @ts-ignore
       const itemsFiltered = GetPatientsTopList.filterLittleBehavior(items);
 
       expect(itemsFiltered).toEqual([
@@ -104,8 +107,13 @@ describe("getPatientsTopList", () => {
       ];
 
       const sortByPriceSpy = jest.spyOn(GetPatientsTopList, "sortByScore");
+      const getPatientsTopListSpy = jest.spyOn(
+        GetPatientsTopList,
+        "getPatientsTopList"
+      );
 
-      getPatientsWithScores.mockReturnValue(patients);
+      // @ts-ignore
+      getPatientsTopListSpy.mockReturnValue(patients);
 
       const facilityCoordinates = {
         latitude: "40",
@@ -115,7 +123,7 @@ describe("getPatientsTopList", () => {
       const amountToSelectFromTopScore = 2;
 
       GetPatientsTopList.getPatientsTopList(
-        patients,
+        patients as Patient[],
         facilityCoordinates,
         amountToSelectFromTopScore
       );
@@ -150,12 +158,17 @@ describe("getPatientsTopList", () => {
         },
       ];
 
-      getPatientsWithScores.mockReturnValue(patients);
-
+      const getPatientsTopListSpy = jest.spyOn(
+        GetPatientsTopList,
+        "getPatientsTopList"
+      );
       const filterLittleBehaviorSpy = jest.spyOn(
         GetPatientsTopList,
         "filterLittleBehavior"
       );
+
+      // @ts-ignore
+      getPatientsTopListSpy.mockReturnValue(patients);
 
       const facilityCoordinates = {
         latitude: "40",
@@ -165,7 +178,7 @@ describe("getPatientsTopList", () => {
       const amountToSelectFromTopScore = 1;
 
       GetPatientsTopList.getPatientsTopList(
-        patients,
+        patients as Patient[],
         facilityCoordinates,
         amountToSelectFromTopScore
       );
@@ -255,7 +268,7 @@ describe("getPatientsTopList", () => {
       const littleBehaviorScoreEdge = 0.3;
 
       const topList = GetPatientsTopList.getPatientsTopList(
-        patients,
+        patients as Patient[],
         facilityCoordinates,
         amountOfPatients,
         littleBehaviorProportion,
@@ -386,7 +399,7 @@ describe("getPatientsTopList", () => {
       };
 
       const topList = GetPatientsTopList.getPatientsTopList(
-        patients,
+        patients as Patient[],
         facilityCoordinates
       );
 
@@ -474,7 +487,7 @@ describe("getPatientsTopList", () => {
       const littleBehaviorScoreEdge = 0.01;
 
       const topList = GetPatientsTopList.getPatientsTopList(
-        patients,
+        patients as Patient[],
         facilityCoordinates,
         amountOfPatients,
         littleBehaviorProportion,

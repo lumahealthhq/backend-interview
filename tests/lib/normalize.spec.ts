@@ -1,4 +1,4 @@
-const { normalize } = require("../../src/lib/normalize");
+import { normalize } from "../../src/lib/normalize";
 
 describe("normalize", () => {
   it("Should return 0.5 when min is equal to max", () => {

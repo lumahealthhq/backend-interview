@@ -1,7 +1,5 @@
 const { normalize } = require("./normalize");
 
-require("../_types");
-
 const WEIGHT = {
   age: 0.1,
   distance: 0.1,
@@ -10,12 +8,10 @@ const WEIGHT = {
   replyTime: 0.2,
 };
 
-/**
- * @param {Patient} patient
- * @param {MinMaxPatientValues} minMaxValues
- *
- */
-module.exports.calculatePatientScore = (patient, minMaxValues) => {
+export const calculatePatientScore = (
+  patient: Required<Patient>,
+  minMaxValues: MinMaxPatientValues
+) => {
   // ? Assuming distances min=100 and max=0
   // ? The closer to the office, the higher the chance of accepting the appointment
   const distanceMax = 100;

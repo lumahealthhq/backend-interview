@@ -1,6 +1,6 @@
-const request = require("supertest");
+import request from "supertest";
 
-const { app } = require("../../../src/main/config/app");
+import { app } from "../../../src/main/config";
 
 describe("cors middleware", () => {
   it("Should enable CORS", async () => {

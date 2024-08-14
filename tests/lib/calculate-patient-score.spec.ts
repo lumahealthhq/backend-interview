@@ -1,6 +1,4 @@
-const {
-  calculatePatientScore,
-} = require("../../src/lib/calculate-patient-score");
+import { calculatePatientScore } from "../../src/lib/calculate-patient-score";
 
 describe("calculatePatientScore", () => {
   describe("Calculates a score from 0 to 1 based on field normalization and weight", () => {
@@ -23,7 +21,7 @@ describe("calculatePatientScore", () => {
       };
 
       const { score, littleBehaviorScore } = calculatePatientScore(
-        patient,
+        patient as Required<Patient>,
         minMax
       );
 
@@ -47,7 +45,7 @@ describe("calculatePatientScore", () => {
       };
 
       const { score, littleBehaviorScore } = calculatePatientScore(
-        patient,
+        patient as Required<Patient>,
         minMax
       );
 
@@ -68,7 +66,7 @@ describe("calculatePatientScore", () => {
       };
 
       const { score, littleBehaviorScore } = calculatePatientScore(
-        patient,
+        patient as Required<Patient>,
         minMax
       );
 

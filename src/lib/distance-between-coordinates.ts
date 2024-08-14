@@ -3,14 +3,15 @@
  *
  * @link https://www.movable-type.co.uk/scripts/latlong.html
  *
- * @param {number} lat1
- * @param {number} lon1
- * @param {number} lat2
- * @param {number} lon2
- * @returns {number} Distance between coordinates in KM
+ * @returns Distance between coordinates in KM
  */
-module.exports.distanceBetweenCoords = (lat1, lon1, lat2, lon2) => {
-  const toRadians = (degree) => (degree * Math.PI) / 180;
+export const distanceBetweenCoords = (
+  lat1: number,
+  lon1: number,
+  lat2: number,
+  lon2: number
+) => {
+  const toRadians = (degree: number) => (degree * Math.PI) / 180;
 
   const R = 6371; // Earth Radius in KM
 

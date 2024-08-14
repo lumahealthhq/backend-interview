@@ -1,8 +1,9 @@
-const { getPatientsTopList } = require("../../lib/get-patients-top-list");
+import { Router } from "express";
+import { getPatientsTopList } from "../../lib";
 
 const patientsSample = require("../../../patients.json");
 
-module.exports = (router) => {
+export default (router: Router) => {
   router.get("/patients-recommended", (request, response) => {
     const { lat, lng } = request.query;
 
@@ -13,7 +14,10 @@ module.exports = (router) => {
     }
 
     try {
-      const facilityCoordinates = { latitude: lat, longitude: lng };
+      const facilityCoordinates = {
+        latitude: lat as string,
+        longitude: lng as string,
+      };
 
       const patientsList = getPatientsTopList(
         patientsSample,

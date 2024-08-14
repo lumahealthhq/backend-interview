@@ -1,6 +1,4 @@
-const {
-  calculateMinMaxValues,
-} = require("../../src/lib/calculate-min-max-values");
+import { calculateMinMaxValues } from "../../src/lib/calculate-min-max-values";
 
 describe("calculateMinMax", () => {
   it("Should calculate min and max values for patient fields", () => {
@@ -38,7 +36,7 @@ describe("calculateMinMax", () => {
     ];
 
     const { acceptedOffers, age, averageReplyTime, canceledOffers } =
-      calculateMinMaxValues(patients);
+      calculateMinMaxValues(patients as Patient[]);
 
     expect(age).toEqual({ max: maxAge, min: minAge });
     expect(averageReplyTime).toEqual({

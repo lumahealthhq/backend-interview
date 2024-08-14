@@ -1,18 +1,12 @@
-const { getPatientsWithScores } = require("./get-patients-with-scores");
+import { getPatientsWithScores } from "./get-patients-with-scores";
 
-require("../_types");
+const filterLittleBehavior = (
+  patients: Required<Patient>[],
+  littleBehaviorScoreEdge = 0.3
+) => patients.filter((x) => x.littleBehaviorScore <= littleBehaviorScoreEdge);
 
-/**
- * @param {Patient[]} patients
- * @param {number} littleBehaviorScoreEdge
- */
-const filterLittleBehavior = (patients, littleBehaviorScoreEdge = 0.3) =>
-  patients.filter((x) => x.littleBehaviorScore <= littleBehaviorScoreEdge);
-
-/**
- * @param {Patient[]} patients
- */
-const sortByScore = (patients) => patients.sort((a, b) => b.score - a.score);
+const sortByScore = (patients: Required<Patient>[]) =>
+  patients.sort((a, b) => b.score - a.score);
 
 /**
  * Returns patients that are most likely to attend the appointment.
@@ -21,15 +15,13 @@ const sortByScore = (patients) => patients.sort((a, b) => b.score - a.score);
  * - patients with highest scores;
  * - random patients with little behavior score
  *
- * @param {Patient[]} patients
- * @param {{ latitude: string, longitude: number }} facilityCoords
- * @param {number} amount Amount of patients to return
- * @param {number} littleBehaviorProportion Proportion (0 to 1) of little behavior patients to include on result. 1 is "all results are little behavior" and 0.1 is 1 out of 10.
- * @param {number} littleBehaviorScoreEdge Threshold that classifies patients as little behavior (less or equal than this value)
+ * @param amount Amount of patients to return
+ * @param littleBehaviorProportion Proportion (0 to 1) of little behavior patients to include on result. 1 is "all results are little behavior" and 0.1 is 1 out of 10.
+ * @param littleBehaviorScoreEdge Threshold that classifies patients as little behavior (less or equal than this value)
  */
 const getPatientsTopList = (
-  patients,
-  facilityCoords,
+  patients: Patient[],
+  facilityCoords: FacilityLocation,
   amount = 10,
   littleBehaviorProportion = 0.1,
   littleBehaviorScoreEdge = 0.3
@@ -72,4 +64,4 @@ const getPatientsTopList = (
   return topList;
 };
 
-module.exports = { filterLittleBehavior, sortByScore, getPatientsTopList };
+export { filterLittleBehavior, sortByScore, getPatientsTopList };

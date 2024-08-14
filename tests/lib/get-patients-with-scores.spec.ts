@@ -1,6 +1,4 @@
-const {
-  getPatientsWithScores,
-} = require("../../src/lib/get-patients-with-scores");
+import { getPatientsWithScores } from "../../src/lib/get-patients-with-scores";
 
 describe("getPatientsWithScores", () => {
   it("Should return patients with scores", () => {
@@ -23,7 +21,7 @@ describe("getPatientsWithScores", () => {
 
     const facilityCoords = { latitude: "40", longitude: "-120" };
 
-    const result = getPatientsWithScores(patients, facilityCoords);
+    const result = getPatientsWithScores(patients as Patient[], facilityCoords);
 
     expect(result).toEqual([
       {
@@ -54,7 +52,7 @@ describe("getPatientsWithScores", () => {
 
     const facilityCoords = { latitude: "40", longitude: "-120" };
 
-    const result = getPatientsWithScores(patients, facilityCoords);
+    const result = getPatientsWithScores(patients as Patient[], facilityCoords);
 
     expect(result).toEqual([
       {

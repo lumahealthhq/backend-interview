@@ -4,4 +4,8 @@ module.exports = {
   coverageDirectory: "coverage",
   collectCoverageFrom: ["<rootDir>/src/**"],
   testEnvironment: "node",
+  testEnvironment: "node",
+  transform: {
+    ".+\\.ts$": "ts-jest",
+  },
 };

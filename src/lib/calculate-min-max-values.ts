@@ -1,10 +1,4 @@
-require("../_types");
-
-/**
- * @param {Patient[]} patients
- * @returns {MinMaxPatientValues}
- */
-module.exports.calculateMinMaxValues = (patients) => {
+export const calculateMinMaxValues = (patients: Patient[]) => {
   const values = {
     age: {
       max: 0,

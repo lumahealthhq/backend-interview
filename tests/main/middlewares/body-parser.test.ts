@@ -1,9 +1,10 @@
-const request = require("supertest");
+import request from "supertest";
+import type { IncomingHttpHeaders } from "http";
 
-const { app } = require("../../../src/main/config/app");
+import { app } from "../../../src/main/config";
 
 describe("bodyParser middleware", () => {
-  let requestHeaders;
+  let requestHeaders: IncomingHttpHeaders;
 
   it("Should parse body successfully", async () => {
     app.post("/test_body_parser", (req, res) => {
