@@ -1,4 +1,6 @@
-import { IPatientDataNormalizerService } from "../../../domain/services";
+import type { Patient } from "../../../domain/models";
+import type { MinMaxPatientValues } from "../../../domain/protocols";
+import type { IPatientDataNormalizerService } from "../../../domain/services";
 
 export class PatientDataNormalizerSpy implements IPatientDataNormalizerService {
   normalizeFieldInput?: any;

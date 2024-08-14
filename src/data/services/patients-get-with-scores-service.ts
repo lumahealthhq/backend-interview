@@ -4,6 +4,8 @@ import type {
   IPatientDataMinMaxCalculatorService,
   IDistanceBetweenCoordinatesCalculatorService,
 } from "../../domain/services";
+import type { Patient } from "../../domain/models";
+import type { LocationCoords } from "../../domain/protocols";
 
 export class PatientsGetWithScoresService
   implements IPatientsGetWithScoresService
@@ -16,7 +18,7 @@ export class PatientsGetWithScoresService
 
   get(
     patients: Patient[],
-    facilityCoordinates: FacilityLocation
+    facilityCoordinates: LocationCoords
   ): Required<Patient>[] {
     const minMaxValues = this.minMaxValuesCalculator.calculate(patients);
 

@@ -1,7 +1,7 @@
+import type { Patient } from "../../../src/domain/models";
 import { PatientsGetWithScoresService } from "../../../src/data/services";
 
 import {
-  PatientDataNormalizerSpy,
   PatientScoreCalculatorSpy,
   PatientDataMinMaxCalculatorSpy,
   DistanceBetweenCoordinatesCalculatorSpy,

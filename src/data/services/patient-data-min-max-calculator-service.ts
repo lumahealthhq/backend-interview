@@ -1,3 +1,5 @@
+import type { Patient } from "../../domain/models";
+import type { MinMaxPatientValues } from "../../domain/protocols";
 import type { IPatientDataMinMaxCalculatorService } from "../../domain/services";
 
 export class PatientDataMinMaxCalculatorService

@@ -1,4 +1,6 @@
-import { IPatientsGetWithScoresService } from "../../../../src/domain/services";
+import type { Patient } from "../../../domain/models";
+import type { LocationCoords } from "../../../domain/protocols";
+import type { IPatientsGetWithScoresService } from "../../../../src/domain/services";
 
 export class PatientsGetWithScoresSpy implements IPatientsGetWithScoresService {
   input?: any;
@@ -6,7 +8,7 @@ export class PatientsGetWithScoresSpy implements IPatientsGetWithScoresService {
 
   get(
     patients: Patient[],
-    facilityCoordinates: FacilityLocation
+    facilityCoordinates: LocationCoords
   ): Required<Patient>[] {
     this.input = { patients, facilityCoordinates };
 

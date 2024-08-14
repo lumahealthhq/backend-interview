@@ -1,3 +1,4 @@
+import type { Patient } from "../../../src/domain/models";
 import { PatientsTopListGeneratorService } from "../../../src/data/services";
 
 import { PatientsGetWithScoresSpy } from "./mocks";

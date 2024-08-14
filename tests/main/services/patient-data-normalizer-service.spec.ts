@@ -1,3 +1,4 @@
+import type { Patient } from "../../../src/domain/models";
 import { PatientDataNormalizerService } from "../../../src/data/services";
 
 const makeSut = () => {

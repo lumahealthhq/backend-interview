@@ -2,6 +2,8 @@ import type {
   IPatientDataNormalizerService,
   IPatientScoreCalculatorService,
 } from "../../domain/services";
+import type { Patient } from "../../domain/models";
+import type { MinMaxPatientValues } from "../../domain/protocols";
 
 export class PatientScoreCalculatorService
   implements IPatientScoreCalculatorService

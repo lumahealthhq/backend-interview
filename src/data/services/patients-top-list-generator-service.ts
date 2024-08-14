@@ -2,6 +2,8 @@ import type {
   IPatientsGetWithScoresService,
   IPatientsTopListGeneratorService,
 } from "../../domain/services";
+import type { Patient } from "../../domain/models";
+import type { LocationCoords } from "../../domain/protocols";
 
 export class PatientsTopListGeneratorService
   implements IPatientsTopListGeneratorService
@@ -36,7 +38,7 @@ export class PatientsTopListGeneratorService
    */
   generate(
     patients: Patient[],
-    facilityCoords: FacilityLocation,
+    facilityCoords: LocationCoords,
     amount = 10,
     littleBehaviorProportion = 0.1,
     littleBehaviorScoreEdge = 0.3

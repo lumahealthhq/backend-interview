@@ -1,3 +1,6 @@
+import type { Patient } from "../models";
+import type { MinMaxPatientValues } from "../protocols";
+
 export interface IPatientDataNormalizerService {
   normalizeField(value: number, min: number, max: number): number;
 
