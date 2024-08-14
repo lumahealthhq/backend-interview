@@ -14,7 +14,7 @@ const makeSut = () => {
 };
 
 describe("PatientScoreCalculatorService", () => {
-  describe("Calculates a score from 0 to 1 (worst to best) based on field normalization and weight", () => {
+  describe("Calculates a score based on field normalization and weight", () => {
     const minMax = {
       age: { max: 50, min: 10 },
       acceptedOffers: { max: 95, min: 5 },
