@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/server.ts",
+    "start": "node dist/src/server.js",
+    "prestart": "tsc -p ./tsconfig-build.json",
     "test": "jest --runInBand --passWithNoTests",
     "test:watch": "npm test -- --watch",
     "test:unit": "npm test -- -c ./jest-unit-config.js",
