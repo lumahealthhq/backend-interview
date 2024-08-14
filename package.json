@@ -4,6 +4,7 @@
   "author": "Laian <braumlaian@gmail.com>",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon ./src/server.ts",
     "test": "jest --runInBand --passWithNoTests",
     "test:watch": "npm test -- --watch",
     "test:unit": "npm test -- -c ./jest-unit-config.js",
@@ -19,6 +20,7 @@
     "@types/supertest": "^6.0.2",
     "husky": "^9.1.4",
     "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
