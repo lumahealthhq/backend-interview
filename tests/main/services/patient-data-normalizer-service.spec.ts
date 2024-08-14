@@ -171,6 +171,40 @@ describe("PatientDataNormalizerService", () => {
         expect(normalized_1.distance).toBeCloseTo(0, 0);
         expect(normalized_2.distance).toBeCloseTo(1, 0);
       });
+
+      it("Should return value lower than 0 when distance is greater than max", () => {
+        const sut = makeSut();
+
+        const patient = {
+          name: "Ted Mosby, Architect",
+          age: 30,
+          distance: 150,
+          acceptedOffers: 5,
+          canceledOffers: 250,
+          averageReplyTime: 3000,
+        } as Required<Patient>;
+
+        const normalized = sut.normalize(patient, defaultMinMax);
+
+        expect(normalized.distance).toBeCloseTo(-0.5, 0);
+      });
+
+      it("Should return value greater than 1 when distance is lower than min", () => {
+        const sut = makeSut();
+
+        const patient = {
+          name: "Ted Mosby, Architect",
+          age: 30,
+          distance: -100,
+          acceptedOffers: 5,
+          canceledOffers: 250,
+          averageReplyTime: 3000,
+        } as Required<Patient>;
+
+        const normalized = sut.normalize(patient, defaultMinMax);
+
+        expect(normalized.distance).toBeCloseTo(2, 0);
+      });
     });
 
     describe("acceptedOffers", () => {

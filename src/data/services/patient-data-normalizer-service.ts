@@ -31,10 +31,12 @@ export class PatientDataNormalizerService
     // ? Assuming distances min=100 and max=0
     // ? The closer to the office, the higher the chance of accepting the appointment
     const distanceMax = 100;
-    const distance =
-      patient.distance > distanceMax
-        ? 0
-        : this.normalizeField(patient.distance, distanceMax, 0);
+    const distanceMin = 0;
+    const distance = this.normalizeField(
+      patient.distance,
+      distanceMax,
+      distanceMin
+    );
 
     // ? The younger, the higher the chance of accepting the appointment
     const age = this.normalizeField(
