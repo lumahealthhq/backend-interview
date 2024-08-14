@@ -1,5 +1,5 @@
 /**
- * @typedef Location
+ * @typedef PatientLocation
  * @type {object}
  *
  * @property {string} latitude
@@ -12,7 +12,7 @@
  *
  * @property {string} id
  * @property {string} name
- * @property {Location} location
+ * @property {PatientLocation} location
  * @property {number} age
  * @property {number} acceptedOffers
  * @property {number} canceledOffers
