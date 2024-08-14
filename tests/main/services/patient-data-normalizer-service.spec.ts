@@ -26,14 +26,24 @@ describe("PatientDataNormalizerService", () => {
       });
     });
 
-    it("Should always return positive values", () => {
+    it("Should return value lower than 0 if value is lower than min", () => {
       const sut = makeSut();
 
       const value = 5;
-      const min = 250;
-      const max = 20;
+      const min = 20;
+      const max = 250;
 
-      expect(sut.normalizeField(value, max, min)).toBe(0.06521739130434782);
+      expect(sut.normalizeField(value, min, max)).toBe(-0.06521739130434782);
+    });
+
+    it("Should return value greater than 1 if value is greater than max", () => {
+      const sut = makeSut();
+
+      const value = 8;
+      const min = 0;
+      const max = 4;
+
+      expect(sut.normalizeField(value, min, max)).toBe(2);
     });
 
     it("Should return 0 when value is equal min", () => {

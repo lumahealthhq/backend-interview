@@ -7,13 +7,16 @@ export class PatientDataNormalizerService
 {
   /**
    * @param value Must be greater than min and less than max
-   * @returns A number between 0 and 1, representing how close "value" is to either "max" or "min".
+   * @returns A number between 0 and 1 if greater than min and lower than max,
+   * representing how close "value" is to either "max" or "min".
+   * If number is greater than max, it returns greater than 1.
+   * Similarly, if number is lower than min, it returns lower than 1.
    */
   normalizeField(value: number, min: number, max: number): number {
     // ? Avoid division by 0. Returning 0.5 because it's common ground.
     if (max === min) return 0.5;
 
-    return Math.abs(value - min) / Math.abs(max - min);
+    return (value - min) / (max - min);
   }
 
   /**
