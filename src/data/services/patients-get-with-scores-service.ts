@@ -30,15 +30,17 @@ export class PatientsGetWithScoresService
         parseFloat(patient.location.longitude)
       );
 
-      const { littleBehaviorScore, score } = this.scoreCalculator.calculate(
-        { ...patient, distance } as Required<Patient>,
-        minMaxValues
-      );
+      const { littleBehaviorScore, score, distancePenalty } =
+        this.scoreCalculator.calculate(
+          { ...patient, distance } as Required<Patient>,
+          minMaxValues
+        );
 
       return {
         ...patient,
         score,
         distance,
+        distancePenalty,
         littleBehaviorScore,
       };
     });

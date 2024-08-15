@@ -176,6 +176,7 @@ describe("PatientsGetWithScoresService", () => {
 
     const scoreMock = {
       score: 0.9,
+      distancePenalty: 0,
       littleBehaviorScore: 0.4,
     };
     scoreCalculatorSpy.result = scoreMock;
@@ -189,12 +190,14 @@ describe("PatientsGetWithScoresService", () => {
       {
         ...patients[0],
         distance: distanceMock,
+        distancePenalty: scoreMock.distancePenalty,
         score: scoreMock.score,
         littleBehaviorScore: scoreMock.littleBehaviorScore,
       },
       {
         ...patients[1],
         distance: distanceMock,
+        distancePenalty: scoreMock.distancePenalty,
         score: scoreMock.score,
         littleBehaviorScore: scoreMock.littleBehaviorScore,
       },

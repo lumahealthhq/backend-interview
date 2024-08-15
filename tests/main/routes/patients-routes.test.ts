@@ -95,6 +95,7 @@ describe("Patients Routes", () => {
           "averageReplyTime",
           "score",
           "distance",
+          "distancePenalty",
           "littleBehaviorScore",
         ]);
       });

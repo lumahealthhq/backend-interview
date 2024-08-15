@@ -11,6 +11,7 @@ export interface IPatientScoreCalculatorService {
 export namespace IPatientScoreCalculatorService {
   export type Result = {
     score: number;
+    distancePenalty: number;
     littleBehaviorScore: number;
   };
 }

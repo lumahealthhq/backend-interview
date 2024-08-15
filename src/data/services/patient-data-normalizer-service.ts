@@ -20,6 +20,23 @@ export class PatientDataNormalizerService
   }
 
   /**
+   * Returns a negative number that indicates penalty on the distance exceeding the limit.
+   * By default, applies 1 point of penalty for every 100km above the limit.
+   *
+   * @param distanceLimit - The maximum distance in kilometers
+   * @param deductionPer10km - The points to subtract for every 10km over the limit.
+   */
+  calculateDistancePenalty(
+    patient: Required<Patient>,
+    distanceMax: number,
+    deductionPer10km = 0.1
+  ): number {
+    const kmOverLimit = patient.distance - distanceMax;
+    const penaltyPoints = (kmOverLimit / 10) * deductionPer10km;
+    return -penaltyPoints;
+  }
+
+  /**
    * Used to scale a value to a range between 0 and 1, based on given min and max value.
    * Useful to compare different metrics with different units or ranges.
    * Normalize the metrics mean bringing them to a common scale, allowing them to be weighted for scoring or ranking.
@@ -32,11 +49,11 @@ export class PatientDataNormalizerService
     // ? The closer to the office, the higher the chance of accepting the appointment
     const distanceMax = 100;
     const distanceMin = 0;
-    const distance = this.normalizeField(
-      patient.distance,
-      distanceMax,
-      distanceMin
-    );
+
+    const distance =
+      patient.distance <= distanceMax
+        ? this.normalizeField(patient.distance, distanceMax, distanceMin)
+        : this.calculateDistancePenalty(patient, distanceMax);
 
     // ? The younger, the higher the chance of accepting the appointment
     const age = this.normalizeField(

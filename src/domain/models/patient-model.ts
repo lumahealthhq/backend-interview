@@ -8,6 +8,7 @@ export interface Patient {
   score?: number;
   littleBehaviorScore?: number;
   distance?: number;
+  distancePenalty?: number;
   acceptedOffers: number;
   canceledOffers: number;
   averageReplyTime: number;

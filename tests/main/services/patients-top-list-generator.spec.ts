@@ -580,6 +580,7 @@ describe("PatientsTopListGeneratorService", () => {
           ...x,
           distance: Math.random() * 100,
           score,
+          distancePenalty: 0,
           littleBehaviorScore: score >= 0.2 ? score - 0.2 : 0,
         };
       });
@@ -675,6 +676,7 @@ describe("PatientsTopListGeneratorService", () => {
         ...x,
         distance: 10,
         score: 1,
+        distancePenalty: 0,
         littleBehaviorScore: 0.8,
       }));
 

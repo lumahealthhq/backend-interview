@@ -21,6 +21,7 @@ export class PatientScoreCalculatorSpy
     return (
       this.result || {
         score: 0.5,
+        distancePenalty: 0,
         littleBehaviorScore: 0.2,
       }
     );

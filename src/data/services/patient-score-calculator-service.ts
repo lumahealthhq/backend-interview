@@ -36,6 +36,7 @@ export class PatientScoreCalculatorService
 
     return {
       score,
+      distancePenalty: distance < 0 ? distance : 0,
       littleBehaviorScore,
     };
   }

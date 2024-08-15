@@ -87,6 +87,67 @@ describe("PatientDataNormalizerService", () => {
     });
   });
 
+  describe("calculateDistancePenalty", () => {
+    it("Should return correct penalty for 10km over the limit", () => {
+      const sut = makeSut();
+
+      const patient = { distance: 60 } as Required<Patient>;
+      const distanceMax = 50;
+
+      const penalty = sut.calculateDistancePenalty(patient, distanceMax);
+
+      expect(penalty).toBe(-0.1);
+    });
+
+    it("Should return correct penalty for 20km over the limit", () => {
+      const sut = makeSut();
+
+      const patient = { distance: 70 } as Required<Patient>;
+      const distanceMax = 50;
+
+      const penalty = sut.calculateDistancePenalty(patient, distanceMax);
+
+      expect(penalty).toBe(-0.2);
+    });
+
+    it("Should return correct penalty for 25km over the limit", () => {
+      const sut = makeSut();
+
+      const patient = { distance: 75 } as Required<Patient>;
+      const distanceMax = 50;
+
+      const penalty = sut.calculateDistancePenalty(patient, distanceMax);
+
+      expect(penalty).toBe(-0.25);
+    });
+
+    it("Should return correct penalty for large distances over the limit", () => {
+      const sut = makeSut();
+
+      const patient = { distance: 450 } as Required<Patient>;
+      const distanceMax = 50;
+
+      const penalty = sut.calculateDistancePenalty(patient, distanceMax);
+
+      expect(penalty).toBe(-4);
+    });
+
+    it("Should return correct penalty when using a custom deductionPer10km", () => {
+      const sut = makeSut();
+
+      const patient = { distance: 70 } as Required<Patient>;
+      const distanceMax = 50;
+      const deductionPer10km = 1;
+
+      const penalty = sut.calculateDistancePenalty(
+        patient,
+        distanceMax,
+        deductionPer10km
+      );
+      expect(penalty).toBe(-2);
+    });
+  });
+
   describe("normalize", () => {
     it("Should call normalizeField five times, one for each field", () => {
       const sut = makeSut();
