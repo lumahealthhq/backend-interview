@@ -1,4 +1,6 @@
+export function calculateWeight(normalizedValue: number, weightParameter: {correlation: number; percentage: number}): number {
+  const difference = Math.abs(weightParameter.correlation - normalizedValue);
+  const percentage = weightParameter.percentage;
 
-export function calculateWeight(normalizeValue: number, weightParameter: {correlation: number; percentage: number}): number {
-  return Math.abs((weightParameter.correlation - normalizeValue) * weightParameter.percentage);
+  return difference * percentage;
 }
