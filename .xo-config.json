@@ -3,6 +3,7 @@
     "rules": {
         "@typescript-eslint/no-extraneous-class": "off",
         "import/extensions": "off",
+        "n/file-extension-in-import": "off",
         "unicorn/no-static-only-class": "off"
     },
     "overrides": [

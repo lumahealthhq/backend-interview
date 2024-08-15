@@ -1,8 +1,10 @@
-import {weightParameter} from '../const.js';
+import {weightParameter} from '../const';
+import {calculateWeight} from '../helpers/calculate-weight.helper';
 import {distanceBetweenCoordinates} from '../helpers/distance-between-coordinates.helper';
 import {getDatasetMinMaxValues} from '../helpers/get-dataset-min-max-values.helper';
 import {Normalization} from '../helpers/normalization.helper.js';
 import {LocationModel} from '../models/location.model';
+import {PatientResponseModel} from '../models/patient-response.model.js';
 import {PatientModel} from '../models/patient.model';
 import {type DatasetMinMaxValues} from '../types/dataset-min-max-values.type';
 import {type PatientFacilityModel} from '../types/patient-facility.type';
@@ -20,7 +22,7 @@ export class PatientScoringAlgorithm {
     this.dataset = dataset.map(row => new PatientModel(row));
   }
 
-  public getPatientList(facilityLocation: LocationModel) {
+  public getPatientList(facilityLocation: LocationModel): PatientResponseModel[] {
     //  Validate location before use it
     facilityLocation = new LocationModel(facilityLocation);
 
@@ -28,8 +30,9 @@ export class PatientScoringAlgorithm {
     this.normalizeValues();
     this.calculateScore();
 
-    console.log(this.dataset);
-    console.log(this.datasetMinMaxValues);
+    return this.dataset
+      .map(row => new PatientResponseModel(row))
+      .sort((a, b) => b.score! - a.score!);
   }
 
   /**
@@ -64,23 +67,15 @@ export class PatientScoringAlgorithm {
   private calculateScore() {
     //  Calculate the score for each patient
     for (const patient of this.dataset) {
-      patient.score = 0
-        + ((patient.ageNormalize! + weightParameter.age.correlation) * weightParameter.age.percentage)
-        + ((patient.distanceToFacilityNormalize! + weightParameter.distanceToFacility.correlation) * weightParameter.distanceToFacility.percentage)
-        + ((patient.acceptedOffersNormalize! + weightParameter.acceptedOffers.correlation) * weightParameter.acceptedOffers.percentage)
-        + ((patient.canceledOffersNormalize! + weightParameter.canceledOffers.correlation) * weightParameter.canceledOffers.percentage)
-        + ((patient.averageReplyTimeNormalize! + weightParameter.averageReplyTime.correlation) * weightParameter.averageReplyTime.percentage);
+      const score: number = 0
+        + calculateWeight(patient.ageNormalize!, weightParameter.age)
+        + calculateWeight(patient.distanceToFacilityNormalize!, weightParameter.distanceToFacility)
+        + calculateWeight(patient.acceptedOffersNormalize!, weightParameter.acceptedOffers)
+        + calculateWeight(patient.canceledOffersNormalize!, weightParameter.canceledOffers)
+        + calculateWeight(patient.averageReplyTimeNormalize!, weightParameter.averageReplyTime);
+
+      patient.score = score / 10;
     }
-
-    //  Normalize the values
-    // const scoreMinMaxValues = {
-    //   min: Math.min(...this.dataset.map(row => row.score!)),
-    //   max: Math.max(...this.dataset.map(row => row.score!)),
-    // };
-
-    // For (const patient of this.dataset) {
-    //   patient.score = Normalization.minMaxNormalize(patient.score!, scoreMinMaxValues);
-    // }
   }
 }
 
