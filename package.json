@@ -1,0 +1,37 @@
+{
+  "name": "backend-interview",
+  "version": "1.0.0",
+  "author": "Laian <braumlaian@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r tsconfig-paths/register ./src/server.ts",
+    "start": "node dist/src/server.js",
+    "prestart": "tsc -p ./tsconfig-build.json",
+    "test": "jest --runInBand --passWithNoTests",
+    "test:watch": "npm test -- --watch",
+    "test:unit": "npm test -- -c ./jest-unit-config.js",
+    "test:integration": "npm test -- -c ./jest-integration-config.js",
+    "test:coverage": "npm test -- --coverage"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.2.0",
+    "@types/supertest": "^6.0.2",
+    "@types/swagger-ui-express": "^4.1.6",
+    "husky": "^9.1.4",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.4",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
