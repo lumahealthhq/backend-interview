@@ -22,7 +22,11 @@ export class PatientsTopListGeneratorService
   }
 
   sortByScore(patients: Required<Patient>[]) {
-    return patients.sort((a, b) => b.score - a.score);
+    return patients.sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      if (b.distance !== a.distance) return a.distance - b.distance;
+      return b.littleBehaviorScore - a.littleBehaviorScore;
+    });
   }
 
   /**

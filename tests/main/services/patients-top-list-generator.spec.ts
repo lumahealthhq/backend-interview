@@ -16,30 +16,34 @@ const makeSut = () => {
 
 describe("PatientsTopListGeneratorService", () => {
   describe("sortByScore", () => {
-    it("Should return items sorted by score DESC (highest to lowest)", () => {
+    it("Should sort by score DESC and distance ASC and littleBehaviorScore DESC", () => {
       const { sut } = makeSut();
 
       const items = [
-        { score: 30 },
-        { score: -1 },
-        { score: 1 },
-        { score: 1 },
-        { score: 30 },
-        { score: -10 },
-        { score: 20 },
+        { score: 30, distance: 10, littleBehaviorScore: 5 },
+        { score: -1, distance: 1 },
+        { score: 1, distance: 0 },
+        { score: 1, distance: 1 },
+        { score: 30, distance: 10, littleBehaviorScore: 3 },
+        { score: 30, distance: 10, littleBehaviorScore: 4 },
+        { score: 30, distance: 30 },
+        { score: -10, distance: 99 },
+        { score: 20, distance: 99 },
       ];
 
       // @ts-ignore
       const sortedItems = sut.sortByScore(items);
 
       expect(sortedItems).toStrictEqual([
-        { score: 30 },
-        { score: 30 },
-        { score: 20 },
-        { score: 1 },
-        { score: 1 },
-        { score: -1 },
-        { score: -10 },
+        { score: 30, distance: 10, littleBehaviorScore: 5 },
+        { score: 30, distance: 10, littleBehaviorScore: 4 },
+        { score: 30, distance: 10, littleBehaviorScore: 3 },
+        { score: 30, distance: 30 },
+        { score: 20, distance: 99 },
+        { score: 1, distance: 0 },
+        { score: 1, distance: 1 },
+        { score: -1, distance: 1 },
+        { score: -10, distance: 99 },
       ]);
     });
   });
