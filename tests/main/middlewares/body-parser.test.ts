@@ -1,7 +1,7 @@
 import request from "supertest";
 import type { IncomingHttpHeaders } from "http";
 
-import { app } from "../../../src/main/config";
+import { app } from "@/main/config";
 
 describe("bodyParser middleware", () => {
   let requestHeaders: IncomingHttpHeaders;

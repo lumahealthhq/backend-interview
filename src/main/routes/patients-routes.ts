@@ -1,7 +1,7 @@
 import { Router } from "express";
 
-import { adaptRoute } from "../adapters";
-import { makePatientRecommendationListController } from "../factories/controllers";
+import { adaptRoute } from "@/main/adapters";
+import { makePatientRecommendationListController } from "@/main/factories";
 
 export default (router: Router) => {
   router.get(

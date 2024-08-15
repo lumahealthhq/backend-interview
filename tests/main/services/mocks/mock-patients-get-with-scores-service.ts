@@ -1,6 +1,6 @@
-import type { Patient } from "../../../domain/models";
-import type { LocationCoords } from "../../../domain/protocols";
-import type { IPatientsGetWithScoresService } from "../../../../src/domain/services";
+import type { Patient } from "@/domain/models";
+import type { LocationCoords } from "@/domain/protocols";
+import type { IPatientsGetWithScoresService } from "@/domain/services";
 
 export class PatientsGetWithScoresSpy implements IPatientsGetWithScoresService {
   input?: any;

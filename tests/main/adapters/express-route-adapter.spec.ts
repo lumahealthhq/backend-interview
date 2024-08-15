@@ -1,10 +1,7 @@
 import { Request } from "express";
 
-import { adaptRoute } from "../../../src/main/adapters";
-import type {
-  Controller,
-  HttpResponse,
-} from "../../../src/presentation/protocols";
+import { adaptRoute } from "@/main/adapters";
+import type { Controller, HttpResponse } from "@/presentation/protocols";
 
 const makeResponse = () => {
   class ResponseStub {

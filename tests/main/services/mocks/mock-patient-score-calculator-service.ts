@@ -1,6 +1,6 @@
-import type { Patient } from "../../../domain/models";
-import type { IPatientScoreCalculatorService } from "../../../../src/domain/services";
-import type { MinMaxPatientValues } from "../../../domain/protocols";
+import type { Patient } from "@/domain/models";
+import type { MinMaxPatientValues } from "@/domain/protocols";
+import type { IPatientScoreCalculatorService } from "@/domain/services";
 
 export class PatientScoreCalculatorSpy
   implements IPatientScoreCalculatorService

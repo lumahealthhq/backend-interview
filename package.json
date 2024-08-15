@@ -4,7 +4,7 @@
   "author": "Laian <braumlaian@gmail.com>",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/server.ts",
+    "dev": "nodemon -r tsconfig-paths/register ./src/server.ts",
     "start": "node dist/src/server.js",
     "prestart": "tsc -p ./tsconfig-build.json",
     "test": "jest --runInBand --passWithNoTests",

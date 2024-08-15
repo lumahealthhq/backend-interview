@@ -1,4 +1,4 @@
-import { IDistanceBetweenCoordinatesCalculatorService } from "../../../domain/services";
+import { IDistanceBetweenCoordinatesCalculatorService } from "@/domain/services";
 
 export class DistanceBetweenCoordinatesCalculatorSpy
   implements IDistanceBetweenCoordinatesCalculatorService

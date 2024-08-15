@@ -1,5 +1,5 @@
-import type { Patient } from "../../../src/domain/models";
-import { PatientsGetWithScoresService } from "../../../src/data/services";
+import type { Patient } from "@/domain/models";
+import { PatientsGetWithScoresService } from "@/data/services";
 
 import {
   PatientScoreCalculatorSpy,

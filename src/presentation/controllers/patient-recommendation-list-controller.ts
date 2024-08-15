@@ -1,10 +1,9 @@
-import patientsSample from "../../assets/patients.json";
+import patientsSample from "@/assets/patients.json";
+import { IPatientsTopListGeneratorService } from "@/domain/services";
 
-import { IPatientsTopListGeneratorService } from "../../domain/services";
-
-import { Controller } from "../protocols";
-import { MissingParamError } from "../errors";
-import { badRequest, noContent, ok, serverError } from "../helpers";
+import { Controller } from "@/presentation/protocols";
+import { MissingParamError } from "@/presentation/errors";
+import { badRequest, noContent, ok, serverError } from "@/presentation/helpers";
 
 export class PatientRecommendationListController implements Controller {
   constructor(

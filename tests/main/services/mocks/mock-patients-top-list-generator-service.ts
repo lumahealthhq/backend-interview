@@ -1,6 +1,6 @@
-import type { Patient } from "../../../domain/models";
-import type { IPatientsTopListGeneratorService } from "../../../../src/domain/services";
-import type { LocationCoords } from "../../../domain/protocols";
+import type { Patient } from "@/domain/models";
+import type { LocationCoords } from "@/domain/protocols";
+import type { IPatientsTopListGeneratorService } from "@/domain/services";
 
 export class PatientsTopListGeneratorSpy
   implements IPatientsTopListGeneratorService

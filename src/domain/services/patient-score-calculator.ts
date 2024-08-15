@@ -1,5 +1,5 @@
-import type { Patient } from "../models";
-import type { MinMaxPatientValues } from "../protocols";
+import type { Patient } from "@/domain/models";
+import type { MinMaxPatientValues } from "@/domain/protocols";
 
 export interface IPatientScoreCalculatorService {
   calculate(

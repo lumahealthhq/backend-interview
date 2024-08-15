@@ -5,9 +5,9 @@ import {
   PatientsTopListGeneratorService,
   PatientDataMinMaxCalculatorService,
   DistanceBetweenCoordinatesCalculatorService,
-} from "../../../data/services";
+} from "@/data/services";
 
-import { PatientRecommendationListController } from "../../../presentation/controllers";
+import { PatientRecommendationListController } from "@/presentation/controllers";
 
 export function makePatientRecommendationListController() {
   const minMaxCalculator = new PatientDataMinMaxCalculatorService();

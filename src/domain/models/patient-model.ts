@@ -1,4 +1,4 @@
-import { LocationCoords } from "../protocols";
+import { LocationCoords } from "@/domain/protocols";
 
 export interface Patient {
   id: string;

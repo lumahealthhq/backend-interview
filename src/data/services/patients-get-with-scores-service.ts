@@ -3,9 +3,9 @@ import type {
   IPatientScoreCalculatorService,
   IPatientDataMinMaxCalculatorService,
   IDistanceBetweenCoordinatesCalculatorService,
-} from "../../domain/services";
-import type { Patient } from "../../domain/models";
-import type { LocationCoords } from "../../domain/protocols";
+} from "@/domain/services";
+import type { Patient } from "@/domain/models";
+import type { LocationCoords } from "@/domain/protocols";
 
 export class PatientsGetWithScoresService
   implements IPatientsGetWithScoresService

@@ -1,5 +1,5 @@
-import type { Patient } from "../../../src/domain/models";
-import { PatientDataMinMaxCalculatorService } from "../../../src/data/services";
+import type { Patient } from "@/domain/models";
+import { PatientDataMinMaxCalculatorService } from "@/data/services";
 
 const makeSut = () => {
   return new PatientDataMinMaxCalculatorService();

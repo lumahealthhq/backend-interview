@@ -1,4 +1,4 @@
-import type { IDistanceBetweenCoordinatesCalculatorService } from "../../domain/services";
+import type { IDistanceBetweenCoordinatesCalculatorService } from "@/domain/services";
 
 export class DistanceBetweenCoordinatesCalculatorService
   implements IDistanceBetweenCoordinatesCalculatorService

@@ -1,5 +1,5 @@
-import type { Patient } from "../../../src/domain/models";
-import { PatientScoreCalculatorService } from "../../../src/data/services";
+import type { Patient } from "@/domain/models";
+import { PatientScoreCalculatorService } from "@/data/services";
 
 import { PatientDataNormalizerSpy } from "./mocks";
 

@@ -1,15 +1,10 @@
-import patientsSample from "../../../src/assets/patients.json";
+import patientsSample from "@/assets/patients.json";
 
-import {
-  ok,
-  noContent,
-  badRequest,
-  serverError,
-} from "../../../src/presentation/helpers";
-import { MissingParamError } from "../../../src/presentation/errors";
-import { PatientRecommendationListController } from "../../../src/presentation/controllers";
+import { MissingParamError } from "@/presentation/errors";
+import { ok, noContent, badRequest, serverError } from "@/presentation/helpers";
+import { PatientRecommendationListController } from "@/presentation/controllers";
 
-import { PatientsTopListGeneratorSpy } from "../../main/services/mocks";
+import { PatientsTopListGeneratorSpy } from "@/tests/main/services/mocks";
 
 const makeSut = () => {
   const topListGeneratorSpy = new PatientsTopListGeneratorSpy();

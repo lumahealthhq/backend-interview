@@ -1,5 +1,5 @@
-import type { Patient } from "../../../src/domain/models";
-import { PatientDataNormalizerService } from "../../../src/data/services";
+import type { Patient } from "@/domain/models";
+import { PatientDataNormalizerService } from "@/data/services";
 
 const makeSut = () => {
   return new PatientDataNormalizerService();

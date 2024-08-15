@@ -1,4 +1,4 @@
-import { DistanceBetweenCoordinatesCalculatorService } from "../../../src/data/services";
+import { DistanceBetweenCoordinatesCalculatorService } from "@/data/services";
 
 const makeSut = () => {
   return new DistanceBetweenCoordinatesCalculatorService();

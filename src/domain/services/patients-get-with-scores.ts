@@ -1,5 +1,5 @@
-import type { Patient } from "../models";
-import type { LocationCoords } from "../protocols";
+import type { Patient } from "@/domain/models";
+import type { LocationCoords } from "@/domain/protocols";
 
 export interface IPatientsGetWithScoresService {
   get(

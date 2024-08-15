@@ -1,9 +1,9 @@
 import type {
   IPatientsGetWithScoresService,
   IPatientsTopListGeneratorService,
-} from "../../domain/services";
-import type { Patient } from "../../domain/models";
-import type { LocationCoords } from "../../domain/protocols";
+} from "@/domain/services";
+import type { Patient } from "@/domain/models";
+import type { LocationCoords } from "@/domain/protocols";
 
 export class PatientsTopListGeneratorService
   implements IPatientsTopListGeneratorService
