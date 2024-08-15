@@ -15,7 +15,7 @@ const makeSut = () => {
 };
 
 describe("PatientsTopListGeneratorService", () => {
-  describe("sortByScore", () => {
+  describe("sort", () => {
     it("Should sort by score DESC and distance ASC and littleBehaviorScore DESC", () => {
       const { sut } = makeSut();
 
@@ -32,7 +32,7 @@ describe("PatientsTopListGeneratorService", () => {
       ];
 
       // @ts-ignore
-      const sortedItems = sut.sortByScore(items);
+      const sortedItems = sut.sort(items);
 
       expect(sortedItems).toStrictEqual([
         { score: 30, distance: 10, littleBehaviorScore: 5 },
@@ -104,7 +104,7 @@ describe("PatientsTopListGeneratorService", () => {
   });
 
   describe("get", () => {
-    it("Should call sortByScore with result of PatientsGetWithScoresService", () => {
+    it("Should call sort with result of PatientsGetWithScoresService", () => {
       const { sut, patientsGetWithScoresSpy } = makeSut();
 
       const patients = [
@@ -141,14 +141,14 @@ describe("PatientsTopListGeneratorService", () => {
         },
       ] as Required<Patient>[];
 
-      const sortByScoreSpy = jest.spyOn(sut, "sortByScore");
+      const sortSpy = jest.spyOn(sut, "sort");
 
       patientsGetWithScoresSpy.result = patientsWithScore;
 
       sut.generate(patients, { latitude: "40", longitude: "-120" });
 
-      expect(sortByScoreSpy).toHaveBeenCalled();
-      expect(sortByScoreSpy).toHaveBeenCalledWith(patientsWithScore);
+      expect(sortSpy).toHaveBeenCalled();
+      expect(sortSpy).toHaveBeenCalledWith(patientsWithScore);
     });
 
     it("Should call filterLittleBehavior without high scorers", () => {

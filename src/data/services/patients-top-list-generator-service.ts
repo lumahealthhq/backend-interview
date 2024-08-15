@@ -21,7 +21,7 @@ export class PatientsTopListGeneratorService
     );
   }
 
-  sortByScore(patients: Required<Patient>[]) {
+  sort(patients: Required<Patient>[]) {
     return patients.sort((a, b) => {
       if (b.score !== a.score) return b.score - a.score;
       if (b.distance !== a.distance) return a.distance - b.distance;
@@ -47,7 +47,7 @@ export class PatientsTopListGeneratorService
     littleBehaviorProportion = 0.1,
     littleBehaviorScoreEdge = 0.3
   ) {
-    const patientsWithScoreSorted = this.sortByScore(
+    const patientsWithScoreSorted = this.sort(
       this.patientsGetWithScores.get(patients, facilityCoords)
     );
 

@@ -8,7 +8,7 @@ export class PatientsTopListGeneratorSpy
   filterLittleBehavior() {
     return [];
   }
-  sortByScore() {
+  sort() {
     return [];
   }
 

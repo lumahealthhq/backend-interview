@@ -7,7 +7,7 @@ export interface IPatientsTopListGeneratorService {
     littleBehaviorScoreEdge?: number
   ): Patient[];
 
-  sortByScore(patients: Required<Patient>[]): Patient[];
+  sort(patients: Required<Patient>[]): Patient[];
 
   generate(
     patients: Patient[],
