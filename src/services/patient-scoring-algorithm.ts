@@ -1,4 +1,4 @@
-import {weightParameter} from '../const';
+import {resultLimitParameter, weightParameter} from '../const';
 import {calculateWeight} from '../helpers/calculate-weight.helper';
 import {distanceBetweenCoordinates} from '../helpers/distance-between-coordinates.helper';
 import {getDatasetMinMaxValues} from '../helpers/get-dataset-min-max-values.helper';
@@ -32,7 +32,8 @@ export class PatientScoringAlgorithm {
 
     return this.dataset
       .map(row => new PatientResponseModel(row))
-      .sort((a, b) => b.score! - a.score!);
+      .sort((a, b) => b.score! - a.score!)
+      .slice(0, resultLimitParameter);
   }
 
   /**

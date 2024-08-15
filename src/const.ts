@@ -8,3 +8,8 @@ export const weightParameter = {
   canceledOffers: {percentage: 30, correlation: 1}, //  30%
   averageReplyTime: {percentage: 20, correlation: 1}, //  20%
 };
+
+/**
+ * The maximum number of results to return
+ */
+export const resultLimitParameter = 10;
