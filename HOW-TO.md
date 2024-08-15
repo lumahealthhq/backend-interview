@@ -55,7 +55,7 @@ For distance normalization, I assumed that patients with a smaller distance woul
 
 ## How to Use
 
-1.  Clone the repository on the `joao-pogiolli` branch.
+1.  Clone the [repository](https://github.com/Poggioli/backend-interview).
 2.  Navigate to the repository folder.
 3.  Rename the `.env.example` file to `.env`.
 4.  Run the following command to install dependencies:
@@ -79,7 +79,7 @@ You can change the lat and long values to any value. You can also access the **[
 
 7.  Validations:
 
--      **page**: optional value, **default 1**. When provided, it must be a numeric value, with 1 being the smallest accepted value.
+- **page**: optional value, **default 1**. When provided, it must be a numeric value, with 1 being the smallest accepted value.
 
 - **perPage**: optional value, **default 10**. When provided, it must be a numeric value, with 1 being the smallest accepted value.
 
