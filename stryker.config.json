@@ -1,0 +1,31 @@
+{
+    "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+    "checkers": [
+        "typescript"
+    ],
+    "coverageAnalysis": "perTest",
+    "ignorers": [],
+    "ignoreStatic": true,
+    "incremental": true,
+    "jest": {
+        "configFile": "jest.config.js"
+    },
+    "mutate": [
+        "src/**/*.ts"
+    ],
+    "plugins": [
+        "@stryker-mutator/*"
+    ],
+    "reporters": [
+        "clear-text",
+        "html",
+        "json",
+        "progress"
+    ],
+    "testRunner": "jest",
+    "timeoutMS": 5000,
+    "tsconfigFile": "tsconfig.json",
+    "typescriptChecker": {
+        "prioritizePerformanceOverAccuracy": true
+    }
+}

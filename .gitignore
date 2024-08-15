@@ -1,4 +1,11 @@
+# Package tmp files
 node_modules/
 lib/
 tsconfig.tsbuildinfo
+
+# Coverage
 coverage
+
+# Stryker
+.stryker-tmp
+reports/
