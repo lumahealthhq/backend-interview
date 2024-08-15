@@ -1,7 +1,14 @@
 # Requirements
 
 - Nodejs v20.11.1
-- yarn
+
+# Technologies
+
+- Typescript
+- Nest.js
+- Swagger
+- Class validator and Class transforme
+- Jest
 
 # Modules
 
