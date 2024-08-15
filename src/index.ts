@@ -1,3 +1,3 @@
-export {PatientModel} from './model/patient.model';
-export {PatientScoringAlgorithm} from './service/patient-scoring-algorithm.js';
+export {PatientModel} from './models/patient.model';
+export {PatientScoringAlgorithm} from './services/patient-scoring-algorithm.js';
 

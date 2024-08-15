@@ -1,5 +1,5 @@
 import {
-  IsDefined, IsNumber, IsString, IsUUID, ValidateNested,
+  IsDefined, IsNumber, IsString, IsUUID, Max, Min, ValidateNested,
   validateSync,
 } from 'class-validator';
 import {InvalidPatientException} from '../exceptions/invalid-patient.exception';
@@ -16,15 +16,20 @@ export class PatientModel {
   @ValidateNested() location: LocationModel;
 
   @IsDefined()
+  @Min(0)
+  @Max(122) //  https://en.wikipedia.org/wiki/List_of_the_verified_oldest_people
   @IsNumber() age: number;
 
   @IsDefined()
+  @Min(0)
   @IsNumber() acceptedOffers: number;
 
   @IsDefined()
+  @Min(0)
   @IsNumber() canceledOffers: number;
 
   @IsDefined()
+  @Min(0)
   @IsNumber() averageReplyTime: number;
 
   constructor(data: PatientModel) {

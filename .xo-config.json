@@ -1,11 +1,13 @@
 {
     "space": 2,
     "rules": {
-        "import/extensions": "off"
+        "@typescript-eslint/no-extraneous-class": "off",
+        "import/extensions": "off",
+        "unicorn/no-static-only-class": "off"
     },
     "overrides": [
         {
-            "files": "src/model/*.model.ts",
+            "files": "src/**/*.model.ts",
             "rules": {
                 "new-cap": "off"
             }

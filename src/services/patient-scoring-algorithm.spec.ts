@@ -2,7 +2,7 @@ import {
   beforeEach, describe, expect, it,
 } from '@jest/globals';
 import sampleData from '../../sample-data/patients.json';
-import {PatientModel} from '../model/patient.model';
+import {PatientModel} from '../models/patient.model';
 import {PatientScoringAlgorithm} from './patient-scoring-algorithm';
 
 describe(PatientScoringAlgorithm, () => {
