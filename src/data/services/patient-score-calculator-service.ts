@@ -25,14 +25,17 @@ export class PatientScoreCalculatorService
       normalizedFields;
 
     const littleBehaviorScore =
-      acceptedOffers * this.WEIGHT.acceptedOffers +
-      canceledOffers * this.WEIGHT.canceledOffers +
-      averageReplyTime * this.WEIGHT.replyTime;
+      10 *
+      (acceptedOffers * this.WEIGHT.acceptedOffers +
+        canceledOffers * this.WEIGHT.canceledOffers +
+        averageReplyTime * this.WEIGHT.replyTime);
 
-    const score =
-      age * this.WEIGHT.age +
-      distance * this.WEIGHT.distance +
-      littleBehaviorScore;
+    const demographicScore =
+      10 * (age * this.WEIGHT.age + distance * this.WEIGHT.distance);
+
+    const scoreOriginal = demographicScore + littleBehaviorScore;
+
+    const score = scoreOriginal < 0 ? 0 : scoreOriginal;
 
     return {
       score,

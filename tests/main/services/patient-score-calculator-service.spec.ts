@@ -23,7 +23,7 @@ describe("PatientScoreCalculatorService", () => {
     };
 
     describe("Default Weight", () => {
-      it("Should return a high score if normalized results are closer to 1", () => {
+      it("Should return a high score if normalized values are closer to 1", () => {
         const { sut, normalizerSpy } = makeSut();
 
         const patient = {
@@ -48,8 +48,8 @@ describe("PatientScoreCalculatorService", () => {
           minMax
         );
 
-        expect(score).toBeCloseTo(1, 0);
-        expect(littleBehaviorScore).toBeCloseTo(0.6, 0);
+        expect(score).toBeCloseTo(8, 0);
+        expect(littleBehaviorScore).toBeCloseTo(6, 0);
       });
 
       it("Should return a terrible score if normalized results are closer to 0", () => {
@@ -77,8 +77,8 @@ describe("PatientScoreCalculatorService", () => {
           minMax
         );
 
-        expect(score).toBeCloseTo(0, 0);
-        expect(littleBehaviorScore).toBeCloseTo(0, 0);
+        expect(score).toBeCloseTo(1, 0);
+        expect(littleBehaviorScore).toBeCloseTo(1, 0);
       });
 
       it("Should return a mediocre score if normalized results are close to 0.5", () => {
@@ -106,8 +106,62 @@ describe("PatientScoreCalculatorService", () => {
           minMax
         );
 
-        expect(score).toBeCloseTo(0.5, 0);
-        expect(littleBehaviorScore).toBe(0.4);
+        expect(score).toBeCloseTo(5, 0);
+        expect(littleBehaviorScore).toBe(4);
+      });
+
+      it("Should return 0 as the lowest score, no matter how low the normalization results are", () => {
+        const { sut, normalizerSpy } = makeSut();
+
+        const patient = {
+          name: "Ryan Howard",
+          distance: 50,
+          age: 30,
+          acceptedOffers: 50,
+          canceledOffers: 135,
+          averageReplyTime: 1550,
+        };
+
+        normalizerSpy.normalizeResult = {
+          acceptedOffers: -100,
+          age: -100,
+          averageReplyTime: -100,
+          canceledOffers: -100,
+          distance: -100,
+        };
+
+        const { score } = sut.calculate(patient as Required<Patient>, minMax);
+
+        expect(score).toBe(0);
+      });
+
+      it("Should return distancePenalty if distance normalization result is lower than 0", () => {
+        const { sut, normalizerSpy } = makeSut();
+
+        const patient = {
+          name: "Ryan Howard",
+          distance: 50,
+          age: 30,
+          acceptedOffers: 50,
+          canceledOffers: 135,
+          averageReplyTime: 1550,
+        };
+
+        normalizerSpy.normalizeResult = {
+          distance: -10,
+          acceptedOffers: 0.5,
+          age: 0.5,
+          averageReplyTime: 0.5,
+          canceledOffers: 0.5,
+        };
+
+        const { score, distancePenalty } = sut.calculate(
+          patient as Required<Patient>,
+          minMax
+        );
+
+        expect(score).toBe(0);
+        expect(distancePenalty).toBe(normalizerSpy.normalizeResult.distance);
       });
     });
 
@@ -145,7 +199,7 @@ describe("PatientScoreCalculatorService", () => {
           minMax
         );
 
-        expect(score).toBeCloseTo(1, 0);
+        expect(score).toBeCloseTo(10, 0);
         expect(littleBehaviorScore).toBe(0);
       });
     });
