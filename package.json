@@ -1,0 +1,22 @@
+{
+  "name": "lumahealth-backend-challenge",
+  "version": "1.0.0",
+  "description": "## Problem Definition",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test:unit": "jest --runInBand ./src",
+    "test:unit:cov": "jest --runInBand --collect-coverage ./src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "geolib": "^3.3.4"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.25.3",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  }
+}
