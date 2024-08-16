@@ -77,4 +77,32 @@ describe('Calculation Tests', () => {
             expect(currentScore).toBeGreaterThanOrEqual(nextScore);
         }
     });
+
+    it('should get the top 10 patients and put patients with little behavioral data on the top list', () => {
+        const hospital = mockHospital();
+        const patients: Patient[] = [];
+
+        try {
+            const data = fs.readFileSync('sample-data/patients.json', 'utf8');
+            const parsedData = JSON.parse(data);
+            for (const patient of parsedData) {
+                patients.push(patient);
+            }
+        } catch (err) {
+            throw new Error('Error reading patients.json file');
+        }
+
+        const minBehaviorDataThreshold = 10;
+        const patientIdsWithLittleBehaviorData = patients.filter(patient => patient.acceptedOffers + patient.canceledOffers < minBehaviorDataThreshold).map(patient => patient.id);
+        const top10Patients = getTopPatients(patients, hospital, 10, {
+            minBehaviorDataThreshold,
+            putPatientsWithLittleBehaviorDataOnTop: true
+        });
+        expect(top10Patients).toHaveLength(10);
+
+        const top10PatientIds = top10Patients.map(patient => patient.id);
+        for (const id of patientIdsWithLittleBehaviorData) {
+            expect(top10PatientIds).toContainEqual(id);
+        }
+    });
 });
