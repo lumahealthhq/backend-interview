@@ -57,12 +57,9 @@ describe('Calculation Tests', () => {
 
         for (let i = 0; i < top10Patients.length - 1; i++) {
             const currentScore = top10Patients[i]?.score;
-            if (!currentScore) {
-                throw new Error('Score is undefined');
-            }
             const nextScore = top10Patients[i + 1]?.score;
-            if (!nextScore) {
-                throw new Error('Next score is undefined');
+            if (!currentScore || !nextScore) {
+                throw new Error('Score or nextScore is undefined');
             }
             expect(currentScore).toBeGreaterThanOrEqual(nextScore);
         }
