@@ -11,7 +11,8 @@
         "configFile": "jest.config.js"
     },
     "mutate": [
-        "src/**/*.ts"
+        "src/**/*.ts",
+        "!src/**/*.spec.ts"
     ],
     "plugins": [
         "@stryker-mutator/*"

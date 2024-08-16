@@ -50,5 +50,17 @@ describe(Normalization.name, () => {
       //  Assert
       expect(actual).toBe(0);
     });
+
+    it('should correctly normalize the value - scenario ensuring the calculated value is accurate', () => {
+      //  Arrange
+      const valueMinMax = {min: 1, max: 20};
+      const valueToNormalize = 4;
+
+      //  Act
+      const actual = Normalization.minMaxNormalize(valueToNormalize, valueMinMax);
+
+      //  Assert
+      expect(actual).toBe(0.157_894_736_842_105_25);
+    });
   });
 });

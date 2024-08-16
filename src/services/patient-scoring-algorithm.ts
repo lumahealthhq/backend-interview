@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import {randomUsersFromPatientsWithInsufficientBehaviorDataLimit, resultLimitParameter, weightParameter} from '../config';
+import {InvalidDatasetException} from '../exceptions/invalid-dataset.exception';
 import {calculateWeight} from '../helpers/calculate-weight.helper';
 import {distanceBetweenCoordinates} from '../helpers/distance-between-coordinates.helper';
 import {getDatasetMinMaxValues} from '../helpers/get-dataset-min-max-values.helper';
@@ -23,7 +24,7 @@ export class PatientScoringAlgorithm {
   constructor(data: PatientScoringAlgorithmInput) {
     //  Validate the dataset before using it
     if (!Array.isArray(data.dataset) || data.dataset.length === 0) {
-      throw new Error('Invalid dataset');
+      throw new InvalidDatasetException();
     }
 
     this.dataset = data.dataset.map(row => new PatientModel(row));
@@ -102,12 +103,12 @@ export class PatientScoringAlgorithm {
     //  Sort the dataset to identify users with the highest scores
     const scoreList = this.dataset
       .sort((a, b) => b.score! - a.score!)
-      .slice(0, resultLimitParameter);
+      .slice(0, this.resultLimitParameter);
 
     return _(insufficientBehaviorDataList)
       .concat(scoreList)
       .uniqBy('id')
-      .slice(0, resultLimitParameter)
+      .slice(0, this.resultLimitParameter)
       .sort((a, b) => b.score! - a.score!)
       .map(row => new PatientResponseModel(row))
       .value();
