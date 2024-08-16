@@ -33,7 +33,7 @@ export class PatientResponseModel {
   @IsNumber() averageReplyTime: number;
 
   @IsDefined()
-  @Min(0)
+  @Min(1)
   @Max(10)
   @IsNumber() score?: number;
 

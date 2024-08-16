@@ -17,7 +17,7 @@ describe(PatientResponseModel.name, () => {
       acceptedOffers: faker.number.int({min: 0, max: 100}),
       canceledOffers: faker.number.int({min: 0, max: 100}),
       averageReplyTime: faker.number.int({min: 1, max: 3600}),
-      score: faker.number.float({min: 0, max: 10}),
+      score: faker.number.float({min: 1, max: 10}),
     };
 
     //  Act

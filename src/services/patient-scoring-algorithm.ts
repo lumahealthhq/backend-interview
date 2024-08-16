@@ -31,9 +31,9 @@ export class PatientScoringAlgorithm {
     this.calculateScore();
 
     return this.dataset
-      .map(row => new PatientResponseModel(row))
       .sort((a, b) => b.score! - a.score!)
-      .slice(0, resultLimitParameter);
+      .slice(0, resultLimitParameter)
+      .map(row => new PatientResponseModel(row));
   }
 
   /**
