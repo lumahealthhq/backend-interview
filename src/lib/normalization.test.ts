@@ -11,6 +11,10 @@ describe('Normalization Tests', () => {
         expect(normalize(50, 0, 100)).toBe(0.5);
     });
 
+    it('should return 1 if min and max are the same', () => {
+        expect(normalize(50, 50, 50)).toBe(1);
+    });
+
     it('should return a normalized age between 0 and 0.1', () => {
         expect(normalizeAge(50)).toBe(0.05);
     });

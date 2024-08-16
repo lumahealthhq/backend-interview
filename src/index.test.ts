@@ -45,7 +45,9 @@ describe('Calculation Tests', () => {
             canceledOffers: 2,
             averageReplyTime: 0
         });
-        const hospital = mockHospital();
+        const hospital = mockHospital({
+            location: {latitude: '0', longitude: '0'}
+        });
         const score = calculateScore(patient, hospital);
 
         expect(score).toBe(0.95);
