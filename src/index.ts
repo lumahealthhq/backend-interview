@@ -26,6 +26,10 @@ export type ScoreOptions = {
     minBehaviorDataThreshold: number;
 }
 
+export type TopPatientOptions = ScoreOptions & {
+    putPatientsWithLittleBehaviorDataOnTop: boolean;
+}
+
 /**
  * Calculates the probability of a patient accepting an offer from a hospital based on demographic and behavioral data.
  * A higher score indicates a higher probability.
@@ -57,12 +61,20 @@ export function calculateScore(patient: Patient, hospital: Hospital, {minBehavio
  *
  * @returns The top patients ordered by score
  */
-export function getTopPatients(patients: Patient[], hospital: Hospital, top: number, options: ScoreOptions = {minBehaviorDataThreshold: 10}): Patient[] {
+export function getTopPatients(patients: Patient[], hospital: Hospital, top: number, options: TopPatientOptions = {
+    minBehaviorDataThreshold: 10,
+    putPatientsWithLittleBehaviorDataOnTop: true
+}): Patient[] {
     return patients
-        .map(patient => ({
-            ...patient,
-            score: calculateScore(patient, hospital, options)
-        }))
+        .map(patient => {
+            const totalOffers = patient.acceptedOffers + patient.canceledOffers;
+            const hasLittleBehaviorData = totalOffers < options.minBehaviorDataThreshold;
+            return {
+                ...patient,
+                score: hasLittleBehaviorData && options.putPatientsWithLittleBehaviorDataOnTop ? 1 : calculateScore(patient, hospital, options),
+                hasLittleBehaviorData,
+            };
+        })
         .sort((a, b) => b.score - a.score)
         .slice(0, top);
 }
