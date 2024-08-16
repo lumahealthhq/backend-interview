@@ -15,6 +15,7 @@ export type Patient = {
     acceptedOffers: number;
     canceledOffers: number;
     averageReplyTime: number;
+    score?: number;
 };
 
 export type Hospital = {

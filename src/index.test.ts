@@ -1,5 +1,5 @@
 import * as fs from "node:fs";
-import {calculateScore, Hospital, Patient} from "./index";
+import {calculateScore, getTopPatients, Hospital, Patient} from "./index";
 
 const mockPatient = (overrides: Partial<Patient> = {}): Patient => ({
     id: '1',
@@ -52,11 +52,7 @@ describe('Calculation Tests', () => {
             throw new Error('Error reading patients.json file');
         }
 
-        const top10Patients = patients
-            .map(patient => ({...patient, score: calculateScore(patient, hospital)}))
-            .sort((a, b) => b.score - a.score)
-            .slice(0, 10);
-
+        const top10Patients = getTopPatients(patients, hospital, 10);
         expect(top10Patients).toHaveLength(10);
 
         for (let i = 0; i < top10Patients.length - 1; i++) {
