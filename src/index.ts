@@ -53,14 +53,15 @@ export function calculateScore(patient: Patient, hospital: Hospital, {minBehavio
  * @param patients - The list of patients
  * @param hospital - The hospital
  * @param top - The number of top patients to return
+ * @param options - The options for calculating the score
  *
  * @returns The top patients ordered by score
  */
-export function getTopPatients(patients: Patient[], hospital: Hospital, top: number): Patient[] {
+export function getTopPatients(patients: Patient[], hospital: Hospital, top: number, options: ScoreOptions = {minBehaviorDataThreshold: 10}): Patient[] {
     return patients
         .map(patient => ({
             ...patient,
-            score: calculateScore(patient, hospital)
+            score: calculateScore(patient, hospital, options)
         }))
         .sort((a, b) => b.score - a.score)
         .slice(0, top);
