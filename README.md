@@ -73,6 +73,42 @@ Mutation Test
 npm run test:mutant
 ```
 
+## How this algorith works:
+
+This algorithm can be broken down into several key steps designed to ensure data validation, normalize input for comparison, and ultimately return a balanced list of users based on behavior data and scoring. Here’s a concise summary:
+
+1. Data Validation:
+
+- Validate dataset structure and contents to ensure they conform to expected formats, given Node.js is not strongly typed.
+- Validate the geographic coordinates (latitude/longitude) to prevent unexpected behavior.
+
+2. Offer Calculation:
+
+- Compute the total number of offers (accepted + rejected) for each user to assess the amount of behavioral data available.
+
+3. Distance Calculation:
+
+- Use the distance formula to calculate the distance between users and a facility. This is done for simplicity and practicality.
+
+4. Normalization:
+
+- Normalize different data fields to a 0-1 scale for easier comparison across various units (e.g., distance vs. age).
+
+5. Score Calculation:
+
+- Apply predefined weights to the normalized values to calculate a score for each user, adding a new column to the dataset.
+
+6. List Generation:
+
+- Generate two lists: one prioritizing users with fewer behavioral data points and another ordered by the calculated scores.
+- Randomly determine how many users from the "less data" list should be selected, and fill in the remainder from the "higher score" list.
+
+7. Result Return:
+
+- Return a balanced list that accounts for users with less behavioral data, ensuring they have a fair chance to be considered.
+
+This approach balances the need to consider both data-rich and data-poor users by combining scoring with a randomized selection process.
+
 ## Acknowledgements
 
 - [How to Find the Distance Between Two Points](https://www.wikihow.com/Find-the-Distance-Between-Two-Points)
