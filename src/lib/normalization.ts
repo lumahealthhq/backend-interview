@@ -11,6 +11,7 @@ export function normalize(value: number, min: number, max: number): number {
 
 /**
  * Normalizes an age between 0 and 1.
+ * The older the person, the higher the normalized value.
  * @param age The age to normalize.
  * @returns The normalized age.
  */
