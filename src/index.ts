@@ -1,4 +1,11 @@
 import {Coordinate, haversineDistanceBetweenPoints} from "./utils/coordinates";
+import {
+    normalizeAcceptedOffers,
+    normalizeAge,
+    normalizeCanceledOffers,
+    normalizeDistance,
+    normalizeReplyTime
+} from "./lib/normalization";
 
 export type Patient = {
     id: string;
@@ -6,7 +13,7 @@ export type Patient = {
     location: Coordinate;
     age: number;
     acceptedOffers: number;
-    cancelledOffers: number;
+    canceledOffers: number;
     averageReplyTime: number;
 };
 
@@ -25,11 +32,13 @@ export type Hospital = {
  */
 export function calculateScore(patient: Patient, hospital: Hospital): number {
     const age = normalizeAge(patient.age);
-    const distance = normalizeDistance(haversineDistanceBetweenPoints(patient.location, hospital.location));
-    const acceptedOffers = normalizeAcceptedOffers(patient.acceptedOffers);
-    const cancelledOffers = normalizeCancelledOffers(patient.cancelledOffers);
+    const distanceBetweenPoints = haversineDistanceBetweenPoints(patient.location, hospital.location);
+    const distance = normalizeDistance(distanceBetweenPoints);
+    const totalOffers = patient.acceptedOffers + patient.canceledOffers;
+    const acceptedOffers = normalizeAcceptedOffers(patient.acceptedOffers, totalOffers);
+    const canceledOffers = normalizeCanceledOffers(patient.canceledOffers, totalOffers);
     const replyTime = normalizeReplyTime(patient.averageReplyTime);
-    return age + distance + acceptedOffers + cancelledOffers + replyTime;
+    return age + distance + acceptedOffers + canceledOffers + replyTime;
 }
 
 /**

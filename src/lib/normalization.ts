@@ -48,7 +48,7 @@ export function normalizeAcceptedOffers(offers: number, total: number): number {
  * @param total - The total number of offers the user has received.
  * @returns The normalized offers.
  */
-export function normalizeCancelledOffers(offers: number, total: number): number {
+export function normalizeCanceledOffers(offers: number, total: number): number {
     return (1 - normalize(offers, 0, total)) * 0.30;
 }
 

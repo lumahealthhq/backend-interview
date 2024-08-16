@@ -2,7 +2,7 @@ import {
     normalize,
     normalizeAcceptedOffers,
     normalizeAge,
-    normalizeCancelledOffers,
+    normalizeCanceledOffers,
     normalizeDistance, normalizeReplyTime
 } from "./normalization";
 
@@ -32,7 +32,7 @@ describe('Normalization Tests', () => {
     });
 
     it('should return a normalized value for cancelled offers between 0 and 0.3', () => {
-        expect(normalizeCancelledOffers(50, 100)).toBe(0.15);
+        expect(normalizeCanceledOffers(50, 100)).toBe(0.15);
     });
 
     it('should return a normalized value for reply time between 0 and 0.2', () => {
