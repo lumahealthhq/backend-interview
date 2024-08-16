@@ -1,4 +1,5 @@
-import {resultLimitParameter, weightParameter} from '../const';
+import _ from 'lodash';
+import {randomUsersFromPatientsWithInsufficientBehaviorDataLimit, resultLimitParameter, weightParameter} from '../config';
 import {calculateWeight} from '../helpers/calculate-weight.helper';
 import {distanceBetweenCoordinates} from '../helpers/distance-between-coordinates.helper';
 import {getDatasetMinMaxValues} from '../helpers/get-dataset-min-max-values.helper';
@@ -6,42 +7,49 @@ import {Normalization} from '../helpers/normalization.helper';
 import {LocationModel} from '../models/location.model';
 import {PatientResponseModel} from '../models/patient-response.model';
 import {PatientModel} from '../models/patient.model';
+import {type WeightParameterConfig} from '../types/config.type';
 import {type DatasetMinMaxValues} from '../types/dataset-min-max-values.type';
 import {type PatientFacilityModel} from '../types/patient-facility.type';
+import {type PatientScoringAlgorithmInput} from '../types/patient-scoring-algorithm-input.type';
 
 export class PatientScoringAlgorithm {
   public readonly dataset: PatientFacilityModel[];
+  public readonly weightParameter: WeightParameterConfig;
+  public readonly resultLimitParameter: number;
+  public readonly usersFromPatientsWithInsufficientBehaviorDataLimit: number;
+
   public datasetMinMaxValues!: DatasetMinMaxValues;
 
-  constructor(dataset: PatientModel[]) {
+  constructor(data: PatientScoringAlgorithmInput) {
     //  Validate the dataset before using it
-    if (!Array.isArray(dataset) || dataset.length === 0) {
+    if (!Array.isArray(data.dataset) || data.dataset.length === 0) {
       throw new Error('Invalid dataset');
     }
 
-    this.dataset = dataset.map(row => new PatientModel(row));
+    this.dataset = data.dataset.map(row => new PatientModel(row));
+    this.weightParameter = _.merge(weightParameter, data.weightParameter);
+    this.resultLimitParameter = data.resultLimitParameter ?? resultLimitParameter;
+    this.usersFromPatientsWithInsufficientBehaviorDataLimit = data.usersFromPatientsWithInsufficientBehaviorDataLimit ?? randomUsersFromPatientsWithInsufficientBehaviorDataLimit();
   }
 
   public getPatientList(facilityLocation: LocationModel): PatientResponseModel[] {
     //  Validate location before use it
     facilityLocation = new LocationModel(facilityLocation);
 
-    this.calculateDistanceToFacility(facilityLocation);
+    this.enrichPatientData(facilityLocation);
     this.normalizeValues();
     this.calculateScore();
 
-    return this.dataset
-      .sort((a, b) => b.score! - a.score!)
-      .slice(0, resultLimitParameter)
-      .map(row => new PatientResponseModel(row));
+    return this.prioritizeUsersWithLimitedData();
   }
 
   /**
-   * We need to calculate the distance between the facility and each pacient
+   * Enrich patient metadata values.
    * @param facilityLocation
    */
-  private calculateDistanceToFacility(facilityLocation: LocationModel) {
+  private enrichPatientData(facilityLocation: LocationModel) {
     for (const patient of this.dataset) {
+      patient.totalOffers = patient.acceptedOffers + patient.canceledOffers;
       patient.distanceToFacility = distanceBetweenCoordinates(patient.location, facilityLocation);
     }
   }
@@ -69,14 +77,40 @@ export class PatientScoringAlgorithm {
     //  Calculate the score for each patient
     for (const patient of this.dataset) {
       const score: number = 0
-        + calculateWeight(patient.ageNormalize!, weightParameter.age)
-        + calculateWeight(patient.distanceToFacilityNormalize!, weightParameter.distanceToFacility)
-        + calculateWeight(patient.acceptedOffersNormalize!, weightParameter.acceptedOffers)
-        + calculateWeight(patient.canceledOffersNormalize!, weightParameter.canceledOffers)
-        + calculateWeight(patient.averageReplyTimeNormalize!, weightParameter.averageReplyTime);
+        + calculateWeight(patient.ageNormalize!, this.weightParameter.age)
+        + calculateWeight(patient.distanceToFacilityNormalize!, this.weightParameter.distanceToFacility)
+        + calculateWeight(patient.acceptedOffersNormalize!, this.weightParameter.acceptedOffers)
+        + calculateWeight(patient.canceledOffersNormalize!, this.weightParameter.canceledOffers)
+        + calculateWeight(patient.averageReplyTimeNormalize!, this.weightParameter.averageReplyTime);
 
       patient.score = score / 10;
     }
+  }
+
+  /**
+   * Prioritizes users with limited behavior data and combines them with users having the best scores.
+   * This method sorts the dataset to identify users with the fewest behavior data points and users with the highest scores.
+   * It then combines these two lists, ensuring the total number of users does not exceed the specified result limit.
+   * @returns
+   */
+  private prioritizeUsersWithLimitedData(): PatientResponseModel[] {
+    //  Sort the dataset to identify users with the fewer behavior data points
+    const insufficientBehaviorDataList: PatientFacilityModel[] = this.dataset
+      .sort((a, b) => a.totalOffers! - b.totalOffers!)
+      .slice(0, this.usersFromPatientsWithInsufficientBehaviorDataLimit);
+
+    //  Sort the dataset to identify users with the highest scores
+    const scoreList = this.dataset
+      .sort((a, b) => b.score! - a.score!)
+      .slice(0, resultLimitParameter);
+
+    return _(insufficientBehaviorDataList)
+      .concat(scoreList)
+      .uniqBy('id')
+      .slice(0, resultLimitParameter)
+      .sort((a, b) => b.score! - a.score!)
+      .map(row => new PatientResponseModel(row))
+      .value();
   }
 }
 

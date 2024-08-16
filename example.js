@@ -5,7 +5,7 @@ const {PatientScoringAlgorithm} = require('./lib');
 const sampleDate = require('./sample-data/patients.json');
 
 //  Create a new instance of PatientScoringAlgorithm using the sample data
-const patientScoringAlgorithm = new PatientScoringAlgorithm(sampleDate);
+const patientScoringAlgorithm = new PatientScoringAlgorithm({dataset: sampleDate});
 
 //  Get the patient list
 const result = patientScoringAlgorithm.getPatientList({latitude: '48.7120', longitude: '-60.1170'});

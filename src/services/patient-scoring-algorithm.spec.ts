@@ -13,7 +13,7 @@ describe(PatientScoringAlgorithm, () => {
   });
 
   it('should instantiate PatientScoringAlgorithm with a dataset', () => {
-    const algorithm = new PatientScoringAlgorithm(mockDataset);
+    const algorithm = new PatientScoringAlgorithm({dataset: mockDataset});
     expect(algorithm.dataset).toEqual(mockDataset);
   });
 });
