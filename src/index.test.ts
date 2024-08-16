@@ -67,7 +67,10 @@ describe('Calculation Tests', () => {
             throw new Error('Error reading patients.json file');
         }
 
-        const top10Patients = getTopPatients(patients, hospital, 10);
+        const top10Patients = getTopPatients(patients, hospital, 10, {
+            minBehaviorDataThreshold: 0,
+            putPatientsWithLittleBehaviorDataOnTop: false
+        });
         expect(top10Patients).toHaveLength(10);
 
         for (let i = 0; i < top10Patients.length - 1; i++) {
@@ -96,10 +99,7 @@ describe('Calculation Tests', () => {
 
         const minBehaviorDataThreshold = 10;
         const patientIdsWithLittleBehaviorData = patients.filter(patient => patient.acceptedOffers + patient.canceledOffers < minBehaviorDataThreshold).map(patient => patient.id);
-        const top10Patients = getTopPatients(patients, hospital, 10, {
-            minBehaviorDataThreshold,
-            putPatientsWithLittleBehaviorDataOnTop: true
-        });
+        const top10Patients = getTopPatients(patients, hospital, 10);
         expect(top10Patients).toHaveLength(10);
 
         const top10PatientIds = top10Patients.map(patient => patient.id);
