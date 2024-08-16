@@ -5,7 +5,7 @@
  * @param max The maximum value.
  * @returns The normalized value.
  */
-function normalize(value: number, min: number, max: number): number {
+export function normalize(value: number, min: number, max: number): number {
     return (value - min) / (max - min);
 }
 
@@ -14,7 +14,7 @@ function normalize(value: number, min: number, max: number): number {
  * @param age The age to normalize.
  * @returns The normalized age.
  */
-function normalizeAge(age: number): number {
+export function normalizeAge(age: number): number {
     return normalize(Math.min(age, 100), 0, 100) * 0.10;
 }
 
@@ -24,7 +24,7 @@ function normalizeAge(age: number): number {
  * @param max The maximum distance.
  * @returns The normalized distance.
  */
-function normalizeDistance(distance: number, max = 20000): number {
+export function normalizeDistance(distance: number, max = 20000): number {
     return normalize(Math.min(distance, max), 0, max) * 0.10;
 }
 
@@ -33,7 +33,7 @@ function normalizeDistance(distance: number, max = 20000): number {
  * @param offers - How many offers the user has accepted.
  * @returns The normalized offers.
  */
-function normalizeAcceptedOffers(offers: number): number {
+export function normalizeAcceptedOffers(offers: number): number {
     return normalize(Math.min(offers, 100), 0, 100) * 0.30;
 }
 
@@ -42,7 +42,7 @@ function normalizeAcceptedOffers(offers: number): number {
  * @param offers - How many offers the user has cancelled.
  * @returns The normalized offers.
  */
-function normalizeCancelledOffers(offers: number): number {
+export function normalizeCancelledOffers(offers: number): number {
     return (1 - normalize(Math.min(offers, 100), 0, 100)) * 0.30;
 }
 
@@ -51,6 +51,6 @@ function normalizeCancelledOffers(offers: number): number {
  * @param replyTime - How much time the user takes to reply.
  * @returns The normalized reply time.
  */
-function normalizeReplyTime(replyTime: number): number {
+export function normalizeReplyTime(replyTime: number): number {
     return (1 - normalize(Math.min(replyTime, 3600), 0, 3600)) * 0.20;
 }
