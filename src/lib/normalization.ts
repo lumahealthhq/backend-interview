@@ -6,6 +6,9 @@
  * @returns The normalized value.
  */
 export function normalize(value: number, min: number, max: number): number {
+    if (max === min) {
+        return 1;
+    }
     return (value - min) / (max - min);
 }
 
@@ -26,7 +29,7 @@ export function normalizeAge(age: number): number {
  * @returns The normalized distance.
  */
 export function normalizeDistance(distance: number, max = 20000): number {
-    return normalize(Math.min(distance, max), 0, max) * 0.10;
+    return (1 - normalize(Math.min(distance, max), 0, max)) * 0.10;
 }
 
 /**

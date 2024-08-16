@@ -23,8 +23,8 @@ describe('Normalization Tests', () => {
         expect(normalizeDistance(10000, 20000)).toBe(0.05);
     });
 
-    it('should return a normalized distance of 0.1 for values over maximum distance', () => {
-        expect(normalizeDistance(25000, 20000)).toBe(0.1);
+    it('should return a normalized distance of 0 for values over maximum distance', () => {
+        expect(normalizeDistance(25000, 20000)).toBe(0);
     });
 
     it('should return a normalized value for accepted offers between 0 and 0.3', () => {
