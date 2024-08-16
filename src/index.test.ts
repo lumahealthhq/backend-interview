@@ -28,6 +28,19 @@ describe('Calculation Tests', () => {
     it('should calculate the likelihood of a person accepting an offer', () => {
         const patient = mockPatient({
             age: 100,
+            acceptedOffers: 10,
+            canceledOffers: 20,
+            averageReplyTime: 0
+        });
+        const hospital = mockHospital();
+        const score = calculateScore(patient, hospital);
+
+        expect(score).toBeCloseTo(0.6);
+    });
+
+    it('should calculate the likelihood of a person accepting an offer ignoring behavioral data', () => {
+        const patient = mockPatient({
+            age: 50,
             acceptedOffers: 1,
             canceledOffers: 2,
             averageReplyTime: 0
@@ -35,7 +48,7 @@ describe('Calculation Tests', () => {
         const hospital = mockHospital();
         const score = calculateScore(patient, hospital);
 
-        expect(score).toBeCloseTo(0.6);
+        expect(score).toBe(0.95);
     });
 
     it('should get the top 10 patients ordered by who will most likely accept the appointment offer', () => {
