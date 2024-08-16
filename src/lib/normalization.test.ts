@@ -28,11 +28,11 @@ describe('Normalization Tests', () => {
     });
 
     it('should return a normalized value for accepted offers between 0 and 0.3', () => {
-        expect(normalizeAcceptedOffers(50)).toBe(0.15);
+        expect(normalizeAcceptedOffers(50, 100)).toBe(0.15);
     });
 
     it('should return a normalized value for cancelled offers between 0 and 0.3', () => {
-        expect(normalizeCancelledOffers(50)).toBe(0.15);
+        expect(normalizeCancelledOffers(50, 100)).toBe(0.15);
     });
 
     it('should return a normalized value for reply time between 0 and 0.2', () => {
