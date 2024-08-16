@@ -23,7 +23,8 @@
     "noImplicitUseStrict": false,
     "suppressExcessPropertyErrors": false,
     "suppressImplicitAnyIndexErrors": false,
-    "noStrictGenericChecks": false
+    "noStrictGenericChecks": false,
+    "esModuleInterop": true,
   },
   "include": [
     "src/**/*.ts"

@@ -30,6 +30,3 @@ Thumbs.db
 
 # Test coverage
 coverage/
-
-# NPM package lock
-package-lock.json
