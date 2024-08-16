@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test:unit": "jest --runInBand ./src",
+    "test:unit": "jest --runInBand",
     "test:unit:cov": "jest --runInBand --collect-coverage ./src"
   },
   "keywords": [],
