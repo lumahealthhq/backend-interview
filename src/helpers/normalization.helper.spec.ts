@@ -27,7 +27,7 @@ describe(Normalization.name, () => {
       expect(actual).toBe(0);
     });
 
-    it('should normalize value to 0.5 if value is in the midle to value to normalize', () => {
+    it('should normalize value to 0.5 when value is in the middle of min and max', () => {
       //  Arrange
       const valueMinMax = {min: 0, max: 10};
       const valueToNormalize = 5;

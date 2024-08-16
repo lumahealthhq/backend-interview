@@ -4,7 +4,7 @@ import {InvalidPatientException} from '../exceptions/invalid-patient.exception';
 import {PatientModel} from './patient.model';
 
 describe(PatientModel.name, () => {
-  it('Should generate a valid instance', () => {
+  it('should create a valid PatientModel instance with complete data', () => {
     //  Arrange
     const data: PatientModel = {
       id: faker.string.uuid(),
@@ -26,7 +26,7 @@ describe(PatientModel.name, () => {
     expect(actual).toBeInstanceOf(PatientModel);
   });
 
-  it('Should generate an invalid instance and return the errors', () => {
+  it('should throw InvalidPatientException for incomplete data', () => {
     //  Arrange
     const data = {
       location: {

@@ -3,7 +3,7 @@ import {InvalidLocationException} from '../exceptions/invalid-location.exception
 import {LocationModel} from './location.model';
 
 describe(LocationModel.name, () => {
-  it('Should generate a valid instance', () => {
+  it('should create a valid LocationModel instance with valid coordinates', () => {
     //  Arrange
     const data: LocationModel = {
       latitude: '0',
@@ -17,7 +17,7 @@ describe(LocationModel.name, () => {
     expect(actual).toBeInstanceOf(LocationModel);
   });
 
-  it('Should generate an invalid instance and return the errors', () => {
+  it('should throw InvalidLocationException for invalid coordinates', () => {
     //  Arrange
     const data: LocationModel = {
       latitude: '-10000',

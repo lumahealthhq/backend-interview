@@ -3,7 +3,7 @@ import {type PatientFacilityModel} from '../types/patient-facility.type';
 import {getDatasetMinMaxValues} from './get-dataset-min-max-values.helper';
 
 describe(getDatasetMinMaxValues.name, () => {
-  it('should return the max and min for the dataset - scenario 1', () => {
+  it('should return correct min and max values for a dataset with varying patient data - scenario 1', () => {
     //  Arrange
     const dataset: PatientFacilityModel[] = [
       {
@@ -51,7 +51,7 @@ describe(getDatasetMinMaxValues.name, () => {
     });
   });
 
-  it('should return the max and min for the dataset - scenario 2', () => {
+  it('should return correct min and max values for a dataset with varying patient data - scenario 2', () => {
     //  Arrange
     const dataset: PatientFacilityModel[] = [
       {
