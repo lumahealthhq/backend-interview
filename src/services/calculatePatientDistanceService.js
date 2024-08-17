@@ -1,11 +1,18 @@
 import { getDistance } from 'geolib';
 
 class CalculatePatientDistanceService {
-  execute({ facilityLatitude, facilityLongitude, patientLatitude, patientLongitude }) {
-    return getDistance(
-      { latitude: facilityLatitude, longitude: facilityLongitude },
-      { latitude: patientLatitude, longitude: patientLongitude }
-    )
+  execute({ patients, facilityLatitude, facilityLongitude }) {
+    return patients.map(patient => {
+      const facilityDistance = getDistance(
+        { latitude:facilityLatitude, longitude:facilityLongitude },
+        { latitude:patient.location.latitude, longitude:patient.location.longitude }
+      )
+
+      return {
+        ...patient,
+        facilityDistance
+      }
+    })
   }
 }
 
