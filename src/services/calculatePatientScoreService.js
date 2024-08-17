@@ -17,7 +17,7 @@ class CalculatePatientScoreService {
       let score = 0
 
       for (const field in this.weightingData) {
-        let fieldValue = patient[field];
+        let fieldValue = patient.normalizedData[field];
 
         // Invert the value for fields that should have a negative impact
         if (fieldsWithNegativeImpact.includes(field)) {
@@ -38,9 +38,9 @@ class CalculatePatientScoreService {
     const behaviorDataPositiveThreshold = 0.1
     const behaviorDataNegativeThreshold = 0.9
 
-    const hasLowAcceptedOffers = patient.acceptedOffers <= behaviorDataPositiveThreshold;
-    const hasHighCanceledOffers = patient.canceledOffers >= behaviorDataNegativeThreshold
-    const hasHighAverageReplyTime = patient.averageReplyTime >= behaviorDataNegativeThreshold
+    const hasLowAcceptedOffers = patient.normalizedData.acceptedOffers <= behaviorDataPositiveThreshold;
+    const hasHighCanceledOffers = patient.normalizedData.canceledOffers >= behaviorDataNegativeThreshold
+    const hasHighAverageReplyTime = patient.normalizedData.averageReplyTime >= behaviorDataNegativeThreshold
 
     // If two or more of these conditions are true, consider it little behavioral data
     const conditionsMet = [hasLowAcceptedOffers, hasHighCanceledOffers, hasHighAverageReplyTime]

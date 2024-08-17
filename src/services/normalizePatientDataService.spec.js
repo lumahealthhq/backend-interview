@@ -13,15 +13,15 @@ describe('NormalizePatientDataService', () => {
         {
           facilityDistance: 10,
           age: 25,
-          acceptedOffers: 3,
-          canceledOffers: 1,
+          acceptedOffers: 5,
+          canceledOffers: 0,
           averageReplyTime: 120,
         },
         {
           facilityDistance: 20,
           age: 35,
-          acceptedOffers: 5,
-          canceledOffers: 3,
+          acceptedOffers: 10,
+          canceledOffers: 10,
           averageReplyTime: 60,
         },
         {
@@ -36,8 +36,8 @@ describe('NormalizePatientDataService', () => {
       const patientDataRange = {
         facilityDistance: { min: 10, max: 20 },
         age: { min: 25, max: 35 },
-        acceptedOffers: { min: 3, max: 5 },
-        canceledOffers: { min: 1, max: 3 },
+        acceptedOffers: { min: 0, max: 10 },
+        canceledOffers: { min: 0, max: 10 },
         averageReplyTime: { min: 60, max: 120 },
       };
 
@@ -48,25 +48,34 @@ describe('NormalizePatientDataService', () => {
 
       const expectedNormalizedPatients = [
         {
-          facilityDistance: 0,
-          age: 0,
-          acceptedOffers: 0,
-          canceledOffers: 0,
-          averageReplyTime: 1,
+          ...patients[0],
+          normalizedData: {
+            facilityDistance: 0,
+            age: 0,
+            acceptedOffers: 0.5,
+            canceledOffers: 0,
+            averageReplyTime: 1,
+          }
         },
         {
-          facilityDistance: 1,
-          age: 1,
-          acceptedOffers: 1,
-          canceledOffers: 1,
-          averageReplyTime: 0,
+          ...patients[1],
+          normalizedData: {
+            facilityDistance: 1,
+            age: 1,
+            acceptedOffers: 1,
+            canceledOffers: 1,
+            averageReplyTime: 0,
+          }
         },
         {
-          facilityDistance: 0.5,
-          age: 0.5,
-          acceptedOffers: 0.5,
-          canceledOffers: 0.5,
-          averageReplyTime: 0.5,
+          ...patients[2],
+          normalizedData: {
+            facilityDistance: 0.5,
+            age: 0.5,
+            acceptedOffers: 0.4,
+            canceledOffers: 0.2,
+            averageReplyTime: 0.5,
+          }
         },
       ];
 
@@ -106,19 +115,25 @@ describe('NormalizePatientDataService', () => {
 
       const expectedNormalizedPatients = [
         {
-          facilityDistance: 0,
-          age: 0,
-          acceptedOffers: 0,
-          canceledOffers: 0,
-          averageReplyTime: 0,
+          ...patients[0],
+          normalizedData: {
+            facilityDistance: 0,
+            age: 0,
+            acceptedOffers: 0,
+            canceledOffers: 0,
+            averageReplyTime: 0,
+          }
         },
         {
-          facilityDistance: 0,
-          age: 0,
-          acceptedOffers: 0,
-          canceledOffers: 0,
-          averageReplyTime: 0,
-        },
+          ...patients[1],
+          normalizedData: {
+            facilityDistance: 0,
+            age: 0,
+            acceptedOffers: 0,
+            canceledOffers: 0,
+            averageReplyTime: 0,
+          }
+        }
       ];
 
       expect(normalizedPatients).toEqual(expectedNormalizedPatients);
@@ -163,8 +178,20 @@ describe('NormalizePatientDataService', () => {
       });
 
       const expectedNormalizedPatients = [
-        { facilityDistance: 0, age: 0 },
-        { acceptedOffers: 1, canceledOffers: 1 },
+        {
+          ...patients[0],
+          normalizedData: {
+            facilityDistance: 0,
+            age: 0,
+          },
+        },
+        {
+          ...patients[1],
+          normalizedData: {
+            acceptedOffers: 1,
+            canceledOffers: 1,
+          },
+        }
       ];
 
       expect(normalizedPatients).toEqual(expectedNormalizedPatients);

@@ -12,11 +12,13 @@ describe('CalculatePatientScoreService', () => {
       const normalizedPatients = [
         {
           id: '1',
-          age: 0.5,
-          facilityDistance: 0.8,
-          acceptedOffers: 0.9,
-          canceledOffers: 0.2,
-          averageReplyTime: 0.7,
+          normalizedData: {
+            age: 0.5,
+            facilityDistance: 0.8,
+            acceptedOffers: 0.9,
+            canceledOffers: 0.2,
+            averageReplyTime: 0.7,
+          }
         },
       ];
 
@@ -29,11 +31,13 @@ describe('CalculatePatientScoreService', () => {
       const normalizedPatients = [
         {
           id: '2',
-          age: 0.5,
-          facilityDistance: 0.2,
-          acceptedOffers: 0.05, // Low accepted offers
-          canceledOffers: 0.95, // High cancelled offers
-          averageReplyTime: 0.9, // High reply time
+          normalizedData: {
+            age: 0.5,
+            facilityDistance: 0.2,
+            acceptedOffers: 0.05, // Low accepted offers
+            canceledOffers: 0.95, // High cancelled offers
+            averageReplyTime: 0.9, // High reply time
+          }
         },
       ];
 
@@ -46,11 +50,13 @@ describe('CalculatePatientScoreService', () => {
       const normalizedPatients = [
         {
           id: '3',
-          age: 0.5,
-          facilityDistance: 0.3,
-          acceptedOffers: 0.8,
-          canceledOffers: 0.2,
-          averageReplyTime: 0.2,
+          normalizedData: {
+            age: 0.5,
+            facilityDistance: 0.3,
+            acceptedOffers: 0.8,
+            canceledOffers: 0.2,
+            averageReplyTime: 0.2,
+          }
         },
       ];
 
@@ -63,17 +69,19 @@ describe('CalculatePatientScoreService', () => {
       const normalizedPatients = [
         {
           id: '4',
-          age: 1,
-          facilityDistance: 1,
-          acceptedOffers: 1,
-          canceledOffers: 0,
-          averageReplyTime: 0,
+          normalizedData: {
+            age: 1,
+            facilityDistance: 1,
+            acceptedOffers: 1,
+            canceledOffers: 0,
+            averageReplyTime: 0,
+          }
         },
       ];
 
       const result = service.execute(normalizedPatients);
 
-      expect(result[0].score).toEqual(9); 
+      expect(result[0].score).toEqual(9);
     });
   });
 });
