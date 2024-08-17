@@ -4,14 +4,14 @@ class CalculatePatientScoreService {
       age: 0.1,
       facilityDistance: 0.1,
       acceptedOffers: 0.3,
-      cancelledOffers: 0.3,
-      replyTime: 0.2,
+      canceledOffers: 0.3,
+      averageReplyTime: 0.2,
     }
   }
 
   execute(normalizedPatients) {
     // Fields which have negative impact on score calculation
-    const fieldsWithNegativeImpact = ['facilityDistance', 'cancelledOffers', 'replyTime']
+    const fieldsWithNegativeImpact = ['facilityDistance', 'canceledOffers', 'averageReplyTime']
 
     return normalizedPatients.map(patient => {
       let score = 0
@@ -22,7 +22,7 @@ class CalculatePatientScoreService {
         // Invert the value for fields that should have a negative impact
         if (fieldsWithNegativeImpact.includes(field)) {
           fieldValue = 1 - fieldValue;
-        } 
+        }
         score += fieldValue * this.weightingData[field]
       }
 
@@ -39,11 +39,11 @@ class CalculatePatientScoreService {
     const behaviorDataNegativeThreshold = 0.9
 
     const hasLowAcceptedOffers = patient.acceptedOffers <= behaviorDataPositiveThreshold;
-    const hasHighCancelledOffers = patient.cancelledOffers >= behaviorDataNegativeThreshold
-    const hasHighReplyTime = patient.replyTime >= behaviorDataNegativeThreshold
+    const hasHighCanceledOffers = patient.canceledOffers >= behaviorDataNegativeThreshold
+    const hasHighAverageReplyTime = patient.averageReplyTime >= behaviorDataNegativeThreshold
 
     // If two or more of these conditions are true, consider it little behavioral data
-    const conditionsMet = [hasLowAcceptedOffers, hasHighCancelledOffers, hasHighReplyTime]
+    const conditionsMet = [hasLowAcceptedOffers, hasHighCanceledOffers, hasHighAverageReplyTime]
       .filter(Boolean).length;
 
     return conditionsMet >= 2;

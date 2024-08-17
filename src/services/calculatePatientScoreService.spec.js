@@ -15,8 +15,8 @@ describe('CalculatePatientScoreService', () => {
           age: 0.5,
           facilityDistance: 0.8,
           acceptedOffers: 0.9,
-          cancelledOffers: 0.2,
-          replyTime: 0.7,
+          canceledOffers: 0.2,
+          averageReplyTime: 0.7,
         },
       ];
 
@@ -32,8 +32,8 @@ describe('CalculatePatientScoreService', () => {
           age: 0.5,
           facilityDistance: 0.2,
           acceptedOffers: 0.05, // Low accepted offers
-          cancelledOffers: 0.95, // High cancelled offers
-          replyTime: 0.9, // High reply time
+          canceledOffers: 0.95, // High cancelled offers
+          averageReplyTime: 0.9, // High reply time
         },
       ];
 
@@ -49,8 +49,8 @@ describe('CalculatePatientScoreService', () => {
           age: 0.5,
           facilityDistance: 0.3,
           acceptedOffers: 0.8,
-          cancelledOffers: 0.2,
-          replyTime: 0.2,
+          canceledOffers: 0.2,
+          averageReplyTime: 0.2,
         },
       ];
 
@@ -66,8 +66,8 @@ describe('CalculatePatientScoreService', () => {
           age: 1,
           facilityDistance: 1,
           acceptedOffers: 1,
-          cancelledOffers: 0,
-          replyTime: 0,
+          canceledOffers: 0,
+          averageReplyTime: 0,
         },
       ];
 
