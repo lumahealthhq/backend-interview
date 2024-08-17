@@ -25,8 +25,6 @@ describe('CreatePatientPriorityListFacade', () => {
         littleBehavioralDataListPercentage: 0.3
       });
 
-      console.log(result)
-
       const expectedResult = [
         {
           id: '0f784355-09d4-49a5-892c-23d610c62b00',
