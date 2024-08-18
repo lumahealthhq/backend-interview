@@ -1,0 +1,25 @@
+export default {
+  root: true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.json',
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
+  rules: {
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          ignoreRestSiblings: true,
+        },
+      ],
+    },
+  },
+};
