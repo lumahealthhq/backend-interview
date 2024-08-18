@@ -6,12 +6,14 @@
   "type": "module",
   "scripts": {
     "test:unit": "jest --runInBand",
-    "test:unit:cov": "jest --runInBand --collect-coverage ./src"
+    "test:unit:cov": "jest --runInBand --collect-coverage ./src",
+    "start:server": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.19.2",
     "geolib": "^3.3.4"
   },
   "devDependencies": {
