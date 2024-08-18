@@ -1,0 +1,44 @@
+{
+  "name": "backend-interview",
+  "description": "luma backend interview",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "npm": ">=10.0.0",
+    "node": ">=20.0.0"
+  },
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "bundle": "node ./esbuild.config.js",
+    "dev": "nodemon",
+    "dev:stdin": "nodemon -I",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "start": "ts-node ./src/index.ts",
+    "start:built": "node ./dist/bundle/bundle.js",
+    "build:bundle:start:built": "npm run build && npm run bundle && node ./index.js",
+    "test": "jest",
+    "test:unit": "npm test -- unit.test.ts",
+    "test:unit:watch": "npm run test:unit -- --watch"
+  },
+  "keywords": [],
+  "author": "Thassio Victor <tvmcarvalho@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.4.0",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "faker": "^5.5.3",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "prettier": "3.3.3",
+    "ts-jest": "^29.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
