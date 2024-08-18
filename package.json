@@ -9,7 +9,7 @@
   },
   "main": "./src/index.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p ./tsconfig.build.json",
     "bundle": "node ./esbuild.config.js",
     "dev": "nodemon",
     "dev:stdin": "nodemon -I",
