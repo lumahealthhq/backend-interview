@@ -1,0 +1,8 @@
+echo '[PRE-PUSH] Running NPM audit (1/3)'
+npm audit --production
+
+echo '[PRE-PUSH] Running test coverage (2/3)'
+npm run test:coverage
+
+echo '[PRE-PUSH] Running e2e tests (3/3)'
+npm run test:e2e

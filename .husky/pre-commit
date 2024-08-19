@@ -1,0 +1,2 @@
+echo '[PRE-COMMIT] Running ESLint (1/1)'
+npm run lint:fix
