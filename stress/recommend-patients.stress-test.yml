@@ -1,0 +1,25 @@
+config:
+  target: "http://127.0.0.1:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      rampTo: 200
+      name: "Ramp up load"
+    - duration: 300
+      arrivalRate: 200
+      name: "Sustained load"
+  defaults:
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+
+scenarios:
+  - name: "Find patients"
+    flow:
+      - get:
+          url: "/api/v1/patients/recommend"
+          qs:
+            lat: 10
+            long: -30
+          expect:
+            - statusCode: 200

@@ -1,0 +1,10 @@
+src
+stress
+reports
+node_modules
+coverage
+.husky
+.github
+sample-data
+
+!/dist
