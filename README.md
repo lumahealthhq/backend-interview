@@ -1,11 +1,7 @@
 # Introduction
-This is my submission to the [Luma Health backend interview assigment](https://github.com/lumahealthhq/backend-interview), it is:
-- a simple library you can import and use to create a list of top priority patients for a given hospital call;
-- a RESTful API that given a hospital coordinates (latitude, longitude) it returns a waitlist of patient most likely to pick a call from the hospital.
-
-# Requirements
-- **Node.js**: Version 20.9 or higher;
-- **npm**: Version 10.0 or higher.
+This is my submission to this interview assignment, it has two deliverables:
+- a simple library you can install with `npm i inacio-luma-patient-recommender` and use to create a list of top priority patients for a given hospital call;
+- a RESTful API that given a hospital coordinates (latitude, longitude) it returns a waitlist of patient most likely to pick a call from the hospital. I have **deployed in AWS**, and you can _access it here_: [http://luma.inacio.codes/docs](http://luma.inacio.codes/docs).
 
 # Quickstart
 There's three ways to play with this submission:
@@ -15,19 +11,19 @@ There's three ways to play with this submission:
 npm install inacio-luma-patient-recommender
 ```
 - And then you can simply use with:
-```js
-import { PatientsRecommender, generatePatientsData } from 'inacio-luma-patient-recommender'
+```javascript
+import { PatientsRecommender, generatePatientsData } from 'your-library-name';
 
-const patients = generatePatientsData(100)
-const patientsRecommender = new PatientsRecommender(patients)
+// Generate sample patient data
+const patients = generatePatientsData(100);
 
-// Coordinates of San Francisco
-const latitude = 37.77
-const longitude = -122.41
+// Create a new recommender instance
+const recommender = new PatientsRecommender(patients);
 
-const recommended = patientsRecommender.recommend(latitude, longitude)
+// Get recommendations for a specific hospital location
+const recommendations = recommender.recommend(40.7128, -74.0060, 5);
 
-console.log(recommended)
+console.log(recommendations);
 ```
 3. Or you can also install and use it locally:
 ```bash
@@ -52,10 +48,10 @@ npm run dev
 - [Husky](https://typicode.github.io/husky/): to make sure all commits and pushes to Git are not breaking any tests and contain valid Typescript code.
 
 # Table of content
-1. [HTTP Endpoints](#endpoints)
-2. [Library reference](#implementation)
+1. [HTTP Endpoints](#http-endpoints)
+2. [Library reference](#library-reference)
 3. [Algorithm design](#algorithm-design)
-4. [Stress testing](#stress-testing)
+4. [Testing](#testing)
 5. [Available commands](#running-the-project)
 
 <br />
@@ -147,7 +143,7 @@ GET /patients/recommend?lat=37.7749&long=-122.4194&limit=5&include_details=true
 This request would return a list of 5 recommended patients for a hospital located in San Francisco, including detailed scores for each patient.
 
 ### Time complexity
-This endpoint has a $O(log(n))$ time complexity where $n$ is the total number of patients. *(Will be explained in depth [below](#implementation))*
+This endpoint has a $O(log(n))$ time complexity where $n$ is the total number of patients. *(Will be explained in depth [below](#algorithm-design))*
 
 <br />
 
@@ -336,11 +332,22 @@ Using an empirical Bayes estimator solves both issues.
 
 ---
 
+# Testing
+There were a few types of test made to this project in order to guarantee correct funcionality:
+- **Stress testing**
+- **Load testing**
+- **Unit testing**
+- **E2E testing**
+- **Mutation testing**
 
-# Stress Testing
+## Test coverage
+The project has 100% test coverage:
+![Screenshot 2024-08-19 at 10 44 42](https://github.com/user-attachments/assets/f64812c3-b7a0-4597-8d72-3a61d271e08b)
+
+## Stress Testing
 I've conducted extensive stress testing to ensure the robustness and performance of the HTTP API under high load conditions. Here are the results:
 
-## Stress with wrk
+### Stress with wrk
 I used [wrk](https://github.com/wg/wrk) — an industry standard HTTP benchmarking tool written in C — to measure the raw throughput (req/s) of the API:
 
 1. Health Check Endpoint (`/health`):
@@ -349,7 +356,7 @@ I used [wrk](https://github.com/wg/wrk) — an industry standard HTTP benchmarki
 2. Patient Recommendation Endpoint (`/api/v1/patients/recommend`):
    - **Performance: 37,000 requests per second**: Given the complexity of the patient recommendation algorithm, this throughput is impressive and indicates that the use of K-d tree is leading to an efficient data processing and response generation.
 
-## Load Testing with Artillery
+### Load Testing with Artillery
 For a more comprehensive load test, I used [Artillery](https://www.artillery.io/), which allows to simulate a realistic traffic pattern:
 
 **Test Scenario:**
