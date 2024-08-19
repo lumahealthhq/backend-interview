@@ -15,7 +15,7 @@
 		],
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
-		"resolveJsonModule": false,
+		"resolveJsonModule": true,
 		"declaration": true,
 		"pretty": true,
 		"newLine": "lf",
