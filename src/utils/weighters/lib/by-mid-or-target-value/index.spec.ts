@@ -1,4 +1,4 @@
-import { byAverageOrTargetValue } from '.';
+import { byMidOrTargetValue } from '.';
 import { RecordWithScore } from '../../types';
 
 describe('weighter lib: by average or target value', () => {
@@ -26,7 +26,7 @@ describe('weighter lib: by average or target value', () => {
       },
     ];
 
-    const result = byAverageOrTargetValue(records, 'age', 0.1);
+    const result = byMidOrTargetValue(records, 'age', 0.1);
 
     expect((result[0] as RecordWithScore).score).toBe(0);
     expect((result[1] as RecordWithScore).score).toBeGreaterThan(0);
@@ -59,7 +59,7 @@ describe('weighter lib: by average or target value', () => {
       },
     ];
 
-    const result = byAverageOrTargetValue(records, 'age', 0.1, 30);
+    const result = byMidOrTargetValue(records, 'age', 0.1, 30);
 
     expect((result[0] as RecordWithScore).score).toBe(0);
     expect((result[1] as RecordWithScore).score).toBeLessThan(0.1);

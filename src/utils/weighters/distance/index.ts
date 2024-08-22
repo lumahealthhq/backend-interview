@@ -19,7 +19,7 @@ export function byDistance(
   const scored = byLowestValue(
     patientsWithDistance as unknown as RecordWithScore[],
     'distance',
-    0.1
+    1
   );
 
   return scored as unknown as TPatientRecordWithScore[];

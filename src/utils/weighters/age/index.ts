@@ -1,14 +1,14 @@
 import { TPatientRecordWithScore } from '../../../types/patient-record';
-import { byAverageOrTargetValue } from '../lib/by-average-or-target-value';
+import { byMidOrTargetValue } from '../lib/by-mid-or-target-value';
 import { RecordWithScore } from '../types';
 
 export function byAge(
   patients: TPatientRecordWithScore[]
 ): TPatientRecordWithScore[] {
-  const scored = byAverageOrTargetValue(
+  const scored = byMidOrTargetValue(
     patients as unknown as RecordWithScore[],
     'age',
-    0.1
+    1
   ) as unknown as TPatientRecordWithScore[];
 
   return scored;

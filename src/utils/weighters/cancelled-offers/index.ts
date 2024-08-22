@@ -8,7 +8,7 @@ export function byCancelledOffers(
   const scored = byLowestValue(
     patients as unknown as RecordWithScore[],
     'canceledOffers',
-    0.3
+    3
   );
 
   return scored as unknown as TPatientRecordWithScore[];

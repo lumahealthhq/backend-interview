@@ -8,7 +8,7 @@ export function byReplyTime(
   const scored = byLowestValue(
     patients as unknown as RecordWithScore[],
     'averageReplyTime',
-    0.2
+    2
   );
 
   return scored as unknown as TPatientRecordWithScore[];

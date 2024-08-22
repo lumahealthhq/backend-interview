@@ -8,7 +8,7 @@ export function byAcceptedOffers(
   const scored = byHighestValue(
     patients as unknown as RecordWithScore[],
     'acceptedOffers',
-    0.3
+    3
   );
 
   return scored as unknown as TPatientRecordWithScore[];
