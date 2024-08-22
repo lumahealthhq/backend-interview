@@ -1,6 +1,6 @@
 import { RecordWithScore } from '../../types';
 
-export function byAverageOrTargetValue(
+export function byMidOrTargetValue(
   records: RecordWithScore[],
   fieldToScore: string,
   weightInPercent: number,
