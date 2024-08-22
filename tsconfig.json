@@ -2,21 +2,18 @@
 	"compilerOptions": {
 		"esModuleInterop": true,
 		"module": "commonjs",
-		"outDir": "./dist/js",
+		"outDir": "dist",
 		"target": "es6",
 		"rootDir": "src",
 		"lib": [
 			"ES2019",
 			"ES2020.String",
-			"DOM",
-			"dom",
-			"dom.iterable",
 			"esnext"
 		],
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
 		"resolveJsonModule": true,
-		"declaration": true,
+		"declaration": false,
 		"pretty": true,
 		"newLine": "lf",
 		"stripInternal": true,

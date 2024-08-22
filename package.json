@@ -7,19 +7,13 @@
     "npm": ">=10.0.0",
     "node": ">=20.0.0"
   },
-  "main": "./src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
-    "bundle": "node ./esbuild.config.js",
     "dev": "nodemon",
-    "dev:stdin": "nodemon -I",
     "lint": "eslint \"src/**/*.ts\" --fix",
     "start": "ts-node ./src/index.ts",
-    "start:built": "node ./dist/bundle/bundle.js",
-    "build:bundle:start:built": "npm run build && npm run bundle && node ./index.js",
-    "test": "jest",
-    "test:unit": "npm test -- unit.test.ts",
-    "test:unit:watch": "npm run test:unit -- --watch"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Thassio Victor <tvmcarvalho@gmail.com>",
@@ -31,7 +25,6 @@
     "@types/node": "^22.4.0",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
-    "esbuild": "^0.20.0",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
     "jest": "^29.7.0",

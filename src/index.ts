@@ -4,7 +4,7 @@ import { scoreListOfPatients } from './services/score-list-of-patients';
 import { TPatientRecordWithScore } from './types/patient-record';
 import { validateCoordinate } from './validators/coordinates';
 
-export default function listOfWeightedPatients(
+export function listOfWeightedPatients(
   latitude: number,
   longitude: number
 ): TPatientRecordWithScore[] {
@@ -33,5 +33,3 @@ export default function listOfWeightedPatients(
 
   return top10patientsForAGivenPoint;
 }
-
-listOfWeightedPatients(10, 10);
