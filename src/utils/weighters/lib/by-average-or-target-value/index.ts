@@ -47,7 +47,6 @@ export function byAverageOrTargetValue(
       (record[fieldToScore] as number) - base
     );
 
-    // @NOTE: we subtract from 1 as to make the value fit between 0 and 1.
     const normalizedValueWeight =
       1 - valueDifferenceToBase / largestValueDifferenceToBase;
 
