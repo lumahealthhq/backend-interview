@@ -234,8 +234,6 @@ describe('services: score list of patients', () => {
       mockPracticeLocation
     );
 
-    console.log(result);
-
     expect(result).toHaveLength(10);
     // @NOTE: is expected that the record with id = 1 be the fourth on the list
     // as three random records were added at the top of the list
