@@ -46,8 +46,6 @@ describe('weighters: distance', () => {
       longitude: 0,
     });
 
-    console.log(result);
-
     expect((result[0] as TPatientRecordWithScore).score).toBeGreaterThan(
       (result[1] as TPatientRecordWithScore).score
     );
