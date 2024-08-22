@@ -1,8 +1,37 @@
-const list = require('../sample-data/patients.json');
+import { coercePatientCoordinateToNumber } from './data/coerce-patient-coordinate-to-number';
+import { patientDataLoader } from './data/patient-data-loader';
+import { scoreListOfPatients } from './services/score-list-of-patients';
+import { TPatientRecordWithScore } from './types/patient-record';
+import { validateCoordinate } from './validators/coordinates';
 
-function prettyPrintList() {
-        console.log(JSON.stringify(list, null, 2));
-        console.log(list.length);
+export default function listOfWeightedPatients(
+  latitude: number,
+  longitude: number
+): TPatientRecordWithScore[] {
+  const result = validateCoordinate(latitude, longitude);
+
+  if (!result) {
+    throw new Error('latitude or longitude is not valid');
+  }
+
+  const listOfPatients = patientDataLoader();
+
+  const patientsFixedLocationType = listOfPatients.map((patient) => {
+    return {
+      ...patient,
+      location: coercePatientCoordinateToNumber(
+        patient.location.latitude,
+        patient.location.longitude
+      ),
+    };
+  });
+
+  const top10patientsForAGivenPoint = scoreListOfPatients(
+    patientsFixedLocationType as TPatientRecordWithScore[],
+    { latitude, longitude }
+  );
+
+  return top10patientsForAGivenPoint;
 }
 
-prettyPrintList();
+listOfWeightedPatients(10, 10);
