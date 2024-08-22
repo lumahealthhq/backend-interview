@@ -1,6 +1,6 @@
 import { RecordWithScore } from '../../types';
 
-export function byLowestValue(
+export function byHighestValue(
   records: RecordWithScore[],
   fieldToScore: string,
   weightInPercent: number
@@ -21,11 +21,11 @@ export function byLowestValue(
   }
 
   const recordsWithScore = records.map((record) => {
-    const differenceToMinValue = (record[fieldToScore] as number) - minValue;
+    const differenceToMaxValue = maxValue - (record[fieldToScore] as number);
     const rangeBetweenMaxAndMinValue = maxValue - minValue;
 
     const normalizedValueWeight =
-      1 - differenceToMinValue / rangeBetweenMaxAndMinValue;
+      1 - differenceToMaxValue / rangeBetweenMaxAndMinValue;
 
     const score = normalizedValueWeight * weightInPercent;
 

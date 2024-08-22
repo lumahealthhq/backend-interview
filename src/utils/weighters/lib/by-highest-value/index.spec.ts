@@ -1,34 +1,34 @@
-import { byLowestValue } from '.';
+import { byHighestValue } from '.';
 import { RecordWithScore } from '../../types';
 
-describe('weighter lib: by lowest value', () => {
-  it('should weight the recordsw by the lowest value of a given field in the set', () => {
+describe('weighter lib: by highest value', () => {
+  it('should weight the records by the highest value of a given field in the set', () => {
     const records: RecordWithScore[] = [
       {
-        replyTime: 10,
+        acceptedOffers: 35,
         score: 0,
       },
       {
-        replyTime: 12,
+        acceptedOffers: 22,
         score: 0,
       },
       {
-        replyTime: 15,
+        acceptedOffers: 15,
         score: 0,
       },
       {
-        replyTime: 22,
+        acceptedOffers: 12,
         score: 0,
       },
       {
-        replyTime: 35,
+        acceptedOffers: 10,
         score: 0,
       },
     ];
 
-    const result = byLowestValue(records, 'replyTime', 0.2);
+    const result = byHighestValue(records, 'acceptedOffers', 0.3);
 
-    expect((result[0] as RecordWithScore).score).toBe(0.2);
+    expect((result[0] as RecordWithScore).score).toBe(0.3);
     expect((result[1] as RecordWithScore).score).toBeLessThan(
       (result[0] as RecordWithScore).score
     );
