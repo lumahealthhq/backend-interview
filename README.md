@@ -34,4 +34,4 @@ Behavior
 
 ## Deliverables
 
-The code should be written as a Node.js as a library that anyone can import and use. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
+The core logic of the code should be written as a Node.js as a library that anyone can import and use.  There should also be an API endpoint exposed to run your solution. It should contain documentation and unit tests that show your understanding of the problem. Once you&#39;re finished, submit a PR to this repo.
